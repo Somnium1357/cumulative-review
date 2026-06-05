@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>복습</title>
+<style>
+  :root{
+    --bg:#F3F4F6;--card:#FFFFFF;--ink:#111827;--mute:#6B7280;--line:#E5E7EB;
+    --indigo:#4F46E5;--indigo-d:#3730A3;--green:#059669;--green-bg:#ECFDF5;
+    --amber:#D97706;--amber-bg:#FFFBEB;--red:#DC2626;--red-bg:#FEF2F2;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.5;}
+  .wrap{max-width:480px;margin:0 auto;padding:0 0 64px;}
+  header{position:relative;background:linear-gradient(135deg,#4F46E5,#6366F1);color:#fff;padding:22px 20px 18px;
+    border-radius:0 0 22px 22px;box-shadow:0 6px 18px rgba(79,70,229,.25);}
+  .hd-date{font-size:15px;opacity:.9;font-weight:500;}
+  .hd-title{font-size:24px;font-weight:800;margin-top:2px;letter-spacing:-.5px;}
+  .hd-row{display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:8px;}
+  .hd-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.18);
+    padding:7px 14px;border-radius:999px;font-size:14px;font-weight:700;backdrop-filter:blur(4px);}
+  .sync{font-size:12px;font-weight:600;color:#fff;opacity:.92;display:inline-flex;align-items:center;gap:5px;
+    cursor:pointer;background:rgba(255,255,255,.13);padding:6px 11px;border-radius:999px;border:none;font-family:inherit;}
+  .gear{position:absolute;top:18px;right:18px;background:rgba(255,255,255,.16);border:none;color:#fff;
+    width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;}
+  section{margin:18px 16px 0;}
+  .sec-label{font-size:13px;font-weight:700;color:var(--mute);margin:0 4px 9px;letter-spacing:.2px;}
+  .card{background:var(--card);border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden;}
+  .item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .12s;}
+  .item:last-child{border-bottom:none;}
+  .item:active{background:#F9FAFB;}
+  .check{flex:0 0 26px;height:26px;border-radius:8px;border:2.4px solid #CBD5E1;background:#fff;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+  .check svg{width:15px;height:15px;opacity:0;transform:scale(.5);transition:all .15s;}
+  .item.done .check{background:var(--green);border-color:var(--green);}
+  .item.done .check svg{opacity:1;transform:scale(1);}
+  .it-body{flex:1;min-width:0;}
+  .it-name{font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .item.done .it-name{color:#9CA3AF;text-decoration:line-through;}
+  .it-meta{display:flex;gap:6px;align-items:center;margin-top:3px;}
+  .pill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;}
+  .pill-stage{background:#EEF2FF;color:var(--indigo-d);}
+  .pill-late{background:var(--red-bg);color:var(--red);}
+  .pill-done{background:var(--green-bg);color:var(--green);}
+  .undo{font-size:12px;color:var(--mute);font-weight:600;padding:6px 10px;border-radius:8px;background:#F3F4F6;flex:0 0 auto;}
+  .empty{background:var(--card);border-radius:16px;padding:34px 20px;text-align:center;color:var(--mute);box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  .empty .big{font-size:34px;margin-bottom:8px;}
+  .empty .t{font-size:15px;font-weight:600;color:#374151;}
+  .inp-card{background:var(--card);border-radius:16px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  .inp-row{display:flex;gap:8px;}
+  #name{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:11px;padding:13px 14px;font-size:16px;outline:none;font-family:inherit;color:var(--ink);}
+  #name:focus{border-color:var(--indigo);}
+  #add{flex:0 0 auto;border:none;background:var(--indigo);color:#fff;font-weight:800;font-size:16px;padding:0 20px;border-radius:11px;cursor:pointer;}
+  #add:active{background:var(--indigo-d);}
+  .date-row{display:flex;align-items:center;gap:8px;margin-top:10px;padding:0 2px;}
+  .date-row label{font-size:13px;color:var(--mute);font-weight:600;}
+  #studied{border:1.5px solid var(--line);border-radius:9px;padding:7px 10px;font-size:14px;font-family:inherit;color:var(--ink);outline:none;background:#fff;}
+  #studied:focus{border-color:var(--indigo);}
+  .date-hint{font-size:11.5px;color:#9CA3AF;margin:8px 2px 0;}
+  .manage-toggle{text-align:center;margin:26px 16px 0;}
+  .manage-toggle button{background:none;border:none;color:var(--mute);font-size:13px;font-weight:600;cursor:pointer;padding:8px;font-family:inherit;}
+  #managePanel{margin:10px 16px 0;display:none;}
+  #managePanel.open{display:block;}
+  .m-item{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line);background:#fff;}
+  .m-item:first-child{border-radius:14px 14px 0 0;}
+  .m-item:last-child{border-radius:0 0 14px 14px;border-bottom:none;}
+  .m-body{flex:1;min-width:0;}
+  .m-name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .m-sub{font-size:11.5px;color:var(--mute);margin-top:2px;}
+  .m-prog{font-size:11px;font-weight:700;color:var(--indigo-d);background:#EEF2FF;padding:3px 8px;border-radius:999px;flex:0 0 auto;}
+  .m-del{flex:0 0 auto;border:none;background:none;color:#CBD5E1;font-size:20px;cursor:pointer;padding:2px 6px;}
+  .m-del:active{color:var(--red);}
+  .m-empty{padding:18px;text-align:center;color:#9CA3AF;font-size:13px;background:#fff;border-radius:14px;}
+  .backup{text-align:center;margin:14px 16px 0;}
+  .backup button{background:none;border:none;color:#9CA3AF;font-size:12.5px;font-weight:600;cursor:pointer;padding:6px 8px;font-family:inherit;}
+  .backup .dot{color:#D1D5DB;}
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(80px);background:#111827;color:#fff;padding:11px 20px;border-radius:999px;font-size:14px;font-weight:600;opacity:0;transition:all .25s;z-index:60;box-shadow:0 6px 16px rgba(0,0,0,.3);}
+  #toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+  /* setup overlay */
+  #setup{position:fixed;inset:0;background:rgba(17,24,39,.55);display:none;align-items:center;justify-content:center;z-index:80;padding:18px;}
+  #setup.show{display:flex;}
+  .sheet{background:#fff;border-radius:20px;max-width:420px;width:100%;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.3);}
+  .sheet h2{margin:0 0 4px;font-size:20px;font-weight:800;}
+  .sheet p{margin:0 0 16px;font-size:13px;color:var(--mute);line-height:1.55;}
+  .field{margin-bottom:12px;}
+  .field label{display:block;font-size:12px;font-weight:700;color:#374151;margin:0 2px 5px;}
+  .field input{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:12px 13px;font-size:15px;outline:none;font-family:inherit;}
+  .field input:focus{border-color:var(--indigo);}
+  .show-tok{font-size:11.5px;color:var(--mute);margin-top:5px;display:flex;align-items:center;gap:5px;}
+  .err{color:var(--red);font-size:12.5px;margin:2px 2px 12px;display:none;}
+  .err.show{display:block;}
+  #connect{width:100%;border:none;background:var(--indigo);color:#fff;font-weight:800;font-size:16px;padding:14px;border-radius:12px;cursor:pointer;margin-top:4px;}
+  #connect:active{background:var(--indigo-d);}
+  #connect:disabled{opacity:.6;}
+  .note{font-size:11px;color:#9CA3AF;text-align:center;margin-top:12px;line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <button class="gear" id="gear" title="설정">⚙︎</button>
+    <div class="hd-date" id="hdDate"></div>
+    <div class="hd-title">오늘의 복습</div>
+    <div class="hd-row">
+      <span class="hd-badge" id="hdBadge">불러오는 중…</span>
+      <button class="sync" id="syncBadge">동기화 중…</button>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-label">✅ 복습할 강의</div>
+    <div id="checklist"></div>
+  </section>
+
+  <section>
+    <div class="sec-label">✏️ 오늘 들은 강의 추가</div>
+    <div class="inp-card">
+      <div class="inp-row">
+        <input id="name" type="text" placeholder="강의명 (예: 수학 12강)" autocomplete="off">
+        <button id="add">추가</button>
+      </div>
+      <div class="date-row">
+        <label for="studied">들은 날짜</label>
+        <input id="studied" type="date">
+      </div>
+      <div class="date-hint">오늘 들었으면 그대로 추가. 며칠 전 거면 날짜만 바꾸면 돼요.</div>
+    </div>
+  </section>
+
+  <div class="manage-toggle"><button id="mToggle">⚙︎ 전체 강의 관리</button></div>
+  <div id="managePanel"></div>
+
+  <div class="backup">
+    <button id="exportBtn">⬇︎ 백업 내보내기</button><span class="dot">·</span>
+    <button id="importBtn">⬆︎ 불러오기</button>
+    <input id="importFile" type="file" accept="application/json,.json" hidden>
+  </div>
+</div>
+
+<div id="setup">
+  <div class="sheet">
+    <h2>GitHub 연결</h2>
+    <p>이 앱은 같은 레포의 <b>data.json</b>에 복습 기록을 저장해요. 어느 기기에서 열어도 같은 기록을 보려면 fine-grained 토큰(<b>Contents: Read and write</b>)이 필요해요.</p>
+    <div class="field"><label>GitHub 사용자명 (owner)</label><input id="cfgOwner" type="text" autocomplete="off" spellcheck="false"></div>
+    <div class="field"><label>레포 이름 (repo)</label><input id="cfgRepo" type="text" autocomplete="off" spellcheck="false"></div>
+    <div class="field"><label>토큰 (github_pat_… / ghp_…)</label><input id="cfgToken" type="password" autocomplete="off" spellcheck="false">
+      <label class="show-tok"><input type="checkbox" id="showTok"> 토큰 보기</label></div>
+    <div class="err" id="cfgErr"></div>
+    <button id="connect">연결</button>
+    <div class="note">토큰은 이 기기 브라우저에만 저장돼요. data.json에는 안 들어갑니다.</div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const INTERVALS=[1,3,7,14,28];
+const PATH='data.json';
+const CFG_KEY='review_cfg_v1';
+const CACHE_KEY='review_cache_v1';
+let cfg=null, sha=null, lectures=[];
+
+// ---------- date ----------
+const pad=n=>String(n).padStart(2,'0');
+function ymd(d){return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;}
+function today(){return ymd(new Date());}
+function parseYMD(s){const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d);}
+function addDays(s,n){const d=parseYMD(s);d.setDate(d.getDate()+n);return ymd(d);}
+function dayDiff(a,b){return Math.round((parseYMD(a)-parseYMD(b))/86400000);}
+const WD=['일','월','화','수','목','금','토'];
+
+// ---------- model ----------
+function nextDue(l){return l.done>=5?null:addDays(l.studied,INTERVALS[l.done]);}
+function isPending(l){const t=today();return l.done<5 && nextDue(l)<=t && l.lastDone!==t;}
+function isDoneToday(l){return l.lastDone===today();}
+
+// ---------- base64 (UTF-8 safe) ----------
+function utf8ToB64(str){const b=new TextEncoder().encode(str);let s='';b.forEach(x=>s+=String.fromCharCode(x));return btoa(s);}
+function b64ToUtf8(b64){const bin=atob(b64);const a=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)a[i]=bin.charCodeAt(i);return new TextDecoder().decode(a);}
+
+// ---------- config ----------
+function detect(){
+  const host=location.hostname, parts=location.pathname.split('/').filter(Boolean);
+  let owner='',repo='';
+  if(host.endsWith('.github.io')){ owner=host.replace('.github.io',''); repo=parts.length?parts[0]:host; }
+  return {owner,repo};
+}
+function loadCfg(){try{const v=localStorage.getItem(CFG_KEY);if(v)cfg=JSON.parse(v);}catch(e){}}
+function saveCfg(){try{localStorage.setItem(CFG_KEY,JSON.stringify(cfg));}catch(e){}}
+
+// ---------- GitHub API ----------
+function ghHeaders(){return {'Authorization':'Bearer '+cfg.token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};}
+async function ghRepoCheck(){
+  const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}`,{headers:ghHeaders(),cache:'no-store'});
+  if(r.status===401||r.status===403)throw{code:'auth'};
+  if(r.status===404)throw{code:'norepo'};
+  if(!r.ok)throw{code:'http',status:r.status};
+}
+async function ghGet(){
+  const url=`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${encodeURIComponent(PATH)}`;
+  const r=await fetch(url,{headers:ghHeaders(),cache:'no-store'});
+  if(r.status===404){sha=null;return [];}
+  if(r.status===401||r.status===403)throw{code:'auth'};
+  if(!r.ok)throw{code:'http',status:r.status};
+  const j=await r.json(); sha=j.sha;
+  const txt=b64ToUtf8((j.content||'').replace(/\s/g,''));
+  return txt.trim()?JSON.parse(txt):[];
+}
+async function ghPut(){
+  const url=`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${encodeURIComponent(PATH)}`;
+  const mk=()=>({message:'복습 업데이트 '+new Date().toISOString(),content:utf8ToB64(JSON.stringify(lectures,null,2)),...(sha?{sha}:{})});
+  let r=await fetch(url,{method:'PUT',headers:{...ghHeaders(),'Content-Type':'application/json'},body:JSON.stringify(mk())});
+  if(r.status===409){ await ghGet(); r=await fetch(url,{method:'PUT',headers:{...ghHeaders(),'Content-Type':'application/json'},body:JSON.stringify(mk())}); }
+  if(r.status===401||r.status===403)throw{code:'auth'};
+  if(!r.ok)throw{code:'http',status:r.status};
+  const j=await r.json(); sha=j.content.sha;
+}
+
+// ---------- sync ----------
+function setSync(state){
+  const el=document.getElementById('syncBadge');
+  const map={loading:'⟳ 동기화 중…',saving:'⟳ 저장 중…',saved:'✓ 동기화됨',error:'⚠ 동기화 실패 (탭하여 재시도)',auth:'⚙ 토큰 확인'};
+  el.textContent=map[state]||state; el.dataset.state=state;
+}
+function cacheLocal(){try{localStorage.setItem(CACHE_KEY,JSON.stringify(lectures));}catch(e){}}
+
+async function save(){
+  cacheLocal();
+  if(!cfg||!cfg.token){return;}
+  setSync('saving');
+  try{ await ghPut(); setSync('saved'); }
+  catch(e){ setSync(e&&e.code==='auth'?'auth':'error'); }
+}
+async function refresh(){
+  if(!cfg||!cfg.token)return;
+  setSync('loading');
+  try{ lectures=await ghGet(); cacheLocal(); setSync('saved'); render(); }
+  catch(e){ setSync(e&&e.code==='auth'?'auth':'error'); }
+}
+
+// ---------- actions ----------
+async function addLecture(){
+  const nameEl=document.getElementById('name'),dateEl=document.getElementById('studied');
+  const name=nameEl.value.trim(),studied=dateEl.value||today();
+  if(!name){nameEl.focus();return;}
+  lectures.push({id:Date.now()+''+Math.floor(Math.random()*999),name,studied,done:0,lastDone:null});
+  nameEl.value='';dateEl.value=today(); render(); toast('추가됐어요'); await save(); nameEl.focus();
+}
+async function complete(id){const l=lectures.find(x=>x.id===id);if(!l)return;l.done=Math.min(5,l.done+1);l.lastDone=today();render();await save();}
+async function undo(id){const l=lectures.find(x=>x.id===id);if(!l)return;l.done=Math.max(0,l.done-1);l.lastDone=null;render();await save();}
+async function del(id){const l=lectures.find(x=>x.id===id);if(!l)return;if(!confirm(`"${l.name}" 삭제할까요?`))return;lectures=lectures.filter(x=>x.id!==id);render();toast('삭제됨');await save();}
+
+// ---------- render ----------
+const CHECK='<svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function render(){
+  const t=today(),now=new Date();
+  document.getElementById('hdDate').textContent=`${now.getMonth()+1}월 ${now.getDate()}일 (${WD[now.getDay()]})`;
+  const pending=lectures.filter(isPending).sort((a,b)=>dayDiff(t,nextDue(b))-dayDiff(t,nextDue(a))||a.name.localeCompare(b.name));
+  const doneToday=lectures.filter(isDoneToday).sort((a,b)=>a.name.localeCompare(b.name));
+  document.getElementById('hdBadge').textContent=pending.length?`🔴 복습할 강의 ${pending.length}개`:`🎉 오늘 복습 끝!`;
+  const cl=document.getElementById('checklist');
+  if(pending.length===0&&doneToday.length===0){
+    cl.innerHTML=`<div class="empty"><div class="big">🎉</div><div class="t">오늘 복습할 강의가 없어요</div></div>`;
+  }else{
+    let h='<div class="card">';
+    for(const l of pending){const due=nextDue(l),late=dayDiff(t,due),lateP=late>0?`<span class="pill pill-late">${late}일 지남</span>`:'';
+      h+=`<div class="item" onclick="complete('${l.id}')"><div class="check">${CHECK}</div><div class="it-body"><div class="it-name">${esc(l.name)}</div><div class="it-meta"><span class="pill pill-stage">${l.done+1}차 복습 (+${INTERVALS[l.done]})</span>${lateP}</div></div></div>`;}
+    for(const l of doneToday){const st=l.done;
+      h+=`<div class="item done"><div class="check" onclick="undo('${l.id}')">${CHECK}</div><div class="it-body"><div class="it-name">${esc(l.name)}</div><div class="it-meta"><span class="pill pill-done">${st>=5?'전체 완료 ✓':st+'차 완료 ✓'}</span></div></div><span class="undo" onclick="undo('${l.id}')">되돌리기</span></div>`;}
+    h+='</div>'; cl.innerHTML=h;
+  }
+  renderManage();
+}
+function renderManage(){
+  const p=document.getElementById('managePanel');
+  if(lectures.length===0){p.innerHTML='<div class="m-empty">아직 추가한 강의가 없어요.</div>';return;}
+  const s=[...lectures].sort((a,b)=>b.studied.localeCompare(a.studied));let h='';
+  for(const l of s){const nd=nextDue(l),status=l.done>=5?'완료':`다음: ${nd}`;
+    h+=`<div class="m-item"><div class="m-body"><div class="m-name">${esc(l.name)}</div><div class="m-sub">들은날 ${l.studied} · ${status}</div></div><span class="m-prog">${l.done}/5</span><button class="m-del" onclick="del('${l.id}')">×</button></div>`;}
+  p.innerHTML=h;
+}
+let toastT;
+function toast(m){const el=document.getElementById('toast');el.textContent=m;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('show'),1600);}
+
+// ---------- backup ----------
+function exportData(){const blob=new Blob([JSON.stringify(lectures,null,2)],{type:'application/json'});const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download='복습_백업.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);toast('백업 파일 받음');}
+function importData(file){const fr=new FileReader();fr.onload=async()=>{try{const arr=JSON.parse(fr.result);if(Array.isArray(arr)){lectures=arr;render();toast('불러왔어요');await save();}else toast('형식 오류');}catch(e){toast('불러오기 실패');}};fr.readAsText(file);}
+
+// ---------- setup ----------
+function showSetup(){
+  const d=detect();
+  document.getElementById('cfgOwner').value=(cfg&&cfg.owner)||d.owner||'';
+  document.getElementById('cfgRepo').value=(cfg&&cfg.repo)||d.repo||'';
+  document.getElementById('cfgToken').value=(cfg&&cfg.token)||'';
+  document.getElementById('cfgErr').classList.remove('show');
+  document.getElementById('setup').classList.add('show');
+}
+function hideSetup(){document.getElementById('setup').classList.remove('show');}
+function setupErr(msg){const e=document.getElementById('cfgErr');e.textContent=msg;e.classList.add('show');}
+async function connect(){
+  const o=document.getElementById('cfgOwner').value.trim();
+  const rp=document.getElementById('cfgRepo').value.trim();
+  const tk=document.getElementById('cfgToken').value.trim();
+  if(!o||!rp||!tk){setupErr('세 칸을 모두 채워주세요.');return;}
+  const btn=document.getElementById('connect');btn.disabled=true;btn.textContent='연결 중…';
+  const prev=cfg; cfg={owner:o,repo:rp,token:tk};
+  try{
+    await ghRepoCheck();
+    lectures=await ghGet(); cacheLocal(); saveCfg();
+    hideSetup(); setSync('saved'); render(); toast('연결됐어요');
+  }catch(e){
+    cfg=prev;
+    setupErr(e&&e.code==='auth'?'토큰이 거부됐어요. 권한(Contents: Read and write)과 레포 선택을 확인하세요.'
+      :e&&e.code==='norepo'?'레포를 찾을 수 없어요. 사용자명/레포 이름을 확인하세요.':'연결 실패. 네트워크를 확인하세요.');
+  }finally{ btn.disabled=false; btn.textContent='연결'; }
+}
+
+// ---------- wire ----------
+document.getElementById('add').addEventListener('click',addLecture);
+document.getElementById('name').addEventListener('keydown',e=>{if(e.key==='Enter')addLecture();});
+document.getElementById('mToggle').addEventListener('click',()=>document.getElementById('managePanel').classList.toggle('open'));
+document.getElementById('exportBtn').addEventListener('click',exportData);
+document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());
+document.getElementById('importFile').addEventListener('change',e=>{if(e.target.files[0])importData(e.target.files[0]);e.target.value='';});
+document.getElementById('gear').addEventListener('click',showSetup);
+document.getElementById('connect').addEventListener('click',connect);
+document.getElementById('showTok').addEventListener('change',e=>{document.getElementById('cfgToken').type=e.target.checked?'text':'password';});
+document.getElementById('syncBadge').addEventListener('click',()=>{const s=document.getElementById('syncBadge').dataset.state;if(s==='auth')showSetup();else refresh();});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&document.getElementById('syncBadge').dataset.state==='saved')refresh();});
+
+(async function init(){
+  document.getElementById('studied').value=today();
+  loadCfg();
+  try{const v=localStorage.getItem(CACHE_KEY);if(v)lectures=JSON.parse(v)||[];}catch(e){}
+  render();
+  if(!cfg||!cfg.token){ setSync('auth'); showSetup(); return; }
+  await refresh();
+})();
+</script>
+</body>
+</html>
