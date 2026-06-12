@@ -4,62 +4,98 @@
     "name": "수학 4-1-2",
     "studied": "2026-06-04",
     "done": 3,
-    "lastDone": "2026-06-11"
+    "lastDone": "2026-06-11",
+    "weak": 0,
+    "hist": [],
+    "lastResult": "pass",
+    "due": "2026-06-18"
   },
   {
     "id": "1780647022097198",
     "name": "영어 1-2",
     "studied": "2026-06-04",
     "done": 3,
-    "lastDone": "2026-06-11"
+    "lastDone": "2026-06-11",
+    "weak": 0,
+    "hist": [],
+    "lastResult": "pass",
+    "due": "2026-06-18"
   },
   {
     "id": "1780664407750147",
     "name": "영어 2-2",
     "studied": "2026-06-05",
     "done": 2,
-    "lastDone": "2026-06-08"
+    "lastDone": "2026-06-08",
+    "weak": 0,
+    "hist": [],
+    "lastResult": "pass",
+    "due": "2026-06-12"
   },
   {
     "id": "1780838528921853",
     "name": "영어 3-3",
     "studied": "2026-06-07",
     "done": 2,
-    "lastDone": "2026-06-11"
+    "lastDone": "2026-06-11",
+    "weak": 0,
+    "hist": [],
+    "lastResult": "pass",
+    "due": "2026-06-14"
   },
   {
     "id": "1780921439353128",
     "name": "총창 3-2",
     "studied": "2026-06-08",
     "done": 2,
-    "lastDone": "2026-06-11"
+    "lastDone": "2026-06-11",
+    "weak": 0,
+    "hist": [],
+    "lastResult": "pass",
+    "due": "2026-06-15"
   },
   {
     "id": "1781007685836226",
     "name": "과학 4-2",
     "studied": "2026-06-09",
     "done": 1,
-    "lastDone": "2026-06-11"
+    "lastDone": "2026-06-11",
+    "weak": 0,
+    "hist": [],
+    "lastResult": "pass",
+    "due": "2026-06-12"
   },
   {
     "id": "1781178296380211",
     "name": "영어 4-3",
     "studied": "2026-06-11",
     "done": 0,
-    "lastDone": null
+    "lastDone": null,
+    "weak": 0,
+    "hist": [],
+    "lastResult": null,
+    "due": "2026-06-12"
   },
   {
     "id": "1781178331837399",
     "name": "음악 1-1",
     "studied": "2026-06-11",
     "done": 0,
-    "lastDone": null
+    "lastDone": null,
+    "weak": 0,
+    "hist": [],
+    "lastResult": null,
+    "due": "2026-06-12"
   },
   {
     "id": "1781178339146487",
     "name": "사회 1-2",
     "studied": "2026-06-11",
     "done": 0,
-    "lastDone": null
+    "lastDone": null,
+    "weak": 0,
+    "hist": [],
+    "lastResult": null,
+    "due": "2026-06-12"
   }
 ]
