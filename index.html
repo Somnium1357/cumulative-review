@@ -21,6 +21,8 @@
   .hd-row{display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:8px;}
   .hd-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.18);
     padding:7px 14px;border-radius:999px;font-size:14px;font-weight:700;backdrop-filter:blur(4px);}
+  .hd-prog{height:5px;background:rgba(255,255,255,.22);border-radius:999px;margin-top:12px;overflow:hidden;}
+  .hd-prog i{display:block;height:100%;width:0;background:#fff;border-radius:999px;transition:width .3s;}
   .sync{font-size:12px;font-weight:600;color:#fff;opacity:.92;display:inline-flex;align-items:center;gap:5px;
     cursor:pointer;background:rgba(255,255,255,.13);padding:6px 11px;border-radius:999px;border:none;font-family:inherit;}
   .gear{position:absolute;top:18px;right:18px;background:rgba(255,255,255,.16);border:none;color:#fff;
@@ -28,25 +30,90 @@
   section{margin:18px 16px 0;}
   .sec-label{font-size:13px;font-weight:700;color:var(--mute);margin:0 4px 9px;letter-spacing:.2px;}
   .card{background:var(--card);border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden;}
+
+  /* ---- 레이아웃: 좁으면 단일 컬럼(기존 순서), 넓으면(아이패드 가로) 2컬럼 ---- */
+  .cols{display:flex;flex-direction:column;}
+  .col-main,.col-side{display:contents;}
+  #secHeat{order:1;}#secPace{order:2;}#secList{order:3;}#secAdd{order:4;}
+  .toggles{order:5;}#statsPanel{order:6;}#managePanel{order:7;}.backup{order:8;}
+  @media(min-width:860px){
+    .wrap{max-width:1060px;}
+    .cols{display:grid;grid-template-columns:minmax(0,1fr) 384px;gap:0;align-items:start;}
+    .col-main{display:block;min-width:0;}
+    .col-side{display:block;min-width:0;position:sticky;top:10px;max-height:calc(100dvh - 20px);overflow-y:auto;padding-bottom:24px;}
+  }
+
+  /* ---- heatmap ---- */
+  .hm-card{background:var(--card);border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:12px 12px 10px;}
+  .hm-strip{display:flex;gap:2px;}
+  .hm{flex:1;height:26px;border-radius:4px;cursor:pointer;position:relative;background:#EEF0F4;
+    display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:800;color:rgba(17,24,39,.55);}
+  .hm.f1{background:#C7D2FE;}.hm.f2{background:#A5B4FC;}.hm.f3{background:#818CF8;}.hm.f4{background:#4F46E5;}
+  .hm.p1{background:#A7F3D0;}.hm.p2{background:#6EE7B7;}.hm.p3{background:#34D399;}.hm.p4{background:#059669;}
+  .hm.f3,.hm.f4,.hm.p3,.hm.p4{color:rgba(255,255,255,.92);}
+  .hm:hover{box-shadow:inset 0 0 0 2px rgba(79,70,229,.55);}
+  .hm.today{box-shadow:inset 0 0 0 2px var(--ink);}
+  .hm.sel{box-shadow:inset 0 0 0 2px var(--indigo-d);}
+  .hm.today.sel{box-shadow:inset 0 0 0 2px var(--ink),0 0 0 2px var(--indigo);}
+  .hm.wed::after{content:'';position:absolute;left:50%;bottom:3px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:rgba(17,24,39,.35);}
+  .hm-axis{display:flex;justify-content:space-between;margin-top:6px;font-size:10.5px;color:#9CA3AF;font-weight:600;padding:0 1px;}
+  .hm-detail{font-size:12.5px;color:var(--mute);font-weight:600;margin-top:8px;min-height:17px;}
+
+  /* ---- pace ---- */
+  .pace-card{background:var(--card);border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:14px 16px;cursor:pointer;}
+  .pace-big{font-size:21px;font-weight:800;letter-spacing:-.3px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .pace-big.ok{color:var(--green);} .pace-big.bad{color:var(--red);}
+  .edit-mark{font-size:13px;color:#C7D2FE;font-weight:700;flex:0 0 auto;}
+  .pace-sub{font-size:12.5px;color:var(--mute);font-weight:600;margin-top:3px;}
+  .pace-empty{font-size:14.5px;font-weight:700;color:var(--mute);display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .pace-edit{display:none;margin-top:12px;border-top:1px solid var(--line);padding-top:12px;}
+  .pace-edit.open{display:block;}
+  .pe-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;}
+  .pe-row label{flex:0 0 76px;font-size:12.5px;font-weight:700;color:#374151;}
+  .pe-row input{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:9px;padding:9px 11px;font-size:15px;font-family:inherit;color:var(--ink);outline:none;background:#fff;}
+  .pe-row input:focus{border-color:var(--indigo);}
+  #metaSave{width:100%;border:none;background:var(--indigo);color:#fff;font-weight:800;font-size:15px;padding:11px;border-radius:10px;cursor:pointer;margin-top:2px;}
+
+  /* ---- chips ---- */
+  .chips{display:flex;gap:6px;overflow-x:auto;padding:0 2px 9px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .chips::-webkit-scrollbar{display:none;}
+  .chip{flex:0 0 auto;font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px;background:#fff;color:var(--mute);border:1.5px solid var(--line);cursor:pointer;}
+  .chip.on{background:var(--indigo);color:#fff;border-color:var(--indigo);}
+
+  /* ---- list ---- */
+  .grp-head{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 3px;font-size:12px;font-weight:800;color:var(--indigo-d);letter-spacing:.3px;}
+  .grp-head span{color:#9CA3AF;font-weight:700;}
+  .grp-head.grp-done{color:#9CA3AF;border-top:1px solid var(--line);margin-top:2px;}
   .item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .12s;}
   .item:last-child{border-bottom:none;}
-  .item:active{background:#F9FAFB;}
+  .item:active,.item.judging{background:#F9FAFB;}
+  .item.judging{border-bottom:none;}
   .check{flex:0 0 26px;height:26px;border-radius:8px;border:2.4px solid #CBD5E1;background:#fff;display:flex;align-items:center;justify-content:center;transition:all .15s;}
   .check svg{width:15px;height:15px;opacity:0;transform:scale(.5);transition:all .15s;}
   .item.done .check{background:var(--green);border-color:var(--green);}
+  .item.done.weakr .check{background:var(--amber);border-color:var(--amber);}
   .item.done .check svg{opacity:1;transform:scale(1);}
   .it-body{flex:1;min-width:0;}
   .it-name{font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .item.done .it-name{color:#9CA3AF;text-decoration:line-through;}
-  .it-meta{display:flex;gap:6px;align-items:center;margin-top:3px;}
+  .it-meta{display:flex;gap:6px;align-items:center;margin-top:3px;flex-wrap:wrap;}
   .pill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;}
   .pill-stage{background:#EEF2FF;color:var(--indigo-d);}
   .pill-late{background:var(--red-bg);color:var(--red);}
   .pill-done{background:var(--green-bg);color:var(--green);}
+  .pill-weak{background:var(--amber-bg);color:var(--amber);}
+  .judge{display:flex;gap:8px;padding:2px 16px 14px;border-bottom:1px solid var(--line);}
+  .judge button{flex:1;border:none;border-radius:11px;padding:12px;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer;}
+  .jw{background:var(--amber-bg);color:var(--amber);box-shadow:inset 0 0 0 1.5px #FDE68A;}
+  .jw:active{background:#FEF3C7;}
+  .jp{background:var(--green);color:#fff;}
+  .jp:active{background:#047857;}
   .undo{font-size:12px;color:var(--mute);font-weight:600;padding:6px 10px;border-radius:8px;background:#F3F4F6;flex:0 0 auto;}
   .empty{background:var(--card);border-radius:16px;padding:34px 20px;text-align:center;color:var(--mute);box-shadow:0 1px 3px rgba(0,0,0,.06);}
   .empty .big{font-size:34px;margin-bottom:8px;}
   .empty .t{font-size:15px;font-weight:600;color:#374151;}
+
+  /* ---- add ---- */
   .inp-card{background:var(--card);border-radius:16px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
   .inp-row{display:flex;gap:8px;}
   #name{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:11px;padding:13px 14px;font-size:16px;outline:none;font-family:inherit;color:var(--ink);}
@@ -58,15 +125,22 @@
   #studied{border:1.5px solid var(--line);border-radius:9px;padding:7px 10px;font-size:14px;font-family:inherit;color:var(--ink);outline:none;background:#fff;}
   #studied:focus{border-color:var(--indigo);}
   .date-hint{font-size:11.5px;color:#9CA3AF;margin:8px 2px 0;}
-  .manage-toggle{text-align:center;margin:26px 16px 0;}
-  .manage-toggle button{background:none;border:none;color:var(--mute);font-size:13px;font-weight:600;cursor:pointer;padding:8px;font-family:inherit;}
-  #managePanel{margin:10px 16px 0;display:none;}
-  #managePanel.open{display:block;}
+
+  /* ---- toggles / panels ---- */
+  .toggles{display:flex;justify-content:center;gap:14px;margin:26px 16px 0;}
+  .toggles button{background:none;border:none;color:var(--mute);font-size:13px;font-weight:600;cursor:pointer;padding:8px;font-family:inherit;}
+  #statsPanel,#managePanel{margin:10px 16px 0;display:none;}
+  #statsPanel.open,#managePanel.open{display:block;}
+  .st-line{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line);background:#fff;font-size:13.5px;font-weight:600;}
+  .st-line:first-child{border-radius:14px 14px 0 0;}
+  .st-line:last-child{border-radius:0 0 14px 14px;border-bottom:none;}
+  .st-line .v{color:var(--mute);font-weight:700;flex:0 0 auto;text-align:right;}
+  .st-head{font-size:11.5px;font-weight:800;color:#9CA3AF;letter-spacing:.4px;padding:12px 14px 4px;background:#fff;border-bottom:1px solid var(--line);}
   .m-item{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line);background:#fff;}
   .m-item:first-child{border-radius:14px 14px 0 0;}
   .m-item:last-child{border-radius:0 0 14px 14px;border-bottom:none;}
   .m-body{flex:1;min-width:0;}
-  .m-name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .m-name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;}
   .m-sub{font-size:11.5px;color:var(--mute);margin-top:2px;}
   .m-prog{font-size:11px;font-weight:700;color:var(--indigo-d);background:#EEF2FF;padding:3px 8px;border-radius:999px;flex:0 0 auto;}
   .m-del{flex:0 0 auto;border:none;background:none;color:#CBD5E1;font-size:20px;cursor:pointer;padding:2px 6px;}
@@ -106,35 +180,68 @@
       <span class="hd-badge" id="hdBadge">불러오는 중…</span>
       <button class="sync" id="syncBadge">동기화 중…</button>
     </div>
+    <div class="hd-prog" id="hdProg" hidden><i id="hdProgI"></i></div>
   </header>
 
-  <section>
-    <div class="sec-label">✅ 복습할 강의</div>
-    <div id="checklist"></div>
-  </section>
-
-  <section>
-    <div class="sec-label">✏️ 오늘 들은 강의 추가</div>
-    <div class="inp-card">
-      <div class="inp-row">
-        <input id="name" type="text" placeholder="강의명 (예: 수학 12강)" autocomplete="off">
-        <button id="add">추가</button>
-      </div>
-      <div class="date-row">
-        <label for="studied">들은 날짜</label>
-        <input id="studied" type="date">
-      </div>
-      <div class="date-hint">오늘 들었으면 그대로 추가. 며칠 전 거면 날짜만 바꾸면 돼요.</div>
+  <div class="cols">
+    <div class="col-main">
+      <section id="secList">
+        <div class="sec-label">✅ 복습할 강의</div>
+        <div class="chips" id="chips"></div>
+        <div id="checklist"></div>
+      </section>
     </div>
-  </section>
 
-  <div class="manage-toggle"><button id="mToggle">⚙︎ 전체 강의 관리</button></div>
-  <div id="managePanel"></div>
+    <div class="col-side">
+      <section id="secPace">
+        <div class="sec-label">🎯 페이스</div>
+        <div class="pace-card" id="paceCard">
+          <div id="paceBody"></div>
+          <div class="pace-edit" id="paceEdit" onclick="event.stopPropagation()">
+            <div class="pe-row"><label>총 강의량</label><input id="metaTotal" type="number" inputmode="numeric" placeholder="예: 180 (유동 수정 가능)"></div>
+            <div class="pe-row"><label>목표일</label><input id="metaDeadline" type="date"></div>
+            <button id="metaSave">저장</button>
+          </div>
+        </div>
+      </section>
 
-  <div class="backup">
-    <button id="exportBtn">⬇︎ 백업 내보내기</button><span class="dot">·</span>
-    <button id="importBtn">⬆︎ 불러오기</button>
-    <input id="importFile" type="file" accept="application/json,.json" hidden>
+      <section id="secAdd">
+        <div class="sec-label">✏️ 오늘 들은 강의 추가</div>
+        <div class="inp-card">
+          <div class="inp-row">
+            <input id="name" type="text" placeholder="강의명 (예: 수학 12강)" autocomplete="off">
+            <button id="add">추가</button>
+          </div>
+          <div class="date-row">
+            <label for="studied">들은 날짜</label>
+            <input id="studied" type="date">
+          </div>
+          <div class="date-hint">오늘 들었으면 그대로 추가. 며칠 전 거면 날짜만 바꾸면 돼요.</div>
+        </div>
+      </section>
+
+      <section id="secHeat">
+        <div class="sec-label">🗓 부하 — 지난 14일 · 오늘 · 다음 14일</div>
+        <div class="hm-card">
+          <div class="hm-strip" id="hmStrip" onmouseleave="hmHover(null)"></div>
+          <div class="hm-axis"><span>-14일</span><span>오늘</span><span>+14일</span></div>
+          <div class="hm-detail" id="hmDetail">칸을 탭하거나 펜슬을 올리면 그날 내역이 보여요</div>
+        </div>
+      </section>
+
+      <div class="toggles">
+        <button id="sToggle">📈 통계</button>
+        <button id="mToggle">⚙︎ 전체 강의 관리</button>
+      </div>
+      <div id="statsPanel"></div>
+      <div id="managePanel"></div>
+
+      <div class="backup">
+        <button id="exportBtn">⬇︎ 백업 내보내기</button><span class="dot">·</span>
+        <button id="importBtn">⬆︎ 불러오기</button>
+        <input id="importFile" type="file" accept="application/json,.json" hidden>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -155,11 +262,19 @@
 <div id="toast"></div>
 
 <script>
-const INTERVALS=[1,3,7,14,28];
-const PATH='data.json';
+/* 간격: GAP[done] = done 단계에 "도달한 뒤" 다음 복습까지의 일수.
+   0→1일(D1), 1→2일(D3상당), 2→4일(D7상당), 3→7일(D14상당), 4→14일(D28상당), 5+→35일(유지 무한 반복).
+   due는 항목에 직접 저장(롤링 앵커: 항상 '실제 마지막 인출일' 기준). 수요일 휴식: due가 수요일이면 목요일로. */
+const GAP=[1,2,4,7,14,35];
+const OLD_INTERVALS=[1,3,7,14,28]; // 구버전 마이그레이션용
+const HM_PAST=14, HM_FUT=14;
+const PATH='data.json', META_PATH='meta.json';
 const CFG_KEY='review_cfg_v1';
 const CACHE_KEY='review_cache_v1';
-let cfg=null, sha=null, lectures=[];
+const META_CACHE='review_meta_v1';
+let cfg=null, sha=null, metaSha=null;
+let lectures=[], meta={total:null,deadline:null};
+let judgingId=null, hmSel=null, hmHov=null, filterSubj='전체';
 
 // ---------- date ----------
 const pad=n=>String(n).padStart(2,'0');
@@ -169,11 +284,30 @@ function parseYMD(s){const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1
 function addDays(s,n){const d=parseYMD(s);d.setDate(d.getDate()+n);return ymd(d);}
 function dayDiff(a,b){return Math.round((parseYMD(a)-parseYMD(b))/86400000);}
 const WD=['일','월','화','수','목','금','토'];
+function md(s){const d=parseYMD(s);return `${d.getMonth()+1}/${d.getDate()}(${WD[d.getDay()]})`;}
+function weekStartMon(t){const d=parseYMD(t);const wd=(d.getDay()+6)%7;d.setDate(d.getDate()-wd);return ymd(d);}
 
 // ---------- model ----------
-function nextDue(l){return l.done>=5?null:addDays(l.studied,INTERVALS[l.done]);}
-function isPending(l){const t=today();return l.done<5 && nextDue(l)<=t && l.lastDone!==t;}
+function schedule(fromYmd,gap){let d=addDays(fromYmd,gap);if(parseYMD(d).getDay()===3)d=addDays(d,1);return d;} // 수요일이면 목요일로
+function stageName(done){return done<5?`${done+1}차`:'유지';}
+function subjectOf(name){return (String(name).trim().split(/\s+/)[0]||'기타');}
+function isPending(l){const t=today();return l.due<=t&&l.lastDone!==t;}
 function isDoneToday(l){return l.lastDone===today();}
+
+function migrate(){ // 구버전 항목에 due/weak/hist/lastResult 부여 (1회, 멱등)
+  let changed=false;
+  for(const l of lectures){
+    if(l.weak===undefined){l.weak=0;changed=true;}
+    if(!Array.isArray(l.hist)){l.hist=[];changed=true;}
+    if(l.lastResult===undefined){l.lastResult=l.lastDone?'pass':null;changed=true;}
+    if(l.due===undefined){
+      if(l.done>=5){l.due=schedule(l.lastDone||l.studied,35);} // 완료분 → 유지 로테이션 편입
+      else{let d=addDays(l.studied,OLD_INTERVALS[l.done]);if(parseYMD(d).getDay()===3)d=addDays(d,1);l.due=d;}
+      changed=true;
+    }
+  }
+  return changed;
+}
 
 // ---------- base64 (UTF-8 safe) ----------
 function utf8ToB64(str){const b=new TextEncoder().encode(str);let s='';b.forEach(x=>s+=String.fromCharCode(x));return btoa(s);}
@@ -191,6 +325,7 @@ function saveCfg(){try{localStorage.setItem(CFG_KEY,JSON.stringify(cfg));}catch(
 
 // ---------- GitHub API ----------
 function ghHeaders(){return {'Authorization':'Bearer '+cfg.token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};}
+function ghUrl(path){return `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${encodeURIComponent(path)}`;}
 async function ghRepoCheck(){
   const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}`,{headers:ghHeaders(),cache:'no-store'});
   if(r.status===401||r.status===403)throw{code:'auth'};
@@ -198,8 +333,7 @@ async function ghRepoCheck(){
   if(!r.ok)throw{code:'http',status:r.status};
 }
 async function ghGet(){
-  const url=`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${encodeURIComponent(PATH)}`;
-  const r=await fetch(url,{headers:ghHeaders(),cache:'no-store'});
+  const r=await fetch(ghUrl(PATH),{headers:ghHeaders(),cache:'no-store'});
   if(r.status===404){sha=null;return [];}
   if(r.status===401||r.status===403)throw{code:'auth'};
   if(!r.ok)throw{code:'http',status:r.status};
@@ -207,14 +341,43 @@ async function ghGet(){
   const txt=b64ToUtf8((j.content||'').replace(/\s/g,''));
   return txt.trim()?JSON.parse(txt):[];
 }
+function mergeById(remote,local){ // 409 충돌 시: id 합집합, hist 긴 쪽(=더 진행된 쪽) 우선
+  const m=new Map(); remote.forEach(x=>m.set(x.id,x));
+  local.forEach(x=>{const o=m.get(x.id);
+    if(!o){m.set(x.id,x);return;}
+    m.set(x.id, ((o.hist||[]).length>(x.hist||[]).length)?o:x);
+  });
+  return [...m.values()];
+}
 async function ghPut(){
-  const url=`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${encodeURIComponent(PATH)}`;
   const mk=()=>({message:'복습 업데이트 '+new Date().toISOString(),content:utf8ToB64(JSON.stringify(lectures,null,2)),...(sha?{sha}:{})});
-  let r=await fetch(url,{method:'PUT',headers:{...ghHeaders(),'Content-Type':'application/json'},body:JSON.stringify(mk())});
-  if(r.status===409){ await ghGet(); r=await fetch(url,{method:'PUT',headers:{...ghHeaders(),'Content-Type':'application/json'},body:JSON.stringify(mk())}); }
+  let r=await fetch(ghUrl(PATH),{method:'PUT',headers:{...ghHeaders(),'Content-Type':'application/json'},body:JSON.stringify(mk())});
+  if(r.status===409){
+    const remote=await ghGet();           // 최신 sha 확보 + 원격 상태 회수
+    lectures=mergeById(remote,lectures);  // 기기 간 충돌 시 양쪽 보존
+    render();
+    r=await fetch(ghUrl(PATH),{method:'PUT',headers:{...ghHeaders(),'Content-Type':'application/json'},body:JSON.stringify(mk())});
+  }
   if(r.status===401||r.status===403)throw{code:'auth'};
   if(!r.ok)throw{code:'http',status:r.status};
   const j=await r.json(); sha=j.content.sha;
+}
+async function ghGetMeta(){
+  const r=await fetch(ghUrl(META_PATH),{headers:ghHeaders(),cache:'no-store'});
+  if(r.status===404){metaSha=null;return {total:null,deadline:null};}
+  if(r.status===401||r.status===403)throw{code:'auth'};
+  if(!r.ok)throw{code:'http',status:r.status};
+  const j=await r.json(); metaSha=j.sha;
+  try{const o=JSON.parse(b64ToUtf8((j.content||'').replace(/\s/g,'')));return {total:o.total??null,deadline:o.deadline??null};}
+  catch(e){return {total:null,deadline:null};}
+}
+async function ghPutMeta(){
+  const mk=()=>({message:'목표 업데이트 '+new Date().toISOString(),content:utf8ToB64(JSON.stringify(meta,null,2)),...(metaSha?{sha:metaSha}:{})});
+  let r=await fetch(ghUrl(META_PATH),{method:'PUT',headers:{...ghHeaders(),'Content-Type':'application/json'},body:JSON.stringify(mk())});
+  if(r.status===409){ await ghGetMeta(); r=await fetch(ghUrl(META_PATH),{method:'PUT',headers:{...ghHeaders(),'Content-Type':'application/json'},body:JSON.stringify(mk())}); }
+  if(r.status===401||r.status===403)throw{code:'auth'};
+  if(!r.ok)throw{code:'http',status:r.status};
+  const j=await r.json(); metaSha=j.content.sha;
 }
 
 // ---------- sync ----------
@@ -223,7 +386,7 @@ function setSync(state){
   const map={loading:'⟳ 동기화 중…',saving:'⟳ 저장 중…',saved:'✓ 동기화됨',error:'⚠ 동기화 실패 (탭하여 재시도)',auth:'⚙ 토큰 확인'};
   el.textContent=map[state]||state; el.dataset.state=state;
 }
-function cacheLocal(){try{localStorage.setItem(CACHE_KEY,JSON.stringify(lectures));}catch(e){}}
+function cacheLocal(){try{localStorage.setItem(CACHE_KEY,JSON.stringify(lectures));localStorage.setItem(META_CACHE,JSON.stringify(meta));}catch(e){}}
 
 async function save(){
   cacheLocal();
@@ -232,10 +395,22 @@ async function save(){
   try{ await ghPut(); setSync('saved'); }
   catch(e){ setSync(e&&e.code==='auth'?'auth':'error'); }
 }
+async function saveMeta(){
+  cacheLocal();
+  if(!cfg||!cfg.token){return;}
+  setSync('saving');
+  try{ await ghPutMeta(); setSync('saved'); }
+  catch(e){ setSync(e&&e.code==='auth'?'auth':'error'); }
+}
 async function refresh(){
   if(!cfg||!cfg.token)return;
   setSync('loading');
-  try{ lectures=await ghGet(); cacheLocal(); setSync('saved'); render(); }
+  try{
+    lectures=await ghGet();
+    meta=await ghGetMeta();
+    const ch=migrate(); cacheLocal(); setSync('saved'); render();
+    if(ch) await save(); // 마이그레이션 결과 1회 영속화
+  }
   catch(e){ setSync(e&&e.code==='auth'?'auth':'error'); }
 }
 
@@ -244,49 +419,288 @@ async function addLecture(){
   const nameEl=document.getElementById('name'),dateEl=document.getElementById('studied');
   const name=nameEl.value.trim(),studied=dateEl.value||today();
   if(!name){nameEl.focus();return;}
-  lectures.push({id:Date.now()+''+Math.floor(Math.random()*999),name,studied,done:0,lastDone:null});
-  nameEl.value='';dateEl.value=today(); render(); toast('추가됐어요'); await save(); nameEl.focus();
+  lectures.push({id:Date.now()+''+Math.floor(Math.random()*999),name,studied,
+    done:0,due:schedule(studied,GAP[0]),lastDone:null,lastResult:null,weak:0,hist:[]});
+  nameEl.value='';dateEl.value=today(); judgingId=null; render(); toast('추가됐어요'); await save(); nameEl.focus();
 }
-async function complete(id){const l=lectures.find(x=>x.id===id);if(!l)return;l.done=Math.min(5,l.done+1);l.lastDone=today();render();await save();}
-async function undo(id){const l=lectures.find(x=>x.id===id);if(!l)return;l.done=Math.max(0,l.done-1);l.lastDone=null;render();await save();}
+async function pass(id){
+  const l=lectures.find(x=>x.id===id); if(!l||!isPending(l))return;
+  l.hist.push([today(),l.done,'p']);
+  l.done++; l.lastDone=today(); l.lastResult='pass';
+  l.due=schedule(today(),GAP[Math.min(l.done,5)]);
+  judgingId=null; render(); await save();
+}
+async function weakAct(id){
+  const l=lectures.find(x=>x.id===id); if(!l||!isPending(l))return;
+  l.hist.push([today(),l.done,'w']);
+  l.weak++; l.lastDone=today(); l.lastResult='weak';   // 단계 동결
+  l.due=schedule(today(),1);                            // 내일 재시도
+  judgingId=null; render(); await save();
+}
+function judge(id){ judgingId=(judgingId===id?null:id); render(); }
+async function undo(id){
+  const l=lectures.find(x=>x.id===id); if(!l||l.lastDone!==today())return;
+  const h=l.hist||[];
+  if(h.length&&h[h.length-1][0]===today()){
+    const e=h.pop();
+    if(e[2]==='p')l.done=Math.max(0,l.done-1); else l.weak=Math.max(0,l.weak-1);
+    const prev=h[h.length-1];
+    l.lastDone=prev?prev[0]:null;
+    l.lastResult=prev?(prev[2]==='p'?'pass':'weak'):null;
+  }else{ // 구버전 데이터로 오늘 체크한 항목
+    l.done=Math.max(0,l.done-1); l.lastDone=null; l.lastResult=null;
+  }
+  l.due=today(); judgingId=null; render(); await save();
+}
 async function del(id){const l=lectures.find(x=>x.id===id);if(!l)return;if(!confirm(`"${l.name}" 삭제할까요?`))return;lectures=lectures.filter(x=>x.id!==id);render();toast('삭제됨');await save();}
+async function rename(id){
+  const l=lectures.find(x=>x.id===id); if(!l)return;
+  const v=prompt('이름 변경',l.name); if(v==null)return;
+  const nv=v.trim(); if(!nv||nv===l.name)return;
+  l.name=nv; render(); toast('변경됨'); await save();
+}
+function setFilter(s){filterSubj=s;judgingId=null;render();}
+function hmPick(ds){hmSel=(hmSel===ds?null:ds);render();}
+function hmHover(ds){if(hmHov===ds)return;hmHov=ds;renderHmDetail();} // 펜슬 호버: 고정(탭) 없이 미리보기
+function togglePaceEdit(){
+  const e=document.getElementById('paceEdit');
+  if(!e.classList.contains('open')){
+    document.getElementById('metaTotal').value=meta.total??'';
+    document.getElementById('metaDeadline').value=meta.deadline??'';
+  }
+  e.classList.toggle('open');
+}
+async function metaSaveAct(){
+  const t=document.getElementById('metaTotal').value.trim();
+  const d=document.getElementById('metaDeadline').value;
+  const total=t===''?null:Math.max(0,parseInt(t,10)||0);
+  meta={total,deadline:d||null};
+  document.getElementById('paceEdit').classList.remove('open');
+  render(); toast('목표 저장됨'); await saveMeta();
+}
 
 // ---------- render ----------
 const CHECK='<svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
 function render(){
-  const t=today(),now=new Date();
+  const now=new Date();
   document.getElementById('hdDate').textContent=`${now.getMonth()+1}월 ${now.getDate()}일 (${WD[now.getDay()]})`;
-  const pending=lectures.filter(isPending).sort((a,b)=>dayDiff(t,nextDue(b))-dayDiff(t,nextDue(a))||a.name.localeCompare(b.name));
-  const doneToday=lectures.filter(isDoneToday).sort((a,b)=>a.name.localeCompare(b.name));
-  document.getElementById('hdBadge').textContent=pending.length?`🔴 복습할 강의 ${pending.length}개`:`🎉 오늘 복습 끝!`;
+  const P=lectures.filter(isPending).length, D=lectures.filter(isDoneToday).length, T=P+D;
+  document.getElementById('hdBadge').textContent=
+    T===0?'오늘 복습 없음':(P===0?`🎉 ${D}/${T} 완료`:`📋 ${D}/${T} 완료`);
+  const prog=document.getElementById('hdProg');
+  if(T>0){prog.hidden=false;document.getElementById('hdProgI').style.width=`${Math.round(D/T*100)}%`;}
+  else prog.hidden=true;
+  renderHeatmap(); renderPace(); renderChips(); renderList(); renderStats(); renderManage();
+}
+
+/* ---- 부하 히트맵: 과거=수행량(초록), 미래=예정량(인디고), 오늘=남은+수행 ---- */
+function dayInfo(ds){
+  const t=today();
+  let nw=0,p=0,w=0,due=0;
+  for(const l of lectures){
+    if(l.studied===ds)nw++;
+    for(const h of (l.hist||[])) if(h[0]===ds){h[2]==='p'?p++:w++;}
+  }
+  if(ds>t){ due=lectures.filter(l=>l.due===ds).length; }
+  else if(ds===t){ due=lectures.filter(isPending).length; }
+  return {nw,p,w,due,total:(ds>t)?due:(nw+p+w+due)};
+}
+function lvOf(v){return v===0?0:v<=2?1:v<=4?2:v<=7?3:4;}
+function renderHeatmap(){
+  const t=today(); let h='';
+  for(let i=-HM_PAST;i<=HM_FUT;i++){
+    const ds=addDays(t,i), info=dayInfo(ds), lv=lvOf(info.total);
+    const cls=['hm', (i<0?'p':'f')+lv];
+    if(i===0)cls.push('today');
+    if(parseYMD(ds).getDay()===3)cls.push('wed');
+    if(hmSel===ds)cls.push('sel');
+    const label=i===0?parseYMD(ds).getDate():'';
+    h+=`<div class="${cls.join(' ')}" onclick="hmPick('${ds}')" onmouseover="hmHover('${ds}')" title="${ds}">${label}</div>`;
+  }
+  document.getElementById('hmStrip').innerHTML=h;
+  renderHmDetail();
+}
+function renderHmDetail(){
+  const d=document.getElementById('hmDetail');
+  const t=today(), ds=hmHov||hmSel;
+  if(!ds){d.textContent='칸을 탭하거나 펜슬을 올리면 그날 내역이 보여요';return;}
+  const info=dayInfo(ds);
+  if(ds>t){
+    const by={}; lectures.filter(l=>l.due===ds).forEach(l=>{const k=stageName(Math.min(l.done,5));by[k]=(by[k]||0)+1;});
+    const parts=Object.entries(by).map(([k,v])=>`${k} ${v}`).join(' · ');
+    d.textContent=`${md(ds)} — 예정 ${info.due}개${parts?` (${parts})`:''}`;
+  }else if(ds===t){
+    d.textContent=`오늘 — 남은 복습 ${info.due} · 완료 ${info.p+info.w} (통과 ${info.p}·약함 ${info.w}) · 신규 ${info.nw}`;
+  }else{
+    d.textContent=`${md(ds)} — 신규 ${info.nw} · 통과 ${info.p} · 약함 ${info.w}`;
+  }
+}
+
+/* ---- 페이스 ---- */
+function progressDays(from,to){ // 수요일 제외, 양끝 포함
+  if(!to||to<from)return 0;
+  let c=0,d=from,i=0;
+  while(d<=to&&i<500){ if(parseYMD(d).getDay()!==3)c++; d=addDays(d,1); i++; }
+  return c;
+}
+function renderPace(){
+  const b=document.getElementById('paceBody');
+  if(meta.total==null||!meta.deadline){
+    b.innerHTML=`<div class="pace-empty">🎯 목표 미설정 — 탭해서 총 강의량·목표일 입력<span class="edit-mark">✎</span></div>`;
+    return;
+  }
+  const t=today(), n=lectures.length, remain=Math.max(0,meta.total-n);
+  const days=progressDays(t,meta.deadline);
+  const recent=lectures.filter(l=>{const dd=dayDiff(t,l.studied);return dd>=0&&dd<7;}).length;
+  const rDays=progressDays(addDays(t,-6),t);
+  const rRate=recent/Math.max(1,rDays);
+  if(remain===0){
+    b.innerHTML=`<div class="pace-big ok">완주 🎉<span class="edit-mark">✎</span></div><div class="pace-sub">${n} / ${meta.total}강 등록 완료</div>`;
+    return;
+  }
+  if(days<=0){
+    b.innerHTML=`<div class="pace-big bad">목표일 경과<span class="edit-mark">✎</span></div><div class="pace-sub">잔여 ${remain}강 · 탭해서 목표일 수정</div>`;
+    return;
+  }
+  const need=remain/days, ok=rRate>=need;
+  b.innerHTML=
+    `<div class="pace-big ${ok?'ok':'bad'}"><span>필요 ${need.toFixed(1)}강/일 ${ok?'▲':'▼'}</span><span class="edit-mark">✎</span></div>`+
+    `<div class="pace-sub">잔여 ${remain} / ${meta.total}강 · 진도일 ${days}일 (~${md(meta.deadline)})</div>`+
+    `<div class="pace-sub">최근 7일 신규 ${recent}강 → ${rRate.toFixed(1)}강/일 (${ok?'페이스 유지 중':'페이스 미달'})</div>`;
+}
+
+/* ---- 과목 칩 ---- */
+function renderChips(){
+  const el=document.getElementById('chips');
+  const subs=[...new Set(lectures.map(l=>subjectOf(l.name)))].sort((a,b)=>a.localeCompare(b,'ko'));
+  if(subs.length<2){el.innerHTML='';if(filterSubj!=='전체')filterSubj='전체';return;}
+  if(filterSubj!=='전체'&&!subs.includes(filterSubj))filterSubj='전체';
+  let h=`<div class="chip ${filterSubj==='전체'?'on':''}" onclick="setFilter('전체')">전체</div>`;
+  for(const s of subs)h+=`<div class="chip ${filterSubj===s?'on':''}" onclick="setFilter('${esc(s)}')">${esc(s)}</div>`;
+  el.innerHTML=h;
+}
+
+/* ---- 오늘 목록: 차수별 그룹(D1 맨 위) + 완료 구분 ---- */
+function renderList(){
+  const t=today();
+  const fil=l=>filterSubj==='전체'||subjectOf(l.name)===filterSubj;
+  const pending=lectures.filter(isPending).filter(fil);
+  const doneToday=lectures.filter(isDoneToday).filter(fil).sort((a,b)=>a.name.localeCompare(b.name,'ko'));
   const cl=document.getElementById('checklist');
   if(pending.length===0&&doneToday.length===0){
     cl.innerHTML=`<div class="empty"><div class="big">🎉</div><div class="t">오늘 복습할 강의가 없어요</div></div>`;
-  }else{
-    let h='<div class="card">';
-    for(const l of pending){const due=nextDue(l),late=dayDiff(t,due),lateP=late>0?`<span class="pill pill-late">${late}일 지남</span>`:'';
-      h+=`<div class="item" onclick="complete('${l.id}')"><div class="check">${CHECK}</div><div class="it-body"><div class="it-name">${esc(l.name)}</div><div class="it-meta"><span class="pill pill-stage">${l.done+1}차 복습 (+${INTERVALS[l.done]})</span>${lateP}</div></div></div>`;}
-    for(const l of doneToday){const st=l.done;
-      h+=`<div class="item done"><div class="check" onclick="undo('${l.id}')">${CHECK}</div><div class="it-body"><div class="it-name">${esc(l.name)}</div><div class="it-meta"><span class="pill pill-done">${st>=5?'전체 완료 ✓':st+'차 완료 ✓'}</span></div></div><span class="undo" onclick="undo('${l.id}')">되돌리기</span></div>`;}
-    h+='</div>'; cl.innerHTML=h;
+    return;
   }
-  renderManage();
+  const groups=new Map();
+  for(const l of pending){const k=Math.min(l.done,5);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(l);}
+  let h='<div class="card">';
+  for(const k of [...groups.keys()].sort((a,b)=>a-b)){
+    const arr=groups.get(k).sort((a,b)=>dayDiff(t,b.due)-dayDiff(t,a.due)||a.name.localeCompare(b.name,'ko'));
+    h+=`<div class="grp-head">${stageName(k)}<span>${arr.length}개</span></div>`;
+    for(const l of arr){
+      const late=dayDiff(t,l.due);
+      const lateP=late>0?`<span class="pill pill-late">${late}일 지남</span>`:'';
+      const weakP=l.weak>0?`<span class="pill pill-weak">약함 ${l.weak}</span>`:'';
+      const jd=judgingId===l.id;
+      h+=`<div class="item ${jd?'judging':''}" onclick="judge('${l.id}')">
+        <div class="check">${CHECK}</div>
+        <div class="it-body"><div class="it-name">${esc(l.name)}</div>
+        <div class="it-meta"><span class="pill pill-stage">${stageName(l.done)} 복습</span>${weakP}${lateP}</div></div></div>`;
+      if(jd)h+=`<div class="judge">
+        <button class="jw" onclick="event.stopPropagation();weakAct('${l.id}')">△ 약함</button>
+        <button class="jp" onclick="event.stopPropagation();pass('${l.id}')">✓ 통과</button></div>`;
+    }
+  }
+  if(doneToday.length){
+    h+=`<div class="grp-head grp-done">오늘 완료<span>${doneToday.length}개</span></div>`;
+    for(const l of doneToday){
+      const wk=l.lastResult==='weak';
+      const pill=wk?`<span class="pill pill-weak">${stageName(l.done)} 약함 · 내일 재시도</span>`
+                 :`<span class="pill pill-done">${stageName(Math.max(0,l.done-1))} 통과 ✓</span>`;
+      h+=`<div class="item done ${wk?'weakr':''}">
+        <div class="check" onclick="undo('${l.id}')">${CHECK}</div>
+        <div class="it-body"><div class="it-name">${esc(l.name)}</div><div class="it-meta">${pill}</div></div>
+        <span class="undo" onclick="undo('${l.id}')">되돌리기</span></div>`;
+    }
+  }
+  h+='</div>'; cl.innerHTML=h;
 }
+
+/* ---- 통계 (hist 파생) ---- */
+function renderStats(){
+  const p=document.getElementById('statsPanel');
+  if(lectures.length===0){p.innerHTML='<div class="m-empty">아직 데이터가 없어요.</div>';return;}
+  const ev=[];
+  for(const l of lectures){const s=subjectOf(l.name);for(const h of (l.hist||[]))ev.push({d:h[0],st:Math.min(h[1],5),r:h[2],s});}
+  const ws=weekStartMon(today());
+  const newWeek=lectures.filter(l=>l.studied>=ws).length;
+  const evW=ev.filter(e=>e.d>=ws), pW=evW.filter(e=>e.r==='p').length, wW=evW.length-pW;
+  const maint=lectures.filter(l=>l.done>=5).length;
+  const totWeak=lectures.reduce((a,l)=>a+(l.weak||0),0);
+  let h='<div class="card">';
+  h+=`<div class="st-line">등록 / 유지 단계<span class="v">${lectures.length}강 / ${maint}강</span></div>`;
+  h+=`<div class="st-line">이번 주 (월~)<span class="v">신규 ${newWeek} · 판정 ${evW.length} (통과 ${pW}·약함 ${wW})</span></div>`;
+  h+=`<div class="st-line">누적 약함<span class="v">${totWeak}회</span></div>`;
+  if(ev.length<10){
+    h+=`<div class="st-line" style="color:#9CA3AF">판정 기록이 쌓이면 약함률이 표시돼요<span class="v">${ev.length}/10</span></div>`;
+  }else{
+    h+=`<div class="st-head">단계별 약함률</div>`;
+    for(let st=0;st<=5;st++){
+      const a=ev.filter(e=>e.st===st); if(!a.length)continue;
+      const w=a.filter(e=>e.r==='w').length;
+      h+=`<div class="st-line">${stageName(st)}<span class="v">${a.length}회 · 약함 ${Math.round(w/a.length*100)}%</span></div>`;
+    }
+    h+=`<div class="st-head">과목별 약함률</div>`;
+    const by={};
+    for(const e of ev){(by[e.s]=by[e.s]||{n:0,w:0});by[e.s].n++;if(e.r==='w')by[e.s].w++;}
+    const rows=Object.entries(by).map(([s,v])=>({s,n:v.n,rate:v.w/v.n})).sort((a,b)=>b.rate-a.rate||b.n-a.n);
+    for(const r of rows)h+=`<div class="st-line">${esc(r.s)}<span class="v">${r.n}회 · 약함 ${Math.round(r.rate*100)}%</span></div>`;
+  }
+  h+='</div>'; p.innerHTML=h;
+}
+
 function renderManage(){
   const p=document.getElementById('managePanel');
   if(lectures.length===0){p.innerHTML='<div class="m-empty">아직 추가한 강의가 없어요.</div>';return;}
   const s=[...lectures].sort((a,b)=>b.studied.localeCompare(a.studied));let h='';
-  for(const l of s){const nd=nextDue(l),status=l.done>=5?'완료':`다음: ${nd}`;
-    h+=`<div class="m-item"><div class="m-body"><div class="m-name">${esc(l.name)}</div><div class="m-sub">들은날 ${l.studied} · ${status}</div></div><span class="m-prog">${l.done}/5</span><button class="m-del" onclick="del('${l.id}')">×</button></div>`;}
+  for(const l of s){
+    const prog=l.done<5?`${l.done}/5`:'유지';
+    const wk=l.weak>0?` · 약함 ${l.weak}`:'';
+    h+=`<div class="m-item"><div class="m-body">
+      <div class="m-name" onclick="rename('${l.id}')">${esc(l.name)} <span style="color:#C7D2FE;font-size:11px">✎</span></div>
+      <div class="m-sub">들은날 ${l.studied} · 다음 ${md(l.due)}${wk}</div></div>
+      <span class="m-prog">${prog}</span>
+      <button class="m-del" onclick="del('${l.id}')">×</button></div>`;
+  }
   p.innerHTML=h;
 }
+
 let toastT;
 function toast(m){const el=document.getElementById('toast');el.textContent=m;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('show'),1600);}
 
 // ---------- backup ----------
-function exportData(){const blob=new Blob([JSON.stringify(lectures,null,2)],{type:'application/json'});const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download='복습_백업.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);toast('백업 파일 받음');}
-function importData(file){const fr=new FileReader();fr.onload=async()=>{try{const arr=JSON.parse(fr.result);if(Array.isArray(arr)){lectures=arr;render();toast('불러왔어요');await save();}else toast('형식 오류');}catch(e){toast('불러오기 실패');}};fr.readAsText(file);}
+function exportData(){
+  const blob=new Blob([JSON.stringify({meta,items:lectures},null,2)],{type:'application/json'});
+  const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download='복습_백업.json';a.click();
+  setTimeout(()=>URL.revokeObjectURL(u),1000);toast('백업 파일 받음');
+}
+function importData(file){
+  const fr=new FileReader();
+  fr.onload=async()=>{
+    try{
+      const obj=JSON.parse(fr.result);
+      let gotMeta=false;
+      if(Array.isArray(obj)){lectures=obj;}
+      else if(obj&&Array.isArray(obj.items)){lectures=obj.items;if(obj.meta){meta={total:obj.meta.total??null,deadline:obj.meta.deadline??null};gotMeta=true;}}
+      else{toast('형식 오류');return;}
+      migrate(); render(); toast('불러왔어요');
+      await save(); if(gotMeta)await saveMeta();
+    }catch(e){toast('불러오기 실패');}
+  };
+  fr.readAsText(file);
+}
 
 // ---------- setup ----------
 function showSetup(){
@@ -308,8 +722,10 @@ async function connect(){
   const prev=cfg; cfg={owner:o,repo:rp,token:tk};
   try{
     await ghRepoCheck();
-    lectures=await ghGet(); cacheLocal(); saveCfg();
+    lectures=await ghGet(); meta=await ghGetMeta();
+    const ch=migrate(); cacheLocal(); saveCfg();
     hideSetup(); setSync('saved'); render(); toast('연결됐어요');
+    if(ch) await save();
   }catch(e){
     cfg=prev;
     setupErr(e&&e.code==='auth'?'토큰이 거부됐어요. 권한(Contents: Read and write)과 레포 선택을 확인하세요.'
@@ -320,6 +736,7 @@ async function connect(){
 // ---------- wire ----------
 document.getElementById('add').addEventListener('click',addLecture);
 document.getElementById('name').addEventListener('keydown',e=>{if(e.key==='Enter')addLecture();});
+document.getElementById('sToggle').addEventListener('click',()=>document.getElementById('statsPanel').classList.toggle('open'));
 document.getElementById('mToggle').addEventListener('click',()=>document.getElementById('managePanel').classList.toggle('open'));
 document.getElementById('exportBtn').addEventListener('click',exportData);
 document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());
@@ -328,13 +745,16 @@ document.getElementById('gear').addEventListener('click',showSetup);
 document.getElementById('connect').addEventListener('click',connect);
 document.getElementById('showTok').addEventListener('change',e=>{document.getElementById('cfgToken').type=e.target.checked?'text':'password';});
 document.getElementById('syncBadge').addEventListener('click',()=>{const s=document.getElementById('syncBadge').dataset.state;if(s==='auth')showSetup();else refresh();});
+document.getElementById('paceCard').addEventListener('click',togglePaceEdit);
+document.getElementById('metaSave').addEventListener('click',e=>{e.stopPropagation();metaSaveAct();});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&document.getElementById('syncBadge').dataset.state==='saved')refresh();});
 
 (async function init(){
   document.getElementById('studied').value=today();
   loadCfg();
   try{const v=localStorage.getItem(CACHE_KEY);if(v)lectures=JSON.parse(v)||[];}catch(e){}
-  render();
+  try{const m=localStorage.getItem(META_CACHE);if(m)meta=JSON.parse(m)||meta;}catch(e){}
+  migrate(); render();
   if(!cfg||!cfg.token){ setSync('auth'); showSetup(); return; }
   await refresh();
 })();
