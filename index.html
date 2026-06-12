@@ -43,19 +43,25 @@
     .col-side{display:block;min-width:0;position:sticky;top:10px;max-height:calc(100dvh - 20px);overflow-y:auto;padding-bottom:24px;}
   }
 
-  /* ---- heatmap ---- */
+  /* ---- heatmap: 과거 = 무채색(수행량) · 미래 = 인디고(예정량) ---- */
   .hm-card{background:var(--card);border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);padding:12px 12px 10px;}
   .hm-strip{display:flex;gap:2px;}
-  .hm{flex:1;height:26px;border-radius:4px;cursor:pointer;position:relative;background:#EEF0F4;
-    display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:800;color:rgba(17,24,39,.55);}
-  .hm.f1{background:#C7D2FE;}.hm.f2{background:#A5B4FC;}.hm.f3{background:#818CF8;}.hm.f4{background:#4F46E5;}
-  .hm.p1{background:#A7F3D0;}.hm.p2{background:#6EE7B7;}.hm.p3{background:#34D399;}.hm.p4{background:#059669;}
-  .hm.f3,.hm.f4,.hm.p3,.hm.p4{color:rgba(255,255,255,.92);}
-  .hm:hover{box-shadow:inset 0 0 0 2px rgba(79,70,229,.55);}
-  .hm.today{box-shadow:inset 0 0 0 2px var(--ink);}
+  .hm{flex:1;height:26px;border-radius:4px;cursor:pointer;position:relative;background:#EEF0F3;
+    display:flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:800;color:rgba(17,24,39,.6);}
+  .hm.f1{background:rgba(79,70,229,.14);}
+  .hm.f2{background:rgba(79,70,229,.30);}
+  .hm.f3{background:rgba(79,70,229,.52);}
+  .hm.f4{background:rgba(79,70,229,.80);}
+  .hm.p1{background:rgba(17,24,39,.07);}
+  .hm.p2{background:rgba(17,24,39,.15);}
+  .hm.p3{background:rgba(17,24,39,.27);}
+  .hm.p4{background:rgba(17,24,39,.42);}
+  .hm.f3,.hm.f4{color:rgba(255,255,255,.92);}
+  .hm:hover{box-shadow:inset 0 0 0 2px rgba(79,70,229,.45);}
+  .hm.today{box-shadow:inset 0 0 0 2px rgba(17,24,39,.75);}
   .hm.sel{box-shadow:inset 0 0 0 2px var(--indigo-d);}
-  .hm.today.sel{box-shadow:inset 0 0 0 2px var(--ink),0 0 0 2px var(--indigo);}
-  .hm.wed::after{content:'';position:absolute;left:50%;bottom:3px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:rgba(17,24,39,.35);}
+  .hm.today.sel{box-shadow:inset 0 0 0 2px rgba(17,24,39,.75),0 0 0 2px var(--indigo);}
+  .hm.wed::after{content:'';position:absolute;left:50%;bottom:3px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:rgba(17,24,39,.3);}
   .hm-axis{display:flex;justify-content:space-between;margin-top:6px;font-size:10.5px;color:#9CA3AF;font-weight:600;padding:0 1px;}
   .hm-detail{font-size:12.5px;color:var(--mute);font-weight:600;margin-top:8px;min-height:17px;}
 
@@ -83,6 +89,7 @@
   /* ---- list ---- */
   .grp-head{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 3px;font-size:12px;font-weight:800;color:var(--indigo-d);letter-spacing:.3px;}
   .grp-head span{color:#9CA3AF;font-weight:700;}
+  .grp-head b{font-weight:700;color:#8B93C8;margin-left:4px;}
   .grp-head.grp-done{color:#9CA3AF;border-top:1px solid var(--line);margin-top:2px;}
   .item{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .12s;}
   .item:last-child{border-bottom:none;}
@@ -95,6 +102,7 @@
   .item.done .check svg{opacity:1;transform:scale(1);}
   .it-body{flex:1;min-width:0;}
   .it-name{font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .it-topic{color:var(--mute);font-weight:500;font-size:14px;}
   .item.done .it-name{color:#9CA3AF;text-decoration:line-through;}
   .it-meta{display:flex;gap:6px;align-items:center;margin-top:3px;flex-wrap:wrap;}
   .pill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;}
@@ -113,11 +121,13 @@
   .empty .big{font-size:34px;margin-bottom:8px;}
   .empty .t{font-size:15px;font-weight:600;color:#374151;}
 
-  /* ---- add ---- */
+  /* ---- add + picker ---- */
   .inp-card{background:var(--card);border-radius:16px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
   .inp-row{display:flex;gap:8px;}
   #name{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:11px;padding:13px 14px;font-size:16px;outline:none;font-family:inherit;color:var(--ink);}
   #name:focus{border-color:var(--indigo);}
+  #topic{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 14px;font-size:15px;outline:none;font-family:inherit;color:var(--ink);margin-top:8px;}
+  #topic:focus{border-color:var(--indigo);}
   #add{flex:0 0 auto;border:none;background:var(--indigo);color:#fff;font-weight:800;font-size:16px;padding:0 20px;border-radius:11px;cursor:pointer;}
   #add:active{background:var(--indigo-d);}
   .date-row{display:flex;align-items:center;gap:8px;margin-top:10px;padding:0 2px;}
@@ -125,6 +135,24 @@
   #studied{border:1.5px solid var(--line);border-radius:9px;padding:7px 10px;font-size:14px;font-family:inherit;color:var(--ink);outline:none;background:#fff;}
   #studied:focus{border-color:var(--indigo);}
   .date-hint{font-size:11.5px;color:#9CA3AF;margin:8px 2px 0;}
+  .pk-toggle{text-align:center;margin-top:12px;}
+  .pk-toggle button{background:none;border:none;color:var(--mute);font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px;font-family:inherit;}
+  #pickerPanel{display:none;margin-top:8px;}
+  #pickerPanel.open{display:block;}
+  .pk-item{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);background:#fff;}
+  .pk-item:last-child{border-bottom:none;}
+  .pk-item.full{opacity:.45;}
+  .pk-body{flex:1;min-width:0;cursor:pointer;}
+  .pk-item.full .pk-body{cursor:default;}
+  .pk-name{font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .pk-name .it-topic{font-size:12.5px;}
+  .pk-sub{font-size:11px;color:var(--mute);margin-top:1px;}
+  .pk-done{color:var(--green);font-weight:800;font-size:13px;flex:0 0 auto;}
+  .pk-exp{flex:0 0 auto;border:none;background:#F3F4F6;color:var(--mute);border-radius:8px;padding:4px 10px;font-size:12px;cursor:pointer;font-family:inherit;}
+  .pk-lec{display:flex;align-items:center;gap:6px;padding:8px 14px 8px 26px;border-bottom:1px solid var(--line);background:#FBFBFD;font-size:12.5px;font-weight:600;cursor:pointer;}
+  .pk-lec.full{opacity:.45;cursor:default;}
+  .pk-lec .lt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .pk-lec .pk-min{margin-left:auto;color:#9CA3AF;font-size:11px;flex:0 0 auto;}
 
   /* ---- toggles / panels ---- */
   .toggles{display:flex;justify-content:center;gap:14px;margin:26px 16px 0;}
@@ -142,6 +170,7 @@
   .m-body{flex:1;min-width:0;}
   .m-name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;}
   .m-sub{font-size:11.5px;color:var(--mute);margin-top:2px;}
+  .m-sub .tpc{cursor:pointer;color:#8B93C8;font-weight:700;}
   .m-prog{font-size:11px;font-weight:700;color:var(--indigo-d);background:#EEF2FF;padding:3px 8px;border-radius:999px;flex:0 0 auto;}
   .m-del{flex:0 0 auto;border:none;background:none;color:#CBD5E1;font-size:20px;cursor:pointer;padding:2px 6px;}
   .m-del:active{color:var(--red);}
@@ -186,7 +215,7 @@
   <div class="cols">
     <div class="col-main">
       <section id="secList">
-        <div class="sec-label">✅ 복습할 강의</div>
+        <div class="sec-label">복습할 강의</div>
         <div class="chips" id="chips"></div>
         <div id="checklist"></div>
       </section>
@@ -194,34 +223,39 @@
 
     <div class="col-side">
       <section id="secPace">
-        <div class="sec-label">🎯 페이스</div>
+        <div class="sec-label">페이스</div>
         <div class="pace-card" id="paceCard">
           <div id="paceBody"></div>
           <div class="pace-edit" id="paceEdit" onclick="event.stopPropagation()">
             <div class="pe-row"><label>총 강의량</label><input id="metaTotal" type="number" inputmode="numeric" placeholder="예: 180 (유동 수정 가능)"></div>
             <div class="pe-row"><label>목표일</label><input id="metaDeadline" type="date"></div>
+            <div class="date-hint" id="catHint"></div>
             <button id="metaSave">저장</button>
           </div>
         </div>
       </section>
 
       <section id="secAdd">
-        <div class="sec-label">✏️ 오늘 들은 강의 추가</div>
+        <div class="sec-label">오늘 들은 강의 추가</div>
         <div class="inp-card">
           <div class="inp-row">
-            <input id="name" type="text" placeholder="강의명 (예: 수학 12강)" autocomplete="off">
+            <input id="name" type="text" list="catNames" placeholder="강의명 (예: 수학 12-1)" autocomplete="off">
             <button id="add">추가</button>
           </div>
+          <datalist id="catNames"></datalist>
+          <input id="topic" type="text" placeholder="내용 키워드 (선택 — 목록 추가 시 자동)" autocomplete="off">
           <div class="date-row">
             <label for="studied">들은 날짜</label>
             <input id="studied" type="date">
           </div>
           <div class="date-hint">오늘 들었으면 그대로 추가. 며칠 전 거면 날짜만 바꾸면 돼요.</div>
+          <div class="pk-toggle"><button id="pkToggleBtn">목록에서 추가 ▾</button></div>
         </div>
+        <div id="pickerPanel"></div>
       </section>
 
       <section id="secHeat">
-        <div class="sec-label">🗓 부하 — 지난 14일 · 오늘 · 다음 14일</div>
+        <div class="sec-label">부하 — 지난 14일 · 오늘 · 다음 14일</div>
         <div class="hm-card">
           <div class="hm-strip" id="hmStrip" onmouseleave="hmHover(null)"></div>
           <div class="hm-axis"><span>-14일</span><span>오늘</span><span>+14일</span></div>
@@ -230,15 +264,15 @@
       </section>
 
       <div class="toggles">
-        <button id="sToggle">📈 통계</button>
-        <button id="mToggle">⚙︎ 전체 강의 관리</button>
+        <button id="sToggle">통계</button>
+        <button id="mToggle">전체 강의 관리</button>
       </div>
       <div id="statsPanel"></div>
       <div id="managePanel"></div>
 
       <div class="backup">
-        <button id="exportBtn">⬇︎ 백업 내보내기</button><span class="dot">·</span>
-        <button id="importBtn">⬆︎ 불러오기</button>
+        <button id="exportBtn">백업 내보내기</button><span class="dot">·</span>
+        <button id="importBtn">불러오기</button>
         <input id="importFile" type="file" accept="application/json,.json" hidden>
       </div>
     </div>
@@ -264,17 +298,20 @@
 <script>
 /* 간격: GAP[done] = done 단계에 "도달한 뒤" 다음 복습까지의 일수.
    0→1일(D1), 1→2일(D3상당), 2→4일(D7상당), 3→7일(D14상당), 4→14일(D28상당), 5+→35일(유지 무한 반복).
-   due는 항목에 직접 저장(롤링 앵커: 항상 '실제 마지막 인출일' 기준). 수요일 휴식: due가 수요일이면 목요일로. */
+   due는 항목에 직접 저장(롤링 앵커). 수요일 휴식: due가 수요일이면 목요일로. */
 const GAP=[1,2,4,7,14,35];
+const METHOD=['백지인출','가지 인출','문항 풀이','키워드 스냅','최종 인출','제목 스냅']; // 차수별 복습 방법 (운영 카드 v3)
 const OLD_INTERVALS=[1,3,7,14,28]; // 구버전 마이그레이션용
 const HM_PAST=14, HM_FUT=14;
-const PATH='data.json', META_PATH='meta.json';
+const PATH='data.json', META_PATH='meta.json', CAT_PATH='catalog.json';
 const CFG_KEY='review_cfg_v1';
 const CACHE_KEY='review_cache_v1';
 const META_CACHE='review_meta_v1';
+const CAT_CACHE='review_cat_v1';
 let cfg=null, sha=null, metaSha=null;
-let lectures=[], meta={total:null,deadline:null};
+let lectures=[], meta={total:null,deadline:null}, CAT=null;
 let judgingId=null, hmSel=null, hmHov=null, filterSubj='전체';
+let pkCourse=null, pkSubj='전체', pkExp=null;
 
 // ---------- date ----------
 const pad=n=>String(n).padStart(2,'0');
@@ -293,13 +330,15 @@ function stageName(done){return done<5?`${done+1}차`:'유지';}
 function subjectOf(name){return (String(name).trim().split(/\s+/)[0]||'기타');}
 function isPending(l){const t=today();return l.due<=t&&l.lastDone!==t;}
 function isDoneToday(l){return l.lastDone===today();}
+function stripLec(t){return String(t).replace(/^\[[^\]]+\]\s*/,'').replace(/^\S*강\s*/,'');}
 
-function migrate(){ // 구버전 항목에 due/weak/hist/lastResult 부여 (1회, 멱등)
+function migrate(){ // 구버전 항목에 due/weak/hist/lastResult/topic 부여 (1회, 멱등)
   let changed=false;
   for(const l of lectures){
     if(l.weak===undefined){l.weak=0;changed=true;}
     if(!Array.isArray(l.hist)){l.hist=[];changed=true;}
     if(l.lastResult===undefined){l.lastResult=l.lastDone?'pass':null;changed=true;}
+    if(l.topic===undefined){l.topic='';changed=true;}
     if(l.due===undefined){
       if(l.done>=5){l.due=schedule(l.lastDone||l.studied,35);} // 완료분 → 유지 로테이션 편입
       else{let d=addDays(l.studied,OLD_INTERVALS[l.done]);if(parseYMD(d).getDay()===3)d=addDays(d,1);l.due=d;}
@@ -379,6 +418,14 @@ async function ghPutMeta(){
   if(!r.ok)throw{code:'http',status:r.status};
   const j=await r.json(); metaSha=j.content.sha;
 }
+async function ghGetCatalog(){ // 읽기 전용, 없어도 동작
+  try{
+    const r=await fetch(ghUrl(CAT_PATH),{headers:ghHeaders(),cache:'no-store'});
+    if(!r.ok)return null;
+    const j=await r.json();
+    return JSON.parse(b64ToUtf8((j.content||'').replace(/\s/g,'')));
+  }catch(e){return null;}
+}
 
 // ---------- sync ----------
 function setSync(state){
@@ -386,7 +433,11 @@ function setSync(state){
   const map={loading:'⟳ 동기화 중…',saving:'⟳ 저장 중…',saved:'✓ 동기화됨',error:'⚠ 동기화 실패 (탭하여 재시도)',auth:'⚙ 토큰 확인'};
   el.textContent=map[state]||state; el.dataset.state=state;
 }
-function cacheLocal(){try{localStorage.setItem(CACHE_KEY,JSON.stringify(lectures));localStorage.setItem(META_CACHE,JSON.stringify(meta));}catch(e){}}
+function cacheLocal(){try{
+  localStorage.setItem(CACHE_KEY,JSON.stringify(lectures));
+  localStorage.setItem(META_CACHE,JSON.stringify(meta));
+  if(CAT)localStorage.setItem(CAT_CACHE,JSON.stringify(CAT));
+}catch(e){}}
 
 async function save(){
   cacheLocal();
@@ -408,6 +459,7 @@ async function refresh(){
   try{
     lectures=await ghGet();
     meta=await ghGetMeta();
+    const c=await ghGetCatalog(); if(c)CAT=c;
     const ch=migrate(); cacheLocal(); setSync('saved'); render();
     if(ch) await save(); // 마이그레이션 결과 1회 영속화
   }
@@ -415,13 +467,24 @@ async function refresh(){
 }
 
 // ---------- actions ----------
-async function addLecture(){
-  const nameEl=document.getElementById('name'),dateEl=document.getElementById('studied');
-  const name=nameEl.value.trim(),studied=dateEl.value||today();
-  if(!name){nameEl.focus();return;}
-  lectures.push({id:Date.now()+''+Math.floor(Math.random()*999),name,studied,
+async function addItem(name,topic,studied){
+  lectures.push({id:Date.now()+''+Math.floor(Math.random()*999),name,topic:topic||'',studied,
     done:0,due:schedule(studied,GAP[0]),lastDone:null,lastResult:null,weak:0,hist:[]});
-  nameEl.value='';dateEl.value=today(); judgingId=null; render(); toast('추가됐어요'); await save(); nameEl.focus();
+  judgingId=null; render(); toast(`추가: ${name}`); await save();
+}
+async function addLecture(){
+  const nameEl=document.getElementById('name'),topicEl=document.getElementById('topic'),dateEl=document.getElementById('studied');
+  const name=nameEl.value.trim();let topic=topicEl.value.trim();const studied=dateEl.value||today();
+  if(!name){nameEl.focus();return;}
+  if(!topic&&CAT){ // 카탈로그에서 키워드 자동 채움
+    const ch=CAT.chunks.find(c=>c.n===name);
+    if(ch)topic=ch.t;
+    else{const m=name.match(/^(.+)-(\d+)$/);
+      if(m){const base=CAT.chunks.find(c=>c.n===m[1]);
+        if(base&&base.l[m[2]-1])topic=stripLec(base.l[m[2]-1][0]);}}
+  }
+  nameEl.value='';topicEl.value='';dateEl.value=today();
+  await addItem(name,topic,studied); nameEl.focus();
 }
 async function pass(id){
   const l=lectures.find(x=>x.id===id); if(!l||!isPending(l))return;
@@ -459,6 +522,11 @@ async function rename(id){
   const nv=v.trim(); if(!nv||nv===l.name)return;
   l.name=nv; render(); toast('변경됨'); await save();
 }
+async function editTopic(id){
+  const l=lectures.find(x=>x.id===id); if(!l)return;
+  const v=prompt('내용 키워드 (비우면 삭제)',l.topic||''); if(v==null)return;
+  l.topic=v.trim(); render(); toast('키워드 저장됨'); await save();
+}
 function setFilter(s){filterSubj=s;judgingId=null;render();}
 function hmPick(ds){hmSel=(hmSel===ds?null:ds);render();}
 function hmHover(ds){if(hmHov===ds)return;hmHov=ds;renderHmDetail();} // 펜슬 호버: 고정(탭) 없이 미리보기
@@ -479,6 +547,83 @@ async function metaSaveAct(){
   render(); toast('목표 저장됨'); await saveMeta();
 }
 
+// ---------- catalog picker ----------
+function catState(ch){
+  const names=new Set(lectures.map(x=>x.name));
+  if(names.has(ch.n))return 'full';
+  let part=0;
+  for(let i=0;i<ch.l.length;i++) if(names.has(`${ch.n}-${i+1}`))part++;
+  if(ch.l.length&&part>=ch.l.length)return 'full';
+  return part>0?'part':'none';
+}
+function pkSetCourse(c){pkCourse=c;pkSubj='전체';pkExp=null;renderPicker();}
+function pkSetSubj(s){pkSubj=s;pkExp=null;renderPicker();}
+function pkToggle(i){pkExp=(pkExp===i?null:i);renderPicker();}
+async function addCat(i){
+  const ch=CAT.chunks[i]; if(!ch||catState(ch)==='full')return;
+  const studied=document.getElementById('studied').value||today();
+  await addItem(ch.n,ch.t,studied);
+}
+async function addCatLec(i,li){
+  const ch=CAT.chunks[i]; if(!ch)return;
+  const nm=`${ch.n}-${li+1}`;
+  if(lectures.some(x=>x.name===nm))return;
+  const studied=document.getElementById('studied').value||today();
+  await addItem(nm,stripLec(ch.l[li][0]),studied);
+}
+function renderPicker(){
+  const p=document.getElementById('pickerPanel');
+  const dl=document.getElementById('catNames');
+  if(!CAT||!Array.isArray(CAT.chunks)){
+    p.innerHTML='<div class="m-empty">catalog.json이 레포에 없어요. 추가하면 목록에서 탭 한 번으로 등록할 수 있어요.</div>';
+    if(dl)dl.innerHTML=''; return;
+  }
+  if(dl)dl.innerHTML=CAT.chunks.map(c=>`<option value="${esc(c.n)}">`).join('');
+  const cids=Object.keys(CAT.courses||{});
+  if(!pkCourse||!cids.includes(pkCourse))pkCourse=cids[0];
+  let h='<div class="chips" style="padding-bottom:8px">';
+  for(const cid of cids){
+    const cs=CAT.chunks.filter(c=>c.c===cid);
+    const done=cs.filter(c=>catState(c)==='full').length;
+    const label=String(CAT.courses[cid]).split(' ')[0];
+    h+=`<div class="chip ${pkCourse===cid?'on':''}" onclick="pkSetCourse('${cid}')">${esc(label)} ${done}/${cs.length}</div>`;
+  }
+  h+='</div>';
+  const cs=CAT.chunks.map((c,i)=>({...c,i})).filter(c=>c.c===pkCourse);
+  const subs=[...new Set(cs.map(c=>c.s))];
+  if(subs.length>1){
+    h+='<div class="chips" style="padding-bottom:8px">';
+    h+=`<div class="chip ${pkSubj==='전체'?'on':''}" onclick="pkSetSubj('전체')">전체</div>`;
+    for(const s of subs)h+=`<div class="chip ${pkSubj===s?'on':''}" onclick="pkSetSubj('${esc(s)}')">${esc(s)}</div>`;
+    h+='</div>';
+  }
+  const list=cs.filter(c=>pkSubj==='전체'||c.s===pkSubj);
+  h+='<div class="card">';
+  const names=new Set(lectures.map(x=>x.name));
+  for(const c of list){
+    const st=catState(c);
+    const mins=c.l.reduce((a,x)=>a+x[1],0);
+    const exp=pkExp===c.i;
+    h+=`<div class="pk-item ${st==='full'?'full':''}">
+      <div class="pk-body" ${st==='full'?'':`onclick="addCat(${c.i})"`}>
+        <div class="pk-name">${esc(c.n)} <span class="it-topic">${esc(c.t)}</span></div>
+        <div class="pk-sub">${c.l.length}강 · ${mins}분${st==='part'?' · 분할 등록 중':''}</div>
+      </div>
+      ${st==='full'?'<span class="pk-done">✓</span>':(c.l.length>1?`<button class="pk-exp" onclick="pkToggle(${c.i})">${exp?'▴':'▾ 분할'}</button>`:'')}
+    </div>`;
+    if(exp){
+      c.l.forEach((lec,li)=>{
+        const nm=`${c.n}-${li+1}`, got=names.has(nm);
+        h+=`<div class="pk-lec ${got?'full':''}" ${got?'':`onclick="addCatLec(${c.i},${li})"`}>
+          <span class="lt">${got?'✓ ':''}${esc(nm)} <span class="it-topic">${esc(lec[0])}</span></span>
+          <span class="pk-min">${lec[1]}분</span></div>`;
+      });
+    }
+  }
+  h+='</div>';
+  p.innerHTML=h;
+}
+
 // ---------- render ----------
 const CHECK='<svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
@@ -488,14 +633,14 @@ function render(){
   document.getElementById('hdDate').textContent=`${now.getMonth()+1}월 ${now.getDate()}일 (${WD[now.getDay()]})`;
   const P=lectures.filter(isPending).length, D=lectures.filter(isDoneToday).length, T=P+D;
   document.getElementById('hdBadge').textContent=
-    T===0?'오늘 복습 없음':(P===0?`🎉 ${D}/${T} 완료`:`📋 ${D}/${T} 완료`);
+    T===0?'오늘 복습 없음':(P===0?`🎉 ${D}/${T} 완료`:`${D}/${T} 완료`);
   const prog=document.getElementById('hdProg');
   if(T>0){prog.hidden=false;document.getElementById('hdProgI').style.width=`${Math.round(D/T*100)}%`;}
   else prog.hidden=true;
-  renderHeatmap(); renderPace(); renderChips(); renderList(); renderStats(); renderManage();
+  renderHeatmap(); renderPace(); renderChips(); renderList(); renderStats(); renderManage(); renderPicker();
 }
 
-/* ---- 부하 히트맵: 과거=수행량(초록), 미래=예정량(인디고), 오늘=남은+수행 ---- */
+/* ---- 부하 히트맵: 과거=무채색(수행량), 미래=인디고(예정량), 오늘=남은+수행 ---- */
 function dayInfo(ds){
   const t=today();
   let nw=0,p=0,w=0,due=0;
@@ -547,8 +692,10 @@ function progressDays(from,to){ // 수요일 제외, 양끝 포함
 }
 function renderPace(){
   const b=document.getElementById('paceBody');
+  const hint=document.getElementById('catHint');
+  if(hint)hint.textContent=CAT?`카탈로그 기준 현재 ${CAT.chunks.length}청크 업로드됨 (본강의 ${CAT.chunks.filter(c=>c.c!=='sci').length} · 보충 ${CAT.chunks.filter(c=>c.c==='sci').length})`:'';
   if(meta.total==null||!meta.deadline){
-    b.innerHTML=`<div class="pace-empty">🎯 목표 미설정 — 탭해서 총 강의량·목표일 입력<span class="edit-mark">✎</span></div>`;
+    b.innerHTML=`<div class="pace-empty">목표 미설정 — 탭해서 총 강의량·목표일 입력<span class="edit-mark">✎</span></div>`;
     return;
   }
   const t=today(), n=lectures.length, remain=Math.max(0,meta.total-n);
@@ -582,7 +729,7 @@ function renderChips(){
   el.innerHTML=h;
 }
 
-/* ---- 오늘 목록: 차수별 그룹(D1 맨 위) + 완료 구분 ---- */
+/* ---- 오늘 목록: 차수별 그룹(헤더에 복습 방법) + 완료 구분 ---- */
 function renderList(){
   const t=today();
   const fil=l=>filterSubj==='전체'||subjectOf(l.name)===filterSubj;
@@ -598,15 +745,16 @@ function renderList(){
   let h='<div class="card">';
   for(const k of [...groups.keys()].sort((a,b)=>a-b)){
     const arr=groups.get(k).sort((a,b)=>dayDiff(t,b.due)-dayDiff(t,a.due)||a.name.localeCompare(b.name,'ko'));
-    h+=`<div class="grp-head">${stageName(k)}<span>${arr.length}개</span></div>`;
+    h+=`<div class="grp-head">${stageName(k)}<b>· ${METHOD[k]}</b><span style="margin-left:auto">${arr.length}개</span></div>`;
     for(const l of arr){
       const late=dayDiff(t,l.due);
       const lateP=late>0?`<span class="pill pill-late">${late}일 지남</span>`:'';
       const weakP=l.weak>0?`<span class="pill pill-weak">약함 ${l.weak}</span>`:'';
+      const topic=l.topic?` <span class="it-topic">${esc(l.topic)}</span>`:'';
       const jd=judgingId===l.id;
       h+=`<div class="item ${jd?'judging':''}" onclick="judge('${l.id}')">
         <div class="check">${CHECK}</div>
-        <div class="it-body"><div class="it-name">${esc(l.name)}</div>
+        <div class="it-body"><div class="it-name">${esc(l.name)}${topic}</div>
         <div class="it-meta"><span class="pill pill-stage">${stageName(l.done)} 복습</span>${weakP}${lateP}</div></div></div>`;
       if(jd)h+=`<div class="judge">
         <button class="jw" onclick="event.stopPropagation();weakAct('${l.id}')">△ 약함</button>
@@ -617,11 +765,12 @@ function renderList(){
     h+=`<div class="grp-head grp-done">오늘 완료<span>${doneToday.length}개</span></div>`;
     for(const l of doneToday){
       const wk=l.lastResult==='weak';
+      const topic=l.topic?` <span class="it-topic">${esc(l.topic)}</span>`:'';
       const pill=wk?`<span class="pill pill-weak">${stageName(l.done)} 약함 · 내일 재시도</span>`
                  :`<span class="pill pill-done">${stageName(Math.max(0,l.done-1))} 통과 ✓</span>`;
       h+=`<div class="item done ${wk?'weakr':''}">
         <div class="check" onclick="undo('${l.id}')">${CHECK}</div>
-        <div class="it-body"><div class="it-name">${esc(l.name)}</div><div class="it-meta">${pill}</div></div>
+        <div class="it-body"><div class="it-name">${esc(l.name)}${topic}</div><div class="it-meta">${pill}</div></div>
         <span class="undo" onclick="undo('${l.id}')">되돌리기</span></div>`;
     }
   }
@@ -650,7 +799,7 @@ function renderStats(){
     for(let st=0;st<=5;st++){
       const a=ev.filter(e=>e.st===st); if(!a.length)continue;
       const w=a.filter(e=>e.r==='w').length;
-      h+=`<div class="st-line">${stageName(st)}<span class="v">${a.length}회 · 약함 ${Math.round(w/a.length*100)}%</span></div>`;
+      h+=`<div class="st-line">${stageName(st)} · ${METHOD[st]}<span class="v">${a.length}회 · 약함 ${Math.round(w/a.length*100)}%</span></div>`;
     }
     h+=`<div class="st-head">과목별 약함률</div>`;
     const by={};
@@ -668,9 +817,10 @@ function renderManage(){
   for(const l of s){
     const prog=l.done<5?`${l.done}/5`:'유지';
     const wk=l.weak>0?` · 약함 ${l.weak}`:'';
+    const tpc=l.topic?esc(l.topic):'키워드 추가';
     h+=`<div class="m-item"><div class="m-body">
       <div class="m-name" onclick="rename('${l.id}')">${esc(l.name)} <span style="color:#C7D2FE;font-size:11px">✎</span></div>
-      <div class="m-sub">들은날 ${l.studied} · 다음 ${md(l.due)}${wk}</div></div>
+      <div class="m-sub"><span class="tpc" onclick="editTopic('${l.id}')">${tpc} ✎</span> · 들은날 ${l.studied} · 다음 ${md(l.due)}${wk}</div></div>
       <span class="m-prog">${prog}</span>
       <button class="m-del" onclick="del('${l.id}')">×</button></div>`;
   }
@@ -723,6 +873,7 @@ async function connect(){
   try{
     await ghRepoCheck();
     lectures=await ghGet(); meta=await ghGetMeta();
+    const c=await ghGetCatalog(); if(c)CAT=c;
     const ch=migrate(); cacheLocal(); saveCfg();
     hideSetup(); setSync('saved'); render(); toast('연결됐어요');
     if(ch) await save();
@@ -736,8 +887,13 @@ async function connect(){
 // ---------- wire ----------
 document.getElementById('add').addEventListener('click',addLecture);
 document.getElementById('name').addEventListener('keydown',e=>{if(e.key==='Enter')addLecture();});
+document.getElementById('topic').addEventListener('keydown',e=>{if(e.key==='Enter')addLecture();});
 document.getElementById('sToggle').addEventListener('click',()=>document.getElementById('statsPanel').classList.toggle('open'));
 document.getElementById('mToggle').addEventListener('click',()=>document.getElementById('managePanel').classList.toggle('open'));
+document.getElementById('pkToggleBtn').addEventListener('click',()=>{
+  const p=document.getElementById('pickerPanel');p.classList.toggle('open');
+  document.getElementById('pkToggleBtn').textContent=p.classList.contains('open')?'목록 닫기 ▴':'목록에서 추가 ▾';
+});
 document.getElementById('exportBtn').addEventListener('click',exportData);
 document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());
 document.getElementById('importFile').addEventListener('change',e=>{if(e.target.files[0])importData(e.target.files[0]);e.target.value='';});
@@ -754,6 +910,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&document.
   loadCfg();
   try{const v=localStorage.getItem(CACHE_KEY);if(v)lectures=JSON.parse(v)||[];}catch(e){}
   try{const m=localStorage.getItem(META_CACHE);if(m)meta=JSON.parse(m)||meta;}catch(e){}
+  try{const c=localStorage.getItem(CAT_CACHE);if(c)CAT=JSON.parse(c);}catch(e){}
   migrate(); render();
   if(!cfg||!cfg.token){ setSync('auth'); showSetup(); return; }
   await refresh();
