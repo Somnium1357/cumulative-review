@@ -153,6 +153,12 @@
   .pk-lec.full{opacity:.45;cursor:default;}
   .pk-lec .lt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .pk-lec .pk-min{margin-left:auto;color:#9CA3AF;font-size:11px;flex:0 0 auto;}
+  .pk-subj{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line);background:#fff;cursor:pointer;font-size:13.5px;font-weight:800;}
+  .pk-subj:last-child{border-bottom:none;}
+  .pk-subj:active{background:#F9FAFB;}
+  .pk-subj.open{color:var(--indigo-d);background:#FAFAFF;}
+  .pk-subj .ps-cnt{margin-left:auto;color:#9CA3AF;font-weight:700;font-size:12px;}
+  .pk-subj .ps-arrow{color:#C7D2FE;font-size:12px;flex:0 0 auto;}
 
   /* ---- toggles / panels ---- */
   .toggles{display:flex;justify-content:center;gap:14px;margin:26px 16px 0;}
@@ -311,7 +317,7 @@ const CAT_CACHE='review_cat_v1';
 let cfg=null, sha=null, metaSha=null;
 let lectures=[], meta={total:null,deadline:null}, CAT=null;
 let judgingId=null, hmSel=null, hmHov=null, filterSubj='전체';
-let pkCourse=null, pkSubj='전체', pkExp=null;
+let pkCourse=null, pkOpenSubj=null, pkExp=null;
 
 // ---------- date ----------
 const pad=n=>String(n).padStart(2,'0');
@@ -556,8 +562,8 @@ function catState(ch){
   if(ch.l.length&&part>=ch.l.length)return 'full';
   return part>0?'part':'none';
 }
-function pkSetCourse(c){pkCourse=c;pkSubj='전체';pkExp=null;renderPicker();}
-function pkSetSubj(s){pkSubj=s;pkExp=null;renderPicker();}
+function pkSetCourse(c){pkCourse=c;pkOpenSubj=null;pkExp=null;renderPicker();}
+function pkOpenS(s){pkOpenSubj=(pkOpenSubj===s?null:s);pkExp=null;renderPicker();}
 function pkToggle(i){pkExp=(pkExp===i?null:i);renderPicker();}
 async function addCat(i){
   const ch=CAT.chunks[i]; if(!ch||catState(ch)==='full')return;
@@ -591,20 +597,12 @@ function renderPicker(){
   h+='</div>';
   const cs=CAT.chunks.map((c,i)=>({...c,i})).filter(c=>c.c===pkCourse);
   const subs=[...new Set(cs.map(c=>c.s))];
-  if(subs.length>1){
-    h+='<div class="chips" style="padding-bottom:8px">';
-    h+=`<div class="chip ${pkSubj==='전체'?'on':''}" onclick="pkSetSubj('전체')">전체</div>`;
-    for(const s of subs)h+=`<div class="chip ${pkSubj===s?'on':''}" onclick="pkSetSubj('${esc(s)}')">${esc(s)}</div>`;
-    h+='</div>';
-  }
-  const list=cs.filter(c=>pkSubj==='전체'||c.s===pkSubj);
-  h+='<div class="card">';
   const names=new Set(lectures.map(x=>x.name));
-  for(const c of list){
+  const row=c=>{ // 청크 1행 (+분할 펼침)
     const st=catState(c);
     const mins=c.l.reduce((a,x)=>a+x[1],0);
     const exp=pkExp===c.i;
-    h+=`<div class="pk-item ${st==='full'?'full':''}">
+    let r=`<div class="pk-item ${st==='full'?'full':''}">
       <div class="pk-body" ${st==='full'?'':`onclick="addCat(${c.i})"`}>
         <div class="pk-name">${esc(c.n)} <span class="it-topic">${esc(c.t)}</span></div>
         <div class="pk-sub">${c.l.length}강 · ${mins}분${st==='part'?' · 분할 등록 중':''}</div>
@@ -614,10 +612,24 @@ function renderPicker(){
     if(exp){
       c.l.forEach((lec,li)=>{
         const nm=`${c.n}-${li+1}`, got=names.has(nm);
-        h+=`<div class="pk-lec ${got?'full':''}" ${got?'':`onclick="addCatLec(${c.i},${li})"`}>
+        r+=`<div class="pk-lec ${got?'full':''}" ${got?'':`onclick="addCatLec(${c.i},${li})"`}>
           <span class="lt">${got?'✓ ':''}${esc(nm)} <span class="it-topic">${esc(lec[0])}</span></span>
           <span class="pk-min">${lec[1]}분</span></div>`;
       });
+    }
+    return r;
+  };
+  h+='<div class="card">';
+  if(subs.length<2){ // 과목이 하나인 코스(과학 보충)는 바로 리스트
+    for(const c of cs)h+=row(c);
+  }else{ // 과목 아코디언: 헤더 탭 → 그 과목만 펼침
+    for(const s of subs){
+      const arr=cs.filter(c=>c.s===s);
+      const done=arr.filter(c=>catState(c)==='full').length;
+      const open=pkOpenSubj===s;
+      h+=`<div class="pk-subj ${open?'open':''}" onclick="pkOpenS('${esc(s)}')">
+        <span>${esc(s)}</span><span class="ps-cnt">${done}/${arr.length}</span><span class="ps-arrow">${open?'▴':'▾'}</span></div>`;
+      if(open)for(const c of arr)h+=row(c);
     }
   }
   h+='</div>';
