@@ -38,9 +38,12 @@
   .toggles{order:5;}#statsPanel{order:6;}#managePanel{order:7;}.backup{order:8;}
   @media(min-width:860px){
     .wrap{max-width:1060px;}
-    .cols{display:grid;grid-template-columns:minmax(0,1fr) 384px;gap:0;align-items:start;}
-    .col-main{display:block;min-width:0;}
-    .col-side{display:block;min-width:0;position:sticky;top:10px;max-height:calc(100dvh - 20px);overflow-y:auto;padding-bottom:24px;}
+    .cols{display:grid;grid-template-columns:minmax(0,1fr) 384px;gap:0;align-items:start;
+      grid-template-areas:"heat pace" "main side";}
+    #secHeat{grid-area:heat;}
+    #secPace{grid-area:pace;}
+    .col-main{display:block;min-width:0;grid-area:main;}
+    .col-side{display:block;min-width:0;grid-area:side;position:sticky;top:10px;max-height:calc(100dvh - 20px);overflow-y:auto;padding-bottom:24px;}
   }
 
   /* ---- heatmap: 과거 = 무채색(수행량) · 미래 = 인디고(예정량) ---- */
@@ -103,6 +106,8 @@
   .it-body{flex:1;min-width:0;}
   .it-name{font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .it-topic{color:var(--mute);font-weight:500;font-size:14px;}
+  .it-lecs{font-size:12px;color:#9CA3AF;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .item.judging .it-lecs{white-space:normal;}
   .item.done .it-name{color:#9CA3AF;text-decoration:line-through;}
   .it-meta{display:flex;gap:6px;align-items:center;margin-top:3px;flex-wrap:wrap;}
   .pill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;}
@@ -137,8 +142,12 @@
   .date-hint{font-size:11.5px;color:#9CA3AF;margin:8px 2px 0;}
   .pk-toggle{text-align:center;margin-top:12px;}
   .pk-toggle button{background:none;border:none;color:var(--mute);font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px;font-family:inherit;}
-  #pickerPanel{display:none;margin-top:8px;}
-  #pickerPanel.open{display:block;}
+  #pickerPanel{display:block;}
+  #manualPanel{display:none;margin-top:8px;}
+  #manualPanel.open{display:block;}
+  .date-card{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:14px;padding:10px 14px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:10px;}
+  .date-card label{font-size:13px;color:var(--mute);font-weight:600;flex:0 0 auto;}
+  .dc-note{font-size:11px;color:#9CA3AF;margin-left:auto;text-align:right;}
   .pk-item{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);background:#fff;}
   .pk-item:last-child{border-bottom:none;}
   .pk-item.full{opacity:.45;}
@@ -228,6 +237,15 @@
     </div>
 
     <div class="col-side">
+      <section id="secHeat">
+        <div class="sec-label">부하 — 지난 14일 · 오늘 · 다음 14일</div>
+        <div class="hm-card">
+          <div class="hm-strip" id="hmStrip" onmouseleave="hmHover(null)"></div>
+          <div class="hm-axis"><span>-14일</span><span>오늘</span><span>+14일</span></div>
+          <div class="hm-detail" id="hmDetail">칸을 탭하거나 펜슬을 올리면 그날 내역이 보여요</div>
+        </div>
+      </section>
+
       <section id="secPace">
         <div class="sec-label">페이스</div>
         <div class="pace-card" id="paceCard">
@@ -242,30 +260,25 @@
       </section>
 
       <section id="secAdd">
-        <div class="sec-label">오늘 들은 강의 추가</div>
-        <div class="inp-card">
-          <div class="inp-row">
-            <input id="name" type="text" list="catNames" placeholder="강의명 (예: 수학 12-1)" autocomplete="off">
-            <button id="add">추가</button>
-          </div>
-          <datalist id="catNames"></datalist>
-          <input id="topic" type="text" placeholder="내용 키워드 (선택 — 목록 추가 시 자동)" autocomplete="off">
-          <div class="date-row">
+        <div class="sec-label">강의 추가</div>
+        <div class="inp-card" style="padding:10px 14px;">
+          <div class="date-row" style="margin-top:0;justify-content:space-between;">
             <label for="studied">들은 날짜</label>
             <input id="studied" type="date">
           </div>
-          <div class="date-hint">오늘 들었으면 그대로 추가. 며칠 전 거면 날짜만 바꾸면 돼요.</div>
-          <div class="pk-toggle"><button id="pkToggleBtn">목록에서 추가 ▾</button></div>
         </div>
         <div id="pickerPanel"></div>
-      </section>
-
-      <section id="secHeat">
-        <div class="sec-label">부하 — 지난 14일 · 오늘 · 다음 14일</div>
-        <div class="hm-card">
-          <div class="hm-strip" id="hmStrip" onmouseleave="hmHover(null)"></div>
-          <div class="hm-axis"><span>-14일</span><span>오늘</span><span>+14일</span></div>
-          <div class="hm-detail" id="hmDetail">칸을 탭하거나 펜슬을 올리면 그날 내역이 보여요</div>
+        <div class="pk-toggle"><button id="manToggleBtn">직접 입력 ▾</button></div>
+        <div id="manualPanel">
+          <div class="inp-card">
+            <div class="inp-row">
+              <input id="name" type="text" list="catNames" placeholder="강의명 (예: 수학 12-1)" autocomplete="off">
+              <button id="add">추가</button>
+            </div>
+            <datalist id="catNames"></datalist>
+            <input id="topic" type="text" placeholder="내용 키워드 (선택 — 카탈로그 매칭 시 자동)" autocomplete="off">
+            <div class="date-hint">목록에 없는 강의용. 날짜는 위 '들은 날짜'를 따라가요.</div>
+          </div>
         </div>
       </section>
 
@@ -337,6 +350,14 @@ function subjectOf(name){return (String(name).trim().split(/\s+/)[0]||'기타');
 function isPending(l){const t=today();return l.due<=t&&l.lastDone!==t;}
 function isDoneToday(l){return l.lastDone===today();}
 function stripLec(t){return String(t).replace(/^\[[^\]]+\]\s*/,'').replace(/^\S*강\s*/,'');}
+function catLecsOf(name){ // 카탈로그에서 강의 소제목 찾기 (정확명 → 전체, 분할명 → 해당 강의)
+  if(!CAT||!Array.isArray(CAT.chunks))return '';
+  const ch=CAT.chunks.find(c=>c.n===name);
+  if(ch)return ch.l.map(x=>x[0]).join(' · ');
+  const m=String(name).match(/^(.+)-(\d+)$/);
+  if(m){const b=CAT.chunks.find(c=>c.n===m[1]); if(b&&b.l[m[2]-1])return b.l[m[2]-1][0];}
+  return '';
+}
 
 function migrate(){ // 구버전 항목에 due/weak/hist/lastResult/topic 부여 (1회, 멱등)
   let changed=false;
@@ -763,10 +784,12 @@ function renderList(){
       const lateP=late>0?`<span class="pill pill-late">${late}일 지남</span>`:'';
       const weakP=l.weak>0?`<span class="pill pill-weak">약함 ${l.weak}</span>`:'';
       const topic=l.topic?` <span class="it-topic">${esc(l.topic)}</span>`:'';
+      const lecsStr=catLecsOf(l.name);
+      const lecsH=lecsStr?`<div class="it-lecs">${esc(lecsStr)}</div>`:'';
       const jd=judgingId===l.id;
       h+=`<div class="item ${jd?'judging':''}" onclick="judge('${l.id}')">
         <div class="check">${CHECK}</div>
-        <div class="it-body"><div class="it-name">${esc(l.name)}${topic}</div>
+        <div class="it-body"><div class="it-name">${esc(l.name)}${topic}</div>${lecsH}
         <div class="it-meta"><span class="pill pill-stage">${stageName(l.done)} 복습</span>${weakP}${lateP}</div></div></div>`;
       if(jd)h+=`<div class="judge">
         <button class="jw" onclick="event.stopPropagation();weakAct('${l.id}')">△ 약함</button>
@@ -902,9 +925,10 @@ document.getElementById('name').addEventListener('keydown',e=>{if(e.key==='Enter
 document.getElementById('topic').addEventListener('keydown',e=>{if(e.key==='Enter')addLecture();});
 document.getElementById('sToggle').addEventListener('click',()=>document.getElementById('statsPanel').classList.toggle('open'));
 document.getElementById('mToggle').addEventListener('click',()=>document.getElementById('managePanel').classList.toggle('open'));
-document.getElementById('pkToggleBtn').addEventListener('click',()=>{
-  const p=document.getElementById('pickerPanel');p.classList.toggle('open');
-  document.getElementById('pkToggleBtn').textContent=p.classList.contains('open')?'목록 닫기 ▴':'목록에서 추가 ▾';
+document.getElementById('manToggleBtn').addEventListener('click',()=>{
+  const p=document.getElementById('manualPanel');p.classList.toggle('open');
+  document.getElementById('manToggleBtn').textContent=p.classList.contains('open')?'직접 입력 닫기 ▴':'직접 입력 ▾';
+  if(p.classList.contains('open'))document.getElementById('name').focus();
 });
 document.getElementById('exportBtn').addEventListener('click',exportData);
 document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());
