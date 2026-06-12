@@ -93,11 +93,17 @@
     "name": "음악 1-1",
     "studied": "2026-06-11",
     "done": 0,
-    "lastDone": null,
-    "weak": 0,
-    "hist": [],
-    "lastResult": null,
-    "due": "2026-06-12"
+    "lastDone": "2026-06-12",
+    "weak": 1,
+    "hist": [
+      [
+        "2026-06-12",
+        0,
+        "w"
+      ]
+    ],
+    "lastResult": "weak",
+    "due": "2026-06-13"
   },
   {
     "id": "1781178339146487",
