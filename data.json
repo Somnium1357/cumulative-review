@@ -154,12 +154,18 @@
     "name": "사회 2-2",
     "topic": "교수학습모형②③",
     "studied": "2026-06-12",
-    "done": 0,
-    "due": "2026-06-13",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-15",
+    "lastDone": "2026-06-13",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": []
+    "hist": [
+      [
+        "2026-06-13",
+        0,
+        "p"
+      ]
+    ]
   },
   {
     "id": "1781274191087930",
