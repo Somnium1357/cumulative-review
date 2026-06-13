@@ -142,12 +142,18 @@
     "name": "음악 2-1",
     "topic": "전통음악(장단~토리)",
     "studied": "2026-06-12",
-    "done": 0,
-    "due": "2026-06-13",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-15",
+    "lastDone": "2026-06-13",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": []
+    "hist": [
+      [
+        "2026-06-13",
+        0,
+        "p"
+      ]
+    ]
   },
   {
     "id": "1781265814013580",
