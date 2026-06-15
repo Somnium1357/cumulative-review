@@ -217,12 +217,18 @@
     "name": "음악 3-1",
     "topic": "전통음악(토리)·서양음악 기초",
     "studied": "2026-06-14",
-    "done": 0,
-    "due": "2026-06-15",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-18",
+    "lastDone": "2026-06-15",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": []
+    "hist": [
+      [
+        "2026-06-15",
+        0,
+        "p"
+      ]
+    ]
   },
   {
     "id": "1781443616699353",
