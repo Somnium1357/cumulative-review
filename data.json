@@ -229,11 +229,17 @@
     "name": "사회 3-3",
     "topic": "교수학습모형④⑤",
     "studied": "2026-06-14",
-    "done": 0,
-    "due": "2026-06-15",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-18",
+    "lastDone": "2026-06-15",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": []
+    "hist": [
+      [
+        "2026-06-15",
+        0,
+        "p"
+      ]
+    ]
   }
 ]
