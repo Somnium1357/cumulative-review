@@ -274,11 +274,17 @@
     "name": "체육 4-2",
     "topic": "OT·과제 단계화·학습단서",
     "studied": "2026-06-15",
-    "done": 0,
-    "due": "2026-06-16",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-18",
+    "lastDone": "2026-06-16",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": []
+    "hist": [
+      [
+        "2026-06-16",
+        0,
+        "p"
+      ]
+    ]
   }
 ]
