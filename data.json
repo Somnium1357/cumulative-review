@@ -256,12 +256,18 @@
     "name": "음악 3-2",
     "topic": "서양음악(형식·박자·화음)",
     "studied": "2026-06-15",
-    "done": 0,
-    "due": "2026-06-16",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-18",
+    "lastDone": "2026-06-16",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": []
+    "hist": [
+      [
+        "2026-06-16",
+        0,
+        "p"
+      ]
+    ]
   },
   {
     "id": "178152691085338",
