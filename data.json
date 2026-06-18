@@ -297,12 +297,18 @@
     "name": "사회 4-3",
     "topic": "교수학습모형⑥⑦",
     "studied": "2026-06-16",
-    "done": 0,
-    "due": "2026-06-18",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-20",
+    "lastDone": "2026-06-18",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": []
+    "hist": [
+      [
+        "2026-06-18",
+        0,
+        "p"
+      ]
+    ]
   },
   {
     "id": "1781616671327769",
