@@ -15,18 +15,12 @@
     "id": "1780647022097198",
     "name": "영어 1-2",
     "studied": "2026-06-04",
-    "done": 4,
-    "lastDone": "2026-06-18",
+    "done": 3,
+    "lastDone": null,
     "weak": 0,
-    "hist": [
-      [
-        "2026-06-18",
-        3,
-        "p"
-      ]
-    ],
-    "lastResult": "pass",
-    "due": "2026-07-02",
+    "hist": [],
+    "lastResult": null,
+    "due": "2026-06-18",
     "topic": ""
   },
   {
@@ -315,18 +309,12 @@
     "name": "음악 4-1",
     "topic": "서양음악(3화음)·연주법①",
     "studied": "2026-06-16",
-    "done": 1,
-    "due": "2026-06-20",
-    "lastDone": "2026-06-18",
-    "lastResult": "pass",
+    "done": 0,
+    "due": "2026-06-18",
+    "lastDone": null,
+    "lastResult": null,
     "weak": 0,
-    "hist": [
-      [
-        "2026-06-18",
-        0,
-        "p"
-      ]
-    ]
+    "hist": []
   },
   {
     "id": "1781616687177948",
