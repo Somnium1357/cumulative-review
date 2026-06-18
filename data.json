@@ -15,12 +15,18 @@
     "id": "1780647022097198",
     "name": "영어 1-2",
     "studied": "2026-06-04",
-    "done": 3,
-    "lastDone": null,
+    "done": 4,
+    "lastDone": "2026-06-18",
     "weak": 0,
-    "hist": [],
-    "lastResult": null,
-    "due": "2026-06-18",
+    "hist": [
+      [
+        "2026-06-18",
+        3,
+        "p"
+      ]
+    ],
+    "lastResult": "pass",
+    "due": "2026-07-02",
     "topic": ""
   },
   {
