@@ -956,12 +956,13 @@ function renderList(){
     return;
   }
   const groups=new Map();
-  for(const l of pending){const k=Math.min(l.done,5);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(l);}
+  for(const l of pending){const k=subjectOf(l.name);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(l);}
   let h='<div class="card">';
-  for(const k of [...groups.keys()].sort((a,b)=>a-b)){
-    const arr=groups.get(k).sort((a,b)=>dayDiff(t,b.due)-dayDiff(t,a.due)||a.name.localeCompare(b.name,'ko'));
-    h+=`<div class="grp-head">${stageName(k)}<b>· ${METHOD[k]} · ${arr.length}개</b></div>`;
+  for(const k of [...groups.keys()].sort((a,b)=>a.localeCompare(b,'ko'))){
+    const arr=groups.get(k).sort((a,b)=>Math.min(a.done,5)-Math.min(b.done,5)||dayDiff(t,b.due)-dayDiff(t,a.due)||a.name.localeCompare(b.name,'ko'));
+    h+=`<div class="grp-head">${esc(k)}<b>· ${arr.length}개</b></div>`;
     for(const l of arr){
+      const st=Math.min(l.done,5);
       const late=dayDiff(t,l.due);
       const lateP=late>0?`<span class="pill pill-late">${late}일 지남</span>`:'';
       const weakP=l.weak>0?`<span class="pill pill-weak">약함 ${l.weak}</span>`:'';
@@ -972,7 +973,7 @@ function renderList(){
       h+=`<div class="item ${jd?'judging':''}" onclick="judge('${l.id}')">
         <div class="check">${CHECK}</div>
         <div class="it-body"><div class="it-name">${esc(l.name)}${topic}</div>${lecsH}</div>
-        <div class="it-right"><span class="pill pill-stage">${stageName(l.done)}</span>${weakP}${lateP}</div></div>`;
+        <div class="it-right"><span class="pill pill-stage">${stageName(l.done)} · ${METHOD[st]}</span>${weakP}${lateP}</div></div>`;
       if(jd)h+=`<div class="judge">
         <button class="jw" onclick="event.stopPropagation();weakAct('${l.id}')">${ICO_RETRY}약함</button>
         <button class="jp" onclick="event.stopPropagation();pass('${l.id}')">${ICO_CHECK}통과</button></div>`;
