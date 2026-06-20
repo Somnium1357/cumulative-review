@@ -446,12 +446,18 @@
     "name": "음악 5-1",
     "topic": "연주법②·감상곡(대취타~평시조)",
     "studied": "2026-06-19",
-    "done": 0,
-    "due": "2026-06-20",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-22",
+    "lastDone": "2026-06-20",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": []
+    "hist": [
+      [
+        "2026-06-20",
+        0,
+        "p"
+      ]
+    ]
   },
   {
     "id": "1781862596924252",
