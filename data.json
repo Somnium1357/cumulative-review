@@ -530,5 +530,18 @@
     "weak": 0,
     "hist": [],
     "updatedAt": "2026-06-20T12:20:33.743Z"
+  },
+  {
+    "id": "1781961448017112",
+    "name": "사회 6-3",
+    "topic": "시민성·고급 사고력",
+    "studied": "2026-06-20",
+    "done": 0,
+    "due": "2026-06-21",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "updatedAt": "2026-06-20T13:17:28.017Z"
   }
 ]
