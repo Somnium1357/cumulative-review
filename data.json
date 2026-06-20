@@ -517,5 +517,18 @@
     "weak": 0,
     "hist": [],
     "updatedAt": "2026-06-20T10:25:51.621Z"
+  },
+  {
+    "id": "1781958033743174",
+    "name": "과학 6-2",
+    "topic": "물질(1~2)",
+    "studied": "2026-06-20",
+    "done": 0,
+    "due": "2026-06-21",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "updatedAt": "2026-06-20T12:20:33.743Z"
   }
 ]
