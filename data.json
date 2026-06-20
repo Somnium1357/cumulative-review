@@ -442,12 +442,18 @@
     "name": "사회 5-3",
     "topic": "사회과 수업 기법",
     "studied": "2026-06-19",
-    "done": 0,
-    "due": "2026-06-20",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-22",
+    "lastDone": "2026-06-20",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": []
+    "hist": [
+      [
+        "2026-06-20",
+        0,
+        "p"
+      ]
+    ]
   },
   {
     "id": "1781875476815682",
