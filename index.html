@@ -370,6 +370,7 @@ const CFG_KEY='review_cfg_v1';
 const CACHE_KEY='review_cache_v1';
 const META_CACHE='review_meta_v1';
 const CAT_CACHE='review_cat_v1';
+const DIRTY_KEY='review_dirty_v1'; // 미동기화 로컬 편집 표시 (앱 재시작 후에도 손실 방지)
 /* ── 빌트인 연결 (반복 입력 방지) ──────────────────────────────
    owner·repo는 노출돼도 무해하니 박아둠. 토큰만 BUILTIN.token 한 줄.
    ⚠ 레포가 public이면 배포(GitHub 업로드) 전에 token을 ''로 비우세요.
@@ -399,6 +400,7 @@ function stageName(done){return done<5?`${done+1}차`:'유지';}
 function subjectOf(name){return (String(name).trim().split(/\s+/)[0]||'기타');}
 function isPending(l){const t=today();return l.due<=t&&l.lastDone!==t;}
 function isDoneToday(l){return l.lastDone===today();}
+function touch(l){l.updatedAt=new Date().toISOString();return l;} // 충돌 병합 기준(최근 수정본 우선)
 function stripLec(t){return String(t).replace(/^\[[^\]]+\]\s*/,'').replace(/^\S*강\s*/,'');}
 function catLecsOf(name){ // 카탈로그에서 강의 소제목 찾기 (정확명 → 전체, 분할명 → 해당 강의)
   if(!CAT||!Array.isArray(CAT.chunks))return '';
@@ -465,11 +467,13 @@ async function ghGet(){
   const txt=b64ToUtf8((j.content||'').replace(/\s/g,''));
   return txt.trim()?JSON.parse(txt):[];
 }
-function mergeById(remote,local){ // 409 충돌 시: id 합집합, hist 긴 쪽(=더 진행된 쪽) 우선
+function mergeById(remote,local){ // 충돌/새로고침 병합: id 합집합, updatedAt 최근본 우선(레거시는 hist 긴 쪽)
   const m=new Map(); remote.forEach(x=>m.set(x.id,x));
   local.forEach(x=>{const o=m.get(x.id);
     if(!o){m.set(x.id,x);return;}
-    m.set(x.id, ((o.hist||[]).length>(x.hist||[]).length)?o:x);
+    const ao=o.updatedAt||'', ax=x.updatedAt||'';
+    if(ao!==ax){m.set(x.id, ax>ao?x:o);return;}
+    m.set(x.id, ((x.hist||[]).length>(o.hist||[]).length)?x:o); // 둘 다 레거시(타임스탬프 없음)
   });
   return [...m.values()];
 }
@@ -536,11 +540,31 @@ function cacheLocal(){try{
   if(CAT)localStorage.setItem(CAT_CACHE,JSON.stringify(CAT));
 }catch(e){}}
 
-async function save(){
+// 저장: 로컬은 즉시(cacheLocal), 원격(GitHub)은 디바운스해 잦은 탭의 PUT 폭주/커밋 난립 방지.
+// dirty 플래그를 localStorage에도 남겨 재시작 후 refresh가 덮어쓰지 않고 병합하도록 함.
+let dirty=false, saveTimer=null, saving=false, saveAgain=false;
+function setDirty(v){dirty=v;try{v?localStorage.setItem(DIRTY_KEY,'1'):localStorage.removeItem(DIRTY_KEY);}catch(e){}}
+async function _doSave(){
+  if(!cfg||!cfg.token){setDirty(false);return;}
+  saving=true; saveAgain=false;
+  try{ await ghPut(); if(saveAgain){setSync('saving');} else {setDirty(false);setSync('saved');} }
+  catch(e){ setSync(e&&e.code==='auth'?'auth':'error'); } // dirty 유지 → 다음 편집/flush에서 재시도
+  finally{ saving=false; if(saveAgain){saveAgain=false;clearTimeout(saveTimer);saveTimer=setTimeout(_doSave,300);} }
+}
+function scheduleSave(){ // UI 액션용 (디바운스)
+  cacheLocal(); setDirty(true);
+  if(!cfg||!cfg.token)return;
+  setSync('saving');
+  if(saving){ saveAgain=true; return; }
+  clearTimeout(saveTimer); saveTimer=setTimeout(_doSave,800);
+}
+async function flushSave(){ clearTimeout(saveTimer); if(dirty&&!saving) await _doSave(); }
+async function save(){ // 즉시 저장 (연결/가져오기/마이그레이션 등 await 필요한 경로)
   cacheLocal();
   if(!cfg||!cfg.token){return;}
+  clearTimeout(saveTimer);
   setSync('saving');
-  try{ await ghPut(); setSync('saved'); }
+  try{ await ghPut(); setDirty(false); setSync('saved'); }
   catch(e){ setSync(e&&e.code==='auth'?'auth':'error'); }
 }
 async function saveMeta(){
@@ -554,11 +578,14 @@ async function refresh(){
   if(!cfg||!cfg.token)return;
   setSync('loading');
   try{
-    lectures=await ghGet();
+    const remote=await ghGet();              // 전역 sha도 원격 기준으로 갱신됨
+    const hadLocal=dirty;                     // 미동기화 로컬 편집 존재 여부
+    lectures = hadLocal ? mergeById(remote,lectures) : remote;
     meta=await ghGetMeta();
     const c=await ghGetCatalog(); if(c)CAT=c;
-    const ch=migrate(); cacheLocal(); setSync('saved'); render();
-    if(ch) await save(); // 마이그레이션 결과 1회 영속화
+    const ch=migrate(); cacheLocal(); render();
+    if(ch||hadLocal){ setDirty(false); await save(); } // 병합/마이그레이션 결과 영속화
+    else setSync('saved');
   }
   catch(e){ setSync(e&&e.code==='auth'?'auth':'error'); }
 }
@@ -566,8 +593,8 @@ async function refresh(){
 // ---------- actions ----------
 async function addItem(name,topic,studied){
   lectures.push({id:Date.now()+''+Math.floor(Math.random()*999),name,topic:topic||'',studied,
-    done:0,due:schedule(studied,GAP[0]),lastDone:null,lastResult:null,weak:0,hist:[]});
-  judgingId=null; render(); toast(`추가: ${name}`); await save();
+    done:0,due:schedule(studied,GAP[0]),lastDone:null,lastResult:null,weak:0,hist:[],updatedAt:new Date().toISOString()});
+  judgingId=null; render(); toast(`추가: ${name}`); scheduleSave();
 }
 async function addLecture(){
   const nameEl=document.getElementById('name'),topicEl=document.getElementById('topic'),dateEl=document.getElementById('studied');
@@ -588,14 +615,14 @@ async function pass(id){
   l.hist.push([today(),l.done,'p']);
   l.done++; l.lastDone=today(); l.lastResult='pass';
   l.due=schedule(today(),GAP[Math.min(l.done,5)]);
-  judgingId=null; render(); await save();
+  touch(l); judgingId=null; render(); scheduleSave();
 }
 async function weakAct(id){
   const l=lectures.find(x=>x.id===id); if(!l||!isPending(l))return;
   l.hist.push([today(),l.done,'w']);
   l.weak++; l.lastDone=today(); l.lastResult='weak';   // 단계 동결
   l.due=schedule(today(),1);                            // 내일 재시도
-  judgingId=null; render(); await save();
+  touch(l); judgingId=null; render(); scheduleSave();
 }
 function judge(id){ judgingId=(judgingId===id?null:id); render(); }
 async function undo(id){
@@ -610,19 +637,19 @@ async function undo(id){
   }else{ // 구버전 데이터로 오늘 체크한 항목
     l.done=Math.max(0,l.done-1); l.lastDone=null; l.lastResult=null;
   }
-  l.due=today(); judgingId=null; render(); await save();
+  l.due=today(); touch(l); judgingId=null; render(); scheduleSave();
 }
-async function del(id){const l=lectures.find(x=>x.id===id);if(!l)return;if(!confirm(`"${l.name}" 삭제할까요?`))return;lectures=lectures.filter(x=>x.id!==id);render();toast('삭제됨');await save();}
+async function del(id){const l=lectures.find(x=>x.id===id);if(!l)return;if(!confirm(`"${l.name}" 삭제할까요?`))return;lectures=lectures.filter(x=>x.id!==id);render();toast('삭제됨');await save();} // 즉시 저장(save가 대기 타이머 취소): 디바운스 중 refresh의 합집합 병합으로 되살아나는 것 방지
 async function rename(id){
   const l=lectures.find(x=>x.id===id); if(!l)return;
   const v=prompt('이름 변경',l.name); if(v==null)return;
   const nv=v.trim(); if(!nv||nv===l.name)return;
-  l.name=nv; render(); toast('변경됨'); await save();
+  l.name=nv; touch(l); render(); toast('변경됨'); scheduleSave();
 }
 async function editTopic(id){
   const l=lectures.find(x=>x.id===id); if(!l)return;
   const v=prompt('내용 키워드 (비우면 삭제)',l.topic||''); if(v==null)return;
-  l.topic=v.trim(); render(); toast('키워드 저장됨'); await save();
+  l.topic=v.trim(); touch(l); render(); toast('키워드 저장됨'); scheduleSave();
 }
 function adjId(id){ adjOpen=(adjOpen===id?null:id); renderManage(); }
 async function setDone(id,d){
@@ -630,11 +657,11 @@ async function setDone(id,d){
   l.done=Math.max(0,Math.min(6,d)); // 0~6 (6=유지 도달)
   const anchor=l.lastDone||l.studied;
   l.due=schedule(anchor,GAP[Math.min(l.done,5)]); // 현재 차수 기준 다음 복습일 재계산
-  renderManage(); render(); toast(`${l.name} → ${l.done<5?l.done+'/5':'유지'}`); await save();
+  touch(l); renderManage(); render(); toast(`${l.name} → ${l.done<5?l.done+'/5':'유지'}`); scheduleSave();
 }
 async function setWeak(id,w){
   const l=lectures.find(x=>x.id===id); if(!l)return;
-  l.weak=Math.max(0,w); renderManage(); render(); await save();
+  l.weak=Math.max(0,w); touch(l); renderManage(); render(); scheduleSave();
 }
 function setFilter(s){filterSubj=s;judgingId=null;render();}
 function openPaceEdit(){
@@ -747,7 +774,7 @@ function renderPicker(){
 const CHECK='<svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const ICO_RETRY='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>';
 const ICO_CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>';
-function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
 function render(){
   const now=new Date();
@@ -879,7 +906,7 @@ function renderChips(){
   el.innerHTML=h;
 }
 
-/* ---- 오늘 목록: 차수별 그룹(헤더에 복습 방법) + 완료 구분 ---- */
+/* ---- 오늘 목록: 과목별 그룹(항목 pill에 차수·복습 방법) + 완료 구분 ---- */
 function recomputeFromHist(l){
   let done=0,weak=0;
   for(const h of (l.hist||[])){ h[1]=done; if(h[2]==='p')done++; else weak++; }
@@ -893,8 +920,8 @@ function recomputeFromHist(l){
 async function flipHist(id,idx){
   const l=lectures.find(x=>x.id===id); if(!l||!l.hist||!l.hist[idx])return;
   l.hist[idx][2]=l.hist[idx][2]==='p'?'w':'p';
-  recomputeFromHist(l);
-  render(); toast(`${l.name} → ${l.hist[idx][2]==='p'?'통과':'약함'}로 수정됨`); await save();
+  recomputeFromHist(l); touch(l);
+  render(); toast(`${l.name} → ${l.hist[idx][2]==='p'?'통과':'약함'}로 수정됨`); scheduleSave();
 }
 function renderDayList(ds){
   const cl=document.getElementById('checklist');
@@ -1149,7 +1176,11 @@ document.getElementById('showTok').addEventListener('change',e=>{document.getEle
 document.getElementById('syncBadge').addEventListener('click',()=>{const s=document.getElementById('syncBadge').dataset.state;if(s==='auth')showSetup();else refresh();});
 document.getElementById('paceCard').addEventListener('click',togglePaceEdit);
 document.getElementById('metaSave').addEventListener('click',e=>{e.stopPropagation();metaSaveAct();});
-document.addEventListener('visibilitychange',()=>{if(!document.hidden&&document.getElementById('syncBadge').dataset.state==='saved')refresh();});
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){ flushSave(); return; }                 // 백그라운드 전환 시 미저장분 즉시 flush
+  if(document.getElementById('syncBadge').dataset.state==='saved')refresh();
+});
+window.addEventListener('pagehide',()=>{ flushSave(); });      // 종료/새로고침 직전 flush
 
 (async function init(){
   document.getElementById('studied').value=today();
@@ -1157,6 +1188,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&document.
   try{const v=localStorage.getItem(CACHE_KEY);if(v)lectures=JSON.parse(v)||[];}catch(e){}
   try{const m=localStorage.getItem(META_CACHE);if(m)meta=JSON.parse(m)||meta;}catch(e){}
   try{const c=localStorage.getItem(CAT_CACHE);if(c)CAT=JSON.parse(c);}catch(e){}
+  try{if(localStorage.getItem(DIRTY_KEY))dirty=true;}catch(e){} // 지난 세션 미동기화분 → refresh가 병합
   migrate(); render();
   if(!cfg||!cfg.token){ setSync('auth'); showSetup(); return; }
   saveCfg(); // 빌트인으로 채워진 cfg를 이 기기에 저장 → 이후 BUILTIN 비어도 자동 연결
