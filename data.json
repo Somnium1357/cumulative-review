@@ -476,11 +476,17 @@
     "name": "영어 5-3",
     "topic": "기능별(듣기·읽기)",
     "studied": "2026-06-19",
-    "done": 0,
-    "due": "2026-06-20",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-22",
+    "lastDone": "2026-06-20",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": []
+    "hist": [
+      [
+        "2026-06-20",
+        0,
+        "p"
+      ]
+    ]
   }
 ]
