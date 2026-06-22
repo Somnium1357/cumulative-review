@@ -542,12 +542,18 @@
     "name": "사회 6-3",
     "topic": "시민성·고급 사고력",
     "studied": "2026-06-20",
-    "done": 0,
-    "due": "2026-06-21",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-25",
+    "lastDone": "2026-06-22",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
-    "updatedAt": "2026-06-20T13:17:28.017Z"
+    "hist": [
+      [
+        "2026-06-22",
+        0,
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-06-22T09:07:59.116Z"
   }
 ]
