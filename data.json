@@ -523,13 +523,19 @@
     "name": "과학 6-2",
     "topic": "물질(1~2)",
     "studied": "2026-06-20",
-    "done": 0,
-    "due": "2026-06-21",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-25",
+    "lastDone": "2026-06-22",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
-    "updatedAt": "2026-06-20T12:20:33.743Z"
+    "hist": [
+      [
+        "2026-06-22",
+        0,
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-06-22T09:07:55.881Z"
   },
   {
     "id": "1781961448017112",
