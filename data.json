@@ -634,5 +634,18 @@
     "weak": 0,
     "hist": [],
     "updatedAt": "2026-06-22T13:41:05.521Z"
+  },
+  {
+    "id": "1782135672469203",
+    "name": "체육 6-2",
+    "topic": "평가·수업 관리 전략",
+    "studied": "2026-06-22",
+    "done": 0,
+    "due": "2026-06-23",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "updatedAt": "2026-06-22T13:41:12.469Z"
   }
 ]
