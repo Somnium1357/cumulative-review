@@ -638,13 +638,19 @@
     "name": "수학 6-1",
     "topic": "평면도형(6~8)",
     "studied": "2026-06-22",
-    "done": 0,
-    "due": "2026-06-23",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-26",
+    "lastDone": "2026-06-24",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
-    "updatedAt": "2026-06-22T13:41:05.521Z"
+    "hist": [
+      [
+        "2026-06-24",
+        0,
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-06-24T10:51:48.665Z"
   },
   {
     "id": "1782135672469203",
