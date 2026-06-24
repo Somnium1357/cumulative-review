@@ -657,13 +657,19 @@
     "name": "체육 6-2",
     "topic": "평가·수업 관리 전략",
     "studied": "2026-06-22",
-    "done": 0,
-    "due": "2026-06-23",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-26",
+    "lastDone": "2026-06-24",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
-    "updatedAt": "2026-06-22T13:41:12.469Z"
+    "hist": [
+      [
+        "2026-06-24",
+        0,
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-06-24T13:05:56.046Z"
   },
   {
     "id": "1782306353028337",
