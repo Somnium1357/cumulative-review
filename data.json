@@ -715,12 +715,18 @@
     "name": "영어 6-3",
     "topic": "기능별(말하기·쓰기)",
     "studied": "2026-06-24",
-    "done": 0,
-    "due": "2026-06-25",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-27",
+    "lastDone": "2026-06-25",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
-    "updatedAt": "2026-06-24T13:05:53.028Z"
+    "hist": [
+      [
+        "2026-06-25",
+        0,
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-06-25T11:35:39.982Z"
   }
 ]
