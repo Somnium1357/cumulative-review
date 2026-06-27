@@ -847,5 +847,18 @@
     "weak": 0,
     "hist": [],
     "updatedAt": "2026-06-27T12:31:46.978Z"
+  },
+  {
+    "id": "1782567648936387",
+    "name": "사회 7-3",
+    "topic": "교육의 본질 유형",
+    "studied": "2026-06-27",
+    "done": 0,
+    "due": "2026-06-28",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "updatedAt": "2026-06-27T13:40:48.936Z"
   }
 ]
