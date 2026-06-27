@@ -787,12 +787,18 @@
     "name": "음악 6-1",
     "topic": "감상곡·교과교육론·음악 요소",
     "studied": "2026-06-25",
-    "done": 0,
-    "due": "2026-06-26",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-29",
+    "lastDone": "2026-06-27",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
-    "updatedAt": "2026-06-25T13:40:51.970Z"
+    "hist": [
+      [
+        "2026-06-27",
+        0,
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-06-27T08:19:35.272Z"
   }
 ]
