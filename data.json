@@ -837,13 +837,19 @@
     "name": "수학 7-1",
     "topic": "평면도형(9~10)",
     "studied": "2026-06-27",
-    "done": 0,
-    "due": "2026-06-28",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-30",
+    "lastDone": "2026-06-28",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
-    "updatedAt": "2026-06-27T12:31:40.597Z"
+    "hist": [
+      [
+        "2026-06-28",
+        0,
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-06-28T07:18:51.644Z"
   },
   {
     "id": "1782563506978822",
