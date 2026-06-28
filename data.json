@@ -914,5 +914,18 @@
     "weak": 0,
     "hist": [],
     "updatedAt": "2026-06-28T09:06:05.773Z"
+  },
+  {
+    "id": "1782648648906390",
+    "name": "영어 7-3",
+    "topic": "요소별 지도·교사 언어",
+    "studied": "2026-06-28",
+    "done": 0,
+    "due": "2026-06-29",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "updatedAt": "2026-06-28T12:10:48.906Z"
   }
 ]
