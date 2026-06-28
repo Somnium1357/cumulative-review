@@ -840,13 +840,19 @@
     "name": "과학 7-2",
     "topic": "물질(3) 기체",
     "studied": "2026-06-27",
-    "done": 0,
-    "due": "2026-06-28",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-30",
+    "lastDone": "2026-06-28",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
-    "updatedAt": "2026-06-27T12:31:46.978Z"
+    "hist": [
+      [
+        "2026-06-28",
+        0,
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-06-28T06:04:28.793Z"
   },
   {
     "id": "1782567648936387",
