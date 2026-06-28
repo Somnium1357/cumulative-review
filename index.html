@@ -60,7 +60,7 @@
   .cols{display:flex;flex-direction:column;}
   .col-main,.col-side{display:contents;}
   #secHeat{order:1;}#secPace{order:2;}#secList{order:3;}#secAdd{order:4;}
-  .toggles{order:5;}#statsPanel{order:6;}#managePanel{order:7;}
+  .toggles{order:5;}#statsPanel{order:6;}#managePanel{order:7;}#excludedPanel{order:8;}
   @media(min-width:760px){
     .wrap{max-width:1060px;}
     .cols{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:0;align-items:start;}
@@ -121,6 +121,7 @@
   .pill-late{background:var(--red-bg);color:var(--red);}
   .pill-done{background:var(--green-bg);color:var(--green);}
   .pill-weak{background:var(--amber-bg);color:var(--amber);}
+  .pill-memo{background:#FCE7F3;color:#9D174D;}
   .judge{display:flex;gap:8px;padding:4px 16px 14px 54px;border-bottom:1px solid var(--line);}
   .judge button{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:10px;padding:10px 0;
     font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;border:1.5px solid var(--line);background:#fff;transition:background .12s;}
@@ -190,8 +191,8 @@
   /* ---- toggles / panels ---- */
   .toggles{display:flex;justify-content:center;gap:14px;margin:24px 16px 0;border-top:1px solid var(--line);padding-top:8px;}
   .toggles button{background:none;border:none;color:var(--mute);font-size:13px;font-weight:600;cursor:pointer;padding:8px;font-family:inherit;}
-  #statsPanel,#managePanel{margin:10px 16px 0;display:none;}
-  #statsPanel.open,#managePanel.open{display:block;}
+  #statsPanel,#managePanel,#excludedPanel{margin:10px 16px 0;display:none;}
+  #statsPanel.open,#managePanel.open,#excludedPanel.open{display:block;}
   .st-line{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line);background:#fff;font-size:13.5px;font-weight:600;}
   .st-line:first-child{border-radius:14px 14px 0 0;}
   .st-line:last-child{border-radius:0 0 14px 14px;border-bottom:none;}
@@ -215,6 +216,13 @@
   .adj-ctl button:active{background:#EEF2FF;}
   .adj-ctl button:disabled{opacity:.35;cursor:default;}
   .adj-note{font-size:11px;color:#9CA3AF;margin-top:6px;line-height:1.5;}
+  .excl-tag{font-size:10.5px;font-weight:800;color:#9D174D;background:#FCE7F3;padding:2px 7px;border-radius:999px;margin-left:4px;}
+  .excl-btn{border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:7px 12px;font-size:12.5px;font-weight:700;color:#374151;cursor:pointer;font-family:inherit;}
+  .excl-btn:active{background:#F3F4F6;}
+  .excl-btn.on{background:#EEF2FF;border-color:#C7D2FE;color:var(--indigo-d);}
+  .ex-log{flex:0 0 auto;border:1.5px solid #C7D2FE;background:#EEF2FF;color:var(--indigo-d);border-radius:9px;padding:6px 11px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .ex-log:active{background:#E0E7FF;}
+  .ex-log.done{background:var(--green-bg);border-color:#A7F3D0;color:var(--green);}
   .m-del{flex:0 0 auto;border:none;background:none;color:#CBD5E1;font-size:20px;cursor:pointer;padding:2px 6px;}
   .m-del:active{color:var(--red);}
   .m-empty{padding:18px;text-align:center;color:#9CA3AF;font-size:13px;background:#fff;border-radius:14px;}
@@ -327,9 +335,11 @@
       <div class="toggles">
         <button id="sToggle">통계</button>
         <button id="mToggle">전체 강의 관리</button>
+        <button id="exToggle">별도 사이클</button>
       </div>
       <div id="statsPanel"></div>
       <div id="managePanel"></div>
+      <div id="excludedPanel"></div>
 
     </div>
   </div>
@@ -380,7 +390,7 @@ const DIRTY_KEY='review_dirty_v1'; // 미동기화 로컬 편집 표시 (앱 재
 const BUILTIN={ owner:'Somnium1357', repo:'cumulative-review', token:'' };
 let cfg=null, sha=null, metaSha=null;
 let lectures=[], meta={total:null,deadline:null}, CAT=null;
-let judgingId=null, filterSubj='전체', adjOpen=null;
+let judgingId=null, judgingMemo=null, filterSubj='전체', adjOpen=null;
 let pkCourse=null, pkOpenSubj=null, pkExp=null;
 
 // ---------- date ----------
@@ -398,9 +408,12 @@ function weekStartMon(t){const d=parseYMD(t);const wd=(d.getDay()+6)%7;d.setDate
 function schedule(fromYmd,gap){let d=addDays(fromYmd,gap);if(parseYMD(d).getDay()===3)d=addDays(d,1);return d;} // 수요일이면 목요일로
 function stageName(done){return done<5?`${done+1}차`:'유지';}
 function subjectOf(name){return (String(name).trim().split(/\s+/)[0]||'기타');}
-function isPending(l){const t=today();return l.due<=t&&l.lastDone!==t;}
-function isDoneToday(l){return l.lastDone===today();}
+function isPending(l){const t=today();return !l.excl&&l.due<=t&&l.lastDone!==t;}
+function isDoneToday(l){return !l.excl&&l.lastDone===today();}
 function touch(l){l.updatedAt=new Date().toISOString();return l;} // 충돌 병합 기준(최근 수정본 우선)
+const MEMO_GAP=2; // D+2 정리본 암기
+function memoPending(l){const t=today();return !l.excl&&!!l.memoDue&&l.memoDue<=t&&l.memoDate!==t;}
+function memoDoneToday(l){return !l.excl&&l.memoDate===today();}
 function stripLec(t){return String(t).replace(/^\[[^\]]+\]\s*/,'').replace(/^\S*강\s*/,'');}
 function catLecsOf(name){ // 카탈로그에서 강의 소제목 찾기 (정확명 → 전체, 분할명 → 해당 강의)
   if(!CAT||!Array.isArray(CAT.chunks))return '';
@@ -423,6 +436,17 @@ function migrate(){ // 구버전 항목에 due/weak/hist/lastResult/topic 부여
       else{let d=addDays(l.studied,OLD_INTERVALS[l.done]);if(parseYMD(d).getDay()===3)d=addDays(d,1);l.due=d;}
       changed=true;
     }
+    if(l.excl===undefined){l.excl=false;changed=true;}                 // 누적복습 제외 플래그
+    if(!Array.isArray(l.exclHist)){l.exclHist=[];changed=true;}        // 별도 사이클 회독 기록
+    // ── D+2 정리본 암기 (병렬 마일스톤) ──
+    if(l.memoWeak===undefined){l.memoWeak=0;changed=true;}
+    if(!Array.isArray(l.memoHist)){l.memoHist=[];changed=true;}
+    if(l.memoDate===undefined){l.memoDate=null;changed=true;}
+    if(l.memoResult===undefined){
+      if(!l.excl&&l.done===0){l.memoResult=null;l.memoDue=schedule(l.studied,MEMO_GAP);} // 아직 1차 단계 → 정리본 과제 부여
+      else{l.memoResult='skip';l.memoDue=null;}                        // 이미 차수 진행/제외 → 정리본 창 지남
+      changed=true;
+    }else if(l.memoDue===undefined){l.memoDue=null;changed=true;}
   }
   return changed;
 }
@@ -593,7 +617,9 @@ async function refresh(){
 // ---------- actions ----------
 async function addItem(name,topic,studied){
   lectures.push({id:Date.now()+''+Math.floor(Math.random()*999),name,topic:topic||'',studied,
-    done:0,due:schedule(studied,GAP[0]),lastDone:null,lastResult:null,weak:0,hist:[],updatedAt:new Date().toISOString()});
+    done:0,due:schedule(studied,GAP[0]),lastDone:null,lastResult:null,weak:0,hist:[],
+    excl:false,exclHist:[],memoDue:schedule(studied,MEMO_GAP),memoDate:null,memoResult:null,memoWeak:0,memoHist:[],
+    updatedAt:new Date().toISOString()});
   judgingId=null; render(); toast(`추가: ${name}`); scheduleSave();
 }
 async function addLecture(){
@@ -624,7 +650,30 @@ async function weakAct(id){
   l.due=schedule(today(),1);                            // 내일 재시도
   touch(l); judgingId=null; render(); scheduleSave();
 }
-function judge(id){ judgingId=(judgingId===id?null:id); render(); }
+function judge(id){ judgingId=(judgingId===id?null:id); judgingMemo=null; render(); }
+// ── 정리본 암기 (병렬 마일스톤) ──
+function memoJudge(id){ judgingMemo=(judgingMemo===id?null:id); judgingId=null; render(); }
+async function memoPass(id){
+  const l=lectures.find(x=>x.id===id); if(!l||!memoPending(l))return;
+  l.memoHist.push([today(),'p']); l.memoResult='pass'; l.memoDate=today(); l.memoDue=null;
+  touch(l); judgingMemo=null; render(); scheduleSave();
+}
+async function memoWeakAct(id){
+  const l=lectures.find(x=>x.id===id); if(!l||!memoPending(l))return;
+  l.memoHist.push([today(),'w']); l.memoResult='weak'; l.memoDate=today(); l.memoWeak=(l.memoWeak||0)+1;
+  l.memoDue=schedule(today(),1); // 내일 재시도
+  touch(l); judgingMemo=null; render(); scheduleSave();
+}
+async function memoUndo(id){
+  const l=lectures.find(x=>x.id===id); if(!l||l.memoDate!==today())return;
+  const h=l.memoHist||[];
+  if(h.length&&h[h.length-1][0]===today()){
+    const e=h.pop(); if(e[2]==='w')l.memoWeak=Math.max(0,(l.memoWeak||0)-1);
+    const prev=h[h.length-1];
+    l.memoDate=prev?prev[0]:null; l.memoResult=prev?(prev[2]==='p'?'pass':'weak'):null;
+  }else{ l.memoDate=null; l.memoResult=null; }
+  l.memoDue=today(); touch(l); judgingMemo=null; render(); scheduleSave();
+}
 async function undo(id){
   const l=lectures.find(x=>x.id===id); if(!l||l.lastDone!==today())return;
   const h=l.hist||[];
@@ -662,6 +711,27 @@ async function setDone(id,d){
 async function setWeak(id,w){
   const l=lectures.find(x=>x.id===id); if(!l)return;
   l.weak=Math.max(0,w); touch(l); renderManage(); render(); scheduleSave();
+}
+// ── 누적복습 제외 (별도 사이클) ──
+async function setExcl(id,v){
+  const l=lectures.find(x=>x.id===id); if(!l)return;
+  l.excl=!!v;
+  if(!l.excl){ // 누적복습으로 복귀 → 스케줄 재계산
+    l.due=schedule(l.lastDone||l.studied,GAP[Math.min(l.done,5)]);
+    if(l.done===0&&l.memoResult==null){l.memoDue=schedule(l.studied,MEMO_GAP);}
+  }
+  touch(l); adjOpen=null; renderManage(); render(); toast(l.excl?'별도 사이클로 이동':'누적복습 복귀'); scheduleSave();
+}
+async function exLog(id){
+  const l=lectures.find(x=>x.id===id); if(!l)return;
+  if((l.exclHist||[]).slice(-1)[0]===today()){toast('오늘 이미 기록됨');return;}
+  (l.exclHist=l.exclHist||[]).push(today()); l.lastDone=today();
+  touch(l); render(); toast('회독 기록됨'); scheduleSave();
+}
+async function exUnlog(id){
+  const l=lectures.find(x=>x.id===id); if(!l||!l.exclHist||l.exclHist.slice(-1)[0]!==today())return;
+  l.exclHist.pop(); const last=l.exclHist.slice(-1)[0]; l.lastDone=last||l.lastDone;
+  touch(l); render(); scheduleSave();
 }
 function setFilter(s){filterSubj=s;judgingId=null;render();}
 function openPaceEdit(){
@@ -779,13 +849,18 @@ function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;',
 function render(){
   const now=new Date();
   document.getElementById('hdDate').textContent=`${now.getMonth()+1}월 ${now.getDate()}일 (${WD[now.getDay()]})`;
-  const P=lectures.filter(isPending).length, D=lectures.filter(isDoneToday).length, T=P+D;
+  let P=0,D=0;
+  for(const l of lectures){ if(l.excl)continue;
+    if(isPending(l))P++; if(memoPending(l))P++;
+    if(isDoneToday(l))D++; if(memoDoneToday(l))D++;
+  }
+  const T=P+D;
   document.getElementById('hdBadge').textContent=
     T===0?'오늘 복습 없음':(P===0?`🎉 ${D}/${T}`:`${D}/${T}`);
   const prog=document.getElementById('hdProg');
   if(T>0){prog.hidden=false;document.getElementById('hdProgI').style.width=`${Math.round(D/T*100)}%`;}
   else prog.hidden=true;
-  renderHeatmap(); renderPace(); renderChips(); renderList(); renderStats(); renderManage(); renderPicker(); renderMini();
+  renderHeatmap(); renderPace(); renderChips(); renderList(); renderStats(); renderManage(); renderExcluded(); renderPicker(); renderMini();
 }
 
 /* ---- 부하 히트맵: 과거=무채색(수행량), 미래=인디고(예정량), 오늘=남은+수행 ---- */
@@ -793,17 +868,20 @@ function dayInfo(ds){
   const t=today();
   let nw=0,p=0,w=0,due=0;
   for(const l of lectures){
+    if(l.excl)continue; // 별도 사이클은 부하에서 제외
     if(l.studied===ds)nw++;
     for(const h of (l.hist||[])) if(h[0]===ds){h[2]==='p'?p++:w++;}
+    for(const h of (l.memoHist||[])) if(h[0]===ds){h[2]==='p'?p++:w++;}
   }
-  if(ds>t){ due=lectures.filter(l=>l.due===ds).length; }
-  else if(ds===t){ due=lectures.filter(isPending).length; }
+  if(ds>t){ due=lectures.filter(l=>!l.excl&&l.due===ds).length+lectures.filter(l=>!l.excl&&l.memoDue===ds).length; }
+  else if(ds===t){ due=lectures.filter(isPending).length+lectures.filter(memoPending).length; }
   return {nw,p,w,due,total:(ds>t)?due:(nw+p+w+due)};
 }
 function barDetailText(ds){
   const t=today(), info=dayInfo(ds);
   if(ds>t){
-    const by={}; lectures.filter(l=>l.due===ds).forEach(l=>{const k=stageName(Math.min(l.done,5));by[k]=(by[k]||0)+1;});
+    const by={}; lectures.filter(l=>!l.excl&&l.due===ds).forEach(l=>{const k=stageName(Math.min(l.done,5));by[k]=(by[k]||0)+1;});
+    const memoN=lectures.filter(l=>!l.excl&&l.memoDue===ds).length; if(memoN)by['정리본']=memoN;
     const parts=Object.entries(by).map(([k,v])=>`${k} ${v}`).join(' · ');
     return `${md(ds)} — 예정 ${info.due}개${parts?` (${parts})`:''}`;
   }
@@ -845,9 +923,9 @@ function renderMini(){
     p.innerHTML=`<div class="hdm-empty" onclick="openPaceEdit()">🎯 페이스 목표 설정하기</div>`;
     return;
   }
-  const t=today(), remain=Math.max(0,meta.total-lectures.length);
+  const t=today(), remain=Math.max(0,meta.total-lectures.filter(l=>!l.excl).length);
   const days=progressDays(t,meta.deadline);
-  const recent=lectures.filter(l=>{const dd=dayDiff(t,l.studied);return dd>=1&&dd<=7;}).length;
+  const recent=lectures.filter(l=>{if(l.excl)return false;const dd=dayDiff(t,l.studied);return dd>=1&&dd<=7;}).length;
   const rRate=recent/Math.max(1,progressDays(addDays(t,-7),addDays(t,-1)));
   const need=days>0?remain/days:0, ok=rRate>=need;
   const st=remain===0||days<=0?'':(ok?'ok':'bad');
@@ -875,9 +953,9 @@ function renderPace(){
     b.innerHTML=`<div class="pace-empty">목표 미설정 — 탭해서 총 강의량·목표일 입력<span class="edit-mark">✎</span></div>`;
     return;
   }
-  const t=today(), n=lectures.length, remain=Math.max(0,meta.total-n);
+  const t=today(), n=lectures.filter(l=>!l.excl).length, remain=Math.max(0,meta.total-n);
   const days=progressDays(t,meta.deadline);
-  const recent=lectures.filter(l=>{const dd=dayDiff(t,l.studied);return dd>=1&&dd<=7;}).length;
+  const recent=lectures.filter(l=>{if(l.excl)return false;const dd=dayDiff(t,l.studied);return dd>=1&&dd<=7;}).length;
   const rDays=progressDays(addDays(t,-7),addDays(t,-1));
   const rRate=recent/Math.max(1,rDays);
   if(remain===0){
@@ -898,7 +976,7 @@ function renderPace(){
 /* ---- 과목 칩 ---- */
 function renderChips(){
   const el=document.getElementById('chips');
-  const subs=[...new Set(lectures.map(l=>subjectOf(l.name)))].sort((a,b)=>a.localeCompare(b,'ko'));
+  const subs=[...new Set(lectures.filter(l=>!l.excl).map(l=>subjectOf(l.name)))].sort((a,b)=>a.localeCompare(b,'ko'));
   if(subs.length<2){el.innerHTML='';if(filterSubj!=='전체')filterSubj='전체';return;}
   if(filterSubj!=='전체'&&!subs.includes(filterSubj))filterSubj='전체';
   let h=`<div class="chip ${filterSubj==='전체'?'on':''}" onclick="setFilter('전체')">전체</div>`;
@@ -926,7 +1004,7 @@ async function flipHist(id,idx){
 function renderDayList(ds){
   const cl=document.getElementById('checklist');
   const t=today();
-  const fil=l=>filterSubj==='전체'||subjectOf(l.name)===filterSubj;
+  const fil=l=>!l.excl&&(filterSubj==='전체'||subjectOf(l.name)===filterSubj);
   let h=`<div class="day-banner"><span>${md(ds)} ${ds<t?'기록':'예정'}</span><button onclick="goToday()">오늘로 돌아가기</button></div>`;
   if(ds<t){
     const rows=[];
@@ -974,69 +1052,98 @@ function renderDayList(ds){
 function renderList(){
   const t=today();
   if(selDs&&selDs!==t){renderDayList(selDs);return;}
-  const fil=l=>filterSubj==='전체'||subjectOf(l.name)===filterSubj;
-  const pending=lectures.filter(isPending).filter(fil);
-  const doneToday=lectures.filter(isDoneToday).filter(fil).sort((a,b)=>a.name.localeCompare(b.name,'ko'));
+  const inFil=l=>!l.excl&&(filterSubj==='전체'||subjectOf(l.name)===filterSubj);
+  const tasks=[], doneT=[];
+  for(const l of lectures){
+    if(!inFil(l))continue;
+    if(isPending(l))tasks.push({l,kind:'r'});
+    if(memoPending(l))tasks.push({l,kind:'m'});
+    if(isDoneToday(l))doneT.push({l,kind:'r'});
+    if(memoDoneToday(l))doneT.push({l,kind:'m'});
+  }
+  doneT.sort((a,b)=>a.l.name.localeCompare(b.l.name,'ko'));
   const cl=document.getElementById('checklist');
-  if(pending.length===0&&doneToday.length===0){
+  if(!tasks.length&&!doneT.length){
     cl.innerHTML=`<div class="empty"><div class="big">🎉</div><div class="t">오늘 복습할 강의가 없어요</div></div>`;
     return;
   }
   const groups=new Map();
-  for(const l of pending){const k=subjectOf(l.name);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(l);}
+  for(const it of tasks){const k=subjectOf(it.l.name);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(it);}
+  const skey=it=>it.kind==='m'?0.5:Math.min(it.l.done,5); // 정리본 암기는 1차와 2차 사이
   let h='<div class="card">';
   for(const k of [...groups.keys()].sort((a,b)=>a.localeCompare(b,'ko'))){
-    const arr=groups.get(k).sort((a,b)=>Math.min(a.done,5)-Math.min(b.done,5)||dayDiff(t,b.due)-dayDiff(t,a.due)||a.name.localeCompare(b.name,'ko'));
+    const arr=groups.get(k).sort((a,b)=>skey(a)-skey(b)||a.l.name.localeCompare(b.l.name,'ko'));
     h+=`<div class="grp-head">${esc(k)}<b>· ${arr.length}개</b></div>`;
-    for(const l of arr){
-      const st=Math.min(l.done,5);
-      const late=dayDiff(t,l.due);
-      const lateP=late>0?`<span class="pill pill-late">${late}일 지남</span>`:'';
-      const weakP=l.weak>0?`<span class="pill pill-weak">약함 ${l.weak}</span>`:'';
-      const lecsStr=catLecsOf(l.name);
-      const topic=(!lecsStr&&l.topic)?` <span class="it-topic">${esc(l.topic)}</span>`:'';
-      const lecsH=lecsStr?`<div class="it-lecs">${esc(lecsStr)}</div>`:'';
-      const jd=judgingId===l.id;
-      h+=`<div class="item ${jd?'judging':''}" onclick="judge('${l.id}')">
-        <div class="check">${CHECK}</div>
-        <div class="it-body"><div class="it-name">${esc(l.name)}${topic}</div>${lecsH}</div>
-        <div class="it-right"><span class="pill pill-stage">${stageName(l.done)} · ${METHOD[st]}</span>${weakP}${lateP}</div></div>`;
-      if(jd)h+=`<div class="judge">
-        <button class="jw" onclick="event.stopPropagation();weakAct('${l.id}')">${ICO_RETRY}약함</button>
-        <button class="jp" onclick="event.stopPropagation();pass('${l.id}')">${ICO_CHECK}통과</button></div>`;
-    }
+    for(const it of arr)h+=taskRow(it,t);
   }
-  if(doneToday.length){
-    h+=`<div class="grp-head grp-done">오늘 완료<b>· ${doneToday.length}개</b></div>`;
-    for(const l of doneToday){
-      const wk=l.lastResult==='weak';
-      const topic=(!catLecsOf(l.name)&&l.topic)?` <span class="it-topic">${esc(l.topic)}</span>`:'';
-      const pill=wk?`<span class="pill pill-weak">${stageName(l.done)} 약함 · 내일 재시도</span>`
-                 :`<span class="pill pill-done">${stageName(Math.max(0,l.done-1))} 통과 ✓</span>`;
-      h+=`<div class="item done ${wk?'weakr':''}">
-        <div class="check" onclick="undo('${l.id}')">${CHECK}</div>
-        <div class="it-body"><div class="it-name">${esc(l.name)}${topic}</div><div class="it-meta">${pill}</div></div>
-        <span class="undo" onclick="undo('${l.id}')">되돌리기</span></div>`;
-    }
+  if(doneT.length){
+    h+=`<div class="grp-head grp-done">오늘 완료<b>· ${doneT.length}개</b></div>`;
+    for(const it of doneT)h+=doneRow(it);
   }
   h+='</div>'; cl.innerHTML=h;
+}
+function taskRow(it,t){
+  const l=it.l, memo=it.kind==='m';
+  const late=dayDiff(t,memo?l.memoDue:l.due);
+  const lateP=late>0?`<span class="pill pill-late">${late}일 지남</span>`:'';
+  const wcnt=memo?l.memoWeak:l.weak;
+  const weakP=wcnt>0?`<span class="pill pill-weak">약함 ${wcnt}</span>`:'';
+  const lecsStr=catLecsOf(l.name);
+  const topic=(!lecsStr&&l.topic)?` <span class="it-topic">${esc(l.topic)}</span>`:'';
+  const lecsH=lecsStr?`<div class="it-lecs">${esc(lecsStr)}</div>`:'';
+  const stagePill=memo?`<span class="pill pill-memo">정리본 암기</span>`
+                      :`<span class="pill pill-stage">${stageName(l.done)} · ${METHOD[Math.min(l.done,5)]}</span>`;
+  const jd=memo?(judgingMemo===l.id):(judgingId===l.id);
+  let r=`<div class="item ${jd?'judging':''}" onclick="${memo?'memoJudge':'judge'}('${l.id}')">
+    <div class="check">${CHECK}</div>
+    <div class="it-body"><div class="it-name">${esc(l.name)}${topic}</div>${lecsH}</div>
+    <div class="it-right">${stagePill}${weakP}${lateP}</div></div>`;
+  if(jd)r+=`<div class="judge">
+    <button class="jw" onclick="event.stopPropagation();${memo?'memoWeakAct':'weakAct'}('${l.id}')">${ICO_RETRY}약함</button>
+    <button class="jp" onclick="event.stopPropagation();${memo?'memoPass':'pass'}('${l.id}')">${ICO_CHECK}통과</button></div>`;
+  return r;
+}
+function doneRow(it){
+  const l=it.l, memo=it.kind==='m';
+  const topic=(!catLecsOf(l.name)&&l.topic)?` <span class="it-topic">${esc(l.topic)}</span>`:'';
+  const wk=memo?l.memoResult==='weak':l.lastResult==='weak';
+  let pill,undofn;
+  if(memo){
+    pill=wk?`<span class="pill pill-weak">정리본 암기 약함 · 내일 재시도</span>`
+           :`<span class="pill pill-memo">정리본 암기 통과 ✓</span>`;
+    undofn=`memoUndo('${l.id}')`;
+  }else{
+    pill=wk?`<span class="pill pill-weak">${stageName(l.done)} 약함 · 내일 재시도</span>`
+           :`<span class="pill pill-done">${stageName(Math.max(0,l.done-1))} 통과 ✓</span>`;
+    undofn=`undo('${l.id}')`;
+  }
+  return `<div class="item done ${wk?'weakr':''}">
+    <div class="check" onclick="${undofn}">${CHECK}</div>
+    <div class="it-body"><div class="it-name">${esc(l.name)}${topic}</div><div class="it-meta">${pill}</div></div>
+    <span class="undo" onclick="${undofn}">되돌리기</span></div>`;
 }
 
 /* ---- 통계 (hist 파생) ---- */
 function renderStats(){
   const p=document.getElementById('statsPanel');
-  if(lectures.length===0){p.innerHTML='<div class="m-empty">아직 데이터가 없어요.</div>';return;}
+  const act=lectures.filter(l=>!l.excl);
+  if(act.length===0){p.innerHTML='<div class="m-empty">아직 데이터가 없어요.</div>';return;}
   const ev=[];
-  for(const l of lectures){const s=subjectOf(l.name);for(const h of (l.hist||[]))ev.push({d:h[0],st:Math.min(h[1],5),r:h[2],s});}
+  for(const l of act){const s=subjectOf(l.name);
+    for(const h of (l.hist||[]))ev.push({d:h[0],st:Math.min(h[1],5),r:h[2],s,memo:false});
+    for(const h of (l.memoHist||[]))ev.push({d:h[0],st:-1,r:h[2],s,memo:true});
+  }
   const ws=weekStartMon(today());
-  const newWeek=lectures.filter(l=>l.studied>=ws).length;
+  const newWeek=act.filter(l=>l.studied>=ws).length;
   const evW=ev.filter(e=>e.d>=ws), pW=evW.filter(e=>e.r==='p').length, wW=evW.length-pW;
-  const maint=lectures.filter(l=>l.done>=5).length;
-  const totWeak=lectures.reduce((a,l)=>a+(l.weak||0),0);
+  const maint=act.filter(l=>l.done>=5).length;
+  const totWeak=act.reduce((a,l)=>a+(l.weak||0)+(l.memoWeak||0),0);
+  const exclN=lectures.length-act.length;
   let h='<div class="card">';
-  h+=`<div class="st-line">등록 / 유지 단계<span class="v">${lectures.length}강 / ${maint}강</span></div>`;
+  h+=`<div class="st-line">등록 / 유지 단계<span class="v">${act.length}강 / ${maint}강</span></div>`;
   h+=`<div class="st-line">이번 주 (월~)<span class="v">신규 ${newWeek} · 판정 ${evW.length} (통과 ${pW}·약함 ${wW})</span></div>`;
   h+=`<div class="st-line">누적 약함<span class="v">${totWeak}회</span></div>`;
+  if(exclN)h+=`<div class="st-line">별도 사이클<span class="v">${exclN}강</span></div>`;
   if(ev.length<10){
     h+=`<div class="st-line" style="color:#9CA3AF">판정 기록이 쌓이면 약함률이 표시돼요<span class="v">${ev.length}/10</span></div>`;
   }else{
@@ -1046,6 +1153,9 @@ function renderStats(){
       const w=a.filter(e=>e.r==='w').length;
       h+=`<div class="st-line">${stageName(st)} · ${METHOD[st]}<span class="v">${a.length}회 · 약함 ${Math.round(w/a.length*100)}%</span></div>`;
     }
+    const ma=ev.filter(e=>e.memo);
+    if(ma.length){const mw=ma.filter(e=>e.r==='w').length;
+      h+=`<div class="st-line">정리본 암기<span class="v">${ma.length}회 · 약함 ${Math.round(mw/ma.length*100)}%</span></div>`;}
     h+=`<div class="st-head">과목별 약함률</div>`;
     const by={};
     for(const e of ev){(by[e.s]=by[e.s]||{n:0,w:0});by[e.s].n++;if(e.r==='w')by[e.s].w++;}
@@ -1060,18 +1170,21 @@ function renderManage(){
   if(lectures.length===0){p.innerHTML='<div class="m-empty">아직 추가한 강의가 없어요.</div>';return;}
   const s=[...lectures].sort((a,b)=>b.studied.localeCompare(a.studied));let h='';
   for(const l of s){
-    const prog=l.done<5?`${l.done}/5`:'유지';
+    const prog=l.excl?'별도':(l.done<5?`${l.done}/5`:'유지');
     const wk=l.weak>0?` · 약함 ${l.weak}`:'';
     const tpc=l.topic?esc(l.topic):'키워드 추가';
     const adj=adjOpen===l.id;
+    const badge=l.excl?' <span class="excl-tag">별도 사이클</span>':'';
+    const nextTxt=l.excl?'별도 사이클':`다음 ${md(l.due)}${wk}`;
     h+=`<div class="m-item"><div class="m-body">
-      <div class="m-name" onclick="rename('${l.id}')">${esc(l.name)} <span style="color:#C7D2FE;font-size:11px">✎</span></div>
-      <div class="m-sub"><span class="tpc" onclick="editTopic('${l.id}')">${tpc} ✎</span> · 들은날 ${l.studied} · 다음 ${md(l.due)}${wk}</div></div>
+      <div class="m-name" onclick="rename('${l.id}')">${esc(l.name)} <span style="color:#C7D2FE;font-size:11px">✎</span>${badge}</div>
+      <div class="m-sub"><span class="tpc" onclick="editTopic('${l.id}')">${tpc} ✎</span> · 들은날 ${l.studied} · ${nextTxt}</div></div>
       <span class="m-prog ${adj?'on':''}" onclick="adjId('${l.id}')">${prog} ${adj?'▴':'▾'}</span>
       <button class="m-del" onclick="del('${l.id}')">×</button></div>`;
     if(adj){
-      h+=`<div class="m-adj">
-        <div class="adj-row"><span class="adj-lab">복습 차수</span>
+      h+=`<div class="m-adj">`;
+      if(!l.excl){
+        h+=`<div class="adj-row"><span class="adj-lab">복습 차수</span>
           <div class="adj-ctl"><button onclick="setDone('${l.id}',${l.done-1})" ${l.done<=0?'disabled':''}>−</button>
           <b>${l.done<5?`${l.done}차 완료`:'유지'}</b>
           <button onclick="setDone('${l.id}',${l.done+1})" ${l.done>=6?'disabled':''}>＋</button></div></div>
@@ -1079,11 +1192,37 @@ function renderManage(){
           <div class="adj-ctl"><button onclick="setWeak('${l.id}',${l.weak-1})" ${l.weak<=0?'disabled':''}>−</button>
           <b>${l.weak}회</b>
           <button onclick="setWeak('${l.id}',${l.weak+1})">＋</button></div></div>
-        <div class="adj-note">차수를 바꾸면 다음 복습일이 마지막 인출일 기준으로 다시 계산돼요.</div>
+        <div class="adj-note">차수를 바꾸면 다음 복습일이 마지막 인출일 기준으로 다시 계산돼요.</div>`;
+      }
+      h+=`<div class="adj-row"><span class="adj-lab">누적복습 사이클</span>
+          <button class="excl-btn ${l.excl?'on':''}" onclick="setExcl('${l.id}',${l.excl?'false':'true'})">${l.excl?'누적복습으로 복귀':'별도 사이클로 제외'}</button></div>
+        <div class="adj-note">${l.excl?'별도 사이클 항목은 오늘의 복습·페이스·통계에서 빠지고 아래 \'별도 사이클\' 섹션에서 회독만 기록해요.':'교육과정처럼 다른 주기로 굴릴 강의는 제외하세요.'}</div>
       </div>`;
     }
   }
   p.innerHTML=h;
+}
+
+/* ---- 별도 사이클 (누적복습 제외 강의 단순 추적) ---- */
+function renderExcluded(){
+  const p=document.getElementById('excludedPanel'); if(!p)return;
+  const ex=lectures.filter(l=>l.excl).sort((a,b)=>b.studied.localeCompare(a.studied));
+  if(!ex.length){p.innerHTML=`<div class="m-empty">별도 사이클로 뺀 강의가 없어요. '전체 강의 관리'에서 항목을 펼쳐 '별도 사이클로 제외'를 누르면 여기로 와요.</div>`;return;}
+  const t=today();
+  let h='<div class="card">';
+  for(const l of ex){
+    const cnt=(l.exclHist||[]).length, last=cnt?l.exclHist[cnt-1]:null, lastToday=last===t;
+    const lastTxt=last?`마지막 ${md(last)}`:'기록 없음';
+    const lecsStr=catLecsOf(l.name);
+    const topic=(!lecsStr&&l.topic)?` <span class="it-topic">${esc(l.topic)}</span>`:'';
+    h+=`<div class="m-item"><div class="m-body">
+      <div class="m-name">${esc(l.name)}${topic}</div>
+      <div class="m-sub">들은날 ${l.studied} · 회독 ${cnt}회 · ${lastTxt}</div></div>
+      ${lastToday?`<span class="undo" onclick="exUnlog('${l.id}')">취소</span>`:''}
+      <button class="ex-log ${lastToday?'done':''}" onclick="exLog('${l.id}')">${lastToday?'오늘 ✓':'＋ 회독'}</button>
+      <button class="m-del" onclick="del('${l.id}')">×</button></div>`;
+  }
+  h+='</div>'; p.innerHTML=h;
 }
 
 let toastT;
@@ -1155,6 +1294,7 @@ document.getElementById('name').addEventListener('keydown',e=>{if(e.key==='Enter
 document.getElementById('topic').addEventListener('keydown',e=>{if(e.key==='Enter')addLecture();});
 document.getElementById('sToggle').addEventListener('click',()=>document.getElementById('statsPanel').classList.toggle('open'));
 document.getElementById('mToggle').addEventListener('click',()=>document.getElementById('managePanel').classList.toggle('open'));
+document.getElementById('exToggle').addEventListener('click',()=>document.getElementById('excludedPanel').classList.toggle('open'));
 document.getElementById('manToggleBtn').addEventListener('click',()=>{
   const p=document.getElementById('manualPanel');p.classList.toggle('open');
   document.getElementById('manToggleBtn').textContent=p.classList.contains('open')?'직접 입력 닫기 ▴':'직접 입력 ▾';
