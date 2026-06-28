@@ -864,12 +864,18 @@
     "name": "사회 7-3",
     "topic": "교육의 본질 유형",
     "studied": "2026-06-27",
-    "done": 0,
-    "due": "2026-06-28",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-06-30",
+    "lastDone": "2026-06-28",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
-    "updatedAt": "2026-06-27T13:40:48.936Z"
+    "hist": [
+      [
+        "2026-06-28",
+        0,
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-06-28T06:39:37.851Z"
   }
 ]
