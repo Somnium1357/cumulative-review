@@ -901,5 +901,18 @@
     "weak": 0,
     "hist": [],
     "updatedAt": "2026-06-28T08:08:56.969Z"
+  },
+  {
+    "id": "178263756577338",
+    "name": "체육 7-2",
+    "topic": "수업 모형(직접~협동)",
+    "studied": "2026-06-28",
+    "done": 0,
+    "due": "2026-06-29",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "updatedAt": "2026-06-28T09:06:05.773Z"
   }
 ]
