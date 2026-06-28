@@ -927,5 +927,18 @@
     "weak": 0,
     "hist": [],
     "updatedAt": "2026-06-28T12:10:48.906Z"
+  },
+  {
+    "id": "1782650756762354",
+    "name": "미술 8-1",
+    "topic": "OT·로웬펠드·가드너",
+    "studied": "2026-06-28",
+    "done": 0,
+    "due": "2026-06-29",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "updatedAt": "2026-06-28T12:45:56.762Z"
   }
 ]
