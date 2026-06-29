@@ -1192,5 +1192,25 @@
     "memoDate": null,
     "memoResult": null,
     "memoDue": "2026-06-30"
+  },
+  {
+    "id": "1782719314218607",
+    "name": "총창 3-2",
+    "topic": "총론(1~2)·창체",
+    "studied": "2026-06-29",
+    "done": 0,
+    "due": "2026-06-30",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-02",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-06-29T07:48:34.218Z"
   }
 ]
