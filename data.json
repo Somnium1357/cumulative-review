@@ -1297,14 +1297,14 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "excl": false,
+    "excl": true,
     "exclHist": [],
     "memoDue": "2026-07-02",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-06-29T13:11:23.154Z"
+    "updatedAt": "2026-06-29T13:11:32.420Z"
   },
   {
     "id": "1782738683646201",
