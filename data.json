@@ -15,7 +15,14 @@
     ],
     "lastResult": "pass",
     "due": "2026-07-02",
-    "topic": ""
+    "topic": "",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1780647022097198",
@@ -33,7 +40,14 @@
     ],
     "lastResult": "pass",
     "due": "2026-07-02",
-    "topic": ""
+    "topic": "",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1780664407750147",
@@ -56,7 +70,14 @@
     ],
     "lastResult": "pass",
     "due": "2026-07-03",
-    "topic": ""
+    "topic": "",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1780838528921853",
@@ -80,7 +101,14 @@
     "lastResult": "pass",
     "due": "2026-07-06",
     "topic": "",
-    "updatedAt": "2026-06-22T09:48:57.342Z"
+    "updatedAt": "2026-06-22T09:48:57.342Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781007685836226",
@@ -109,7 +137,14 @@
     "lastResult": "pass",
     "due": "2026-07-09",
     "topic": "",
-    "updatedAt": "2026-06-24T08:37:46.339Z"
+    "updatedAt": "2026-06-24T08:37:46.339Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781178296380211",
@@ -148,7 +183,14 @@
     "lastResult": "pass",
     "due": "2026-07-10",
     "topic": "",
-    "updatedAt": "2026-06-26T11:46:58.548Z"
+    "updatedAt": "2026-06-26T11:46:58.548Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781178331837399",
@@ -182,7 +224,14 @@
     "lastResult": "pass",
     "due": "2026-07-09",
     "topic": "",
-    "updatedAt": "2026-06-25T09:02:51.110Z"
+    "updatedAt": "2026-06-25T09:02:51.110Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781178339146487",
@@ -216,7 +265,14 @@
     "lastResult": "pass",
     "due": "2026-07-09",
     "topic": "",
-    "updatedAt": "2026-06-25T08:58:28.089Z"
+    "updatedAt": "2026-06-25T08:58:28.089Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781261010626659",
@@ -255,7 +311,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-27T08:30:21.420Z"
+    "updatedAt": "2026-06-27T08:30:21.420Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781265814013580",
@@ -299,7 +362,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-28T06:51:24.954Z"
+    "updatedAt": "2026-06-28T06:51:24.954Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781274191087930",
@@ -333,7 +403,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-26T11:29:48.158Z"
+    "updatedAt": "2026-06-26T11:29:48.158Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781438972653899",
@@ -362,7 +439,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-22T10:02:59.822Z"
+    "updatedAt": "2026-06-22T10:02:59.822Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781443616699353",
@@ -391,7 +475,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-22T09:42:10.604Z"
+    "updatedAt": "2026-06-22T09:42:10.604Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781523312156815",
@@ -420,7 +511,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-22T10:12:24.901Z"
+    "updatedAt": "2026-06-22T10:12:24.901Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "178152691085338",
@@ -449,7 +547,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-22T10:16:14.227Z"
+    "updatedAt": "2026-06-22T10:16:14.227Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "17816166653944",
@@ -483,7 +588,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-26T11:16:22.030Z"
+    "updatedAt": "2026-06-26T11:16:22.030Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781616671327769",
@@ -512,7 +624,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-25T09:22:39.074Z"
+    "updatedAt": "2026-06-25T09:22:39.074Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781616687177948",
@@ -536,7 +655,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-27T07:31:43.464Z"
+    "updatedAt": "2026-06-27T07:31:43.464Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781788481693775",
@@ -570,7 +696,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-28T06:04:30.001Z"
+    "updatedAt": "2026-06-28T06:04:30.001Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781862578700620",
@@ -604,7 +737,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-27T08:25:18.278Z"
+    "updatedAt": "2026-06-27T08:25:18.278Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781862596924252",
@@ -633,7 +773,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-26T11:16:23.430Z"
+    "updatedAt": "2026-06-26T11:16:23.430Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781875476815682",
@@ -662,7 +809,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-26T11:40:34.658Z"
+    "updatedAt": "2026-06-26T11:40:34.658Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781951151621553",
@@ -691,7 +845,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-27T08:44:10.183Z"
+    "updatedAt": "2026-06-27T08:44:10.183Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781958033743174",
@@ -715,7 +876,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-25T09:09:13.725Z"
+    "updatedAt": "2026-06-25T09:09:13.725Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1781961448017112",
@@ -739,7 +907,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-25T09:00:55.592Z"
+    "updatedAt": "2026-06-25T09:00:55.592Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1782135665521429",
@@ -763,7 +938,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-26T11:25:20.226Z"
+    "updatedAt": "2026-06-26T11:25:20.226Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1782135672469203",
@@ -787,7 +969,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-27T08:36:14.486Z"
+    "updatedAt": "2026-06-27T08:36:14.486Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1782306353028337",
@@ -811,7 +1000,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-27T07:43:04.552Z"
+    "updatedAt": "2026-06-27T07:43:04.552Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1782394851970199",
@@ -830,7 +1026,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-27T08:19:35.272Z"
+    "updatedAt": "2026-06-27T08:19:35.272Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1782563500596315",
@@ -849,7 +1052,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-28T07:18:51.644Z"
+    "updatedAt": "2026-06-28T07:18:51.644Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1782563506978822",
@@ -868,7 +1078,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-28T06:04:28.793Z"
+    "updatedAt": "2026-06-28T06:04:28.793Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1782567648936387",
@@ -887,7 +1104,14 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-28T06:39:37.851Z"
+    "updatedAt": "2026-06-28T06:39:37.851Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": "skip",
+    "memoDue": null
   },
   {
     "id": "1782634136969251",
@@ -900,7 +1124,14 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "updatedAt": "2026-06-28T08:08:56.969Z"
+    "updatedAt": "2026-06-28T08:08:56.969Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": null,
+    "memoDue": "2026-06-30"
   },
   {
     "id": "178263756577338",
@@ -913,7 +1144,14 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "updatedAt": "2026-06-28T09:06:05.773Z"
+    "updatedAt": "2026-06-28T09:06:05.773Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": null,
+    "memoDue": "2026-06-30"
   },
   {
     "id": "1782648648906390",
@@ -926,7 +1164,14 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "updatedAt": "2026-06-28T12:10:48.906Z"
+    "updatedAt": "2026-06-28T12:10:48.906Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": null,
+    "memoDue": "2026-06-30"
   },
   {
     "id": "1782650756762354",
@@ -939,6 +1184,13 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "updatedAt": "2026-06-28T12:45:56.762Z"
+    "updatedAt": "2026-06-28T12:45:56.762Z",
+    "excl": false,
+    "exclHist": [],
+    "memoWeak": 0,
+    "memoHist": [],
+    "memoDate": null,
+    "memoResult": null,
+    "memoDue": "2026-06-30"
   }
 ]
