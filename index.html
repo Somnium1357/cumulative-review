@@ -442,10 +442,13 @@ function migrate(){ // 구버전 항목에 due/weak/hist/lastResult/topic 부여
     if(l.memoWeak===undefined){l.memoWeak=0;changed=true;}
     if(!Array.isArray(l.memoHist)){l.memoHist=[];changed=true;}
     if(l.memoDate===undefined){l.memoDate=null;changed=true;}
+    const memoRecent=!l.excl&&l.studied>=addDays(today(),-MEMO_GAP); // D+2가 아직 안 지난 최근 수강분(차수 진행 여부 무관)
     if(l.memoResult===undefined){
-      if(!l.excl&&l.done===0){l.memoResult=null;l.memoDue=schedule(l.studied,MEMO_GAP);} // 아직 1차 단계 → 정리본 과제 부여
-      else{l.memoResult='skip';l.memoDue=null;}                        // 이미 차수 진행/제외 → 정리본 창 지남
+      if(memoRecent){l.memoResult=null;l.memoDue=schedule(l.studied,MEMO_GAP);} // 정리본 과제 부여
+      else{l.memoResult='skip';l.memoDue=null;}                        // D+2 지남/제외 → 생략
       changed=true;
+    }else if(l.memoResult==='skip'&&!l.memoDate&&memoRecent){
+      l.memoResult=null;l.memoDue=schedule(l.studied,MEMO_GAP);changed=true; // 최근 수강분인데 skip된 것 복구
     }else if(l.memoDue===undefined){l.memoDue=null;changed=true;}
   }
   return changed;
