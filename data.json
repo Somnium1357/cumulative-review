@@ -1246,14 +1246,19 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-29T09:56:15.595Z",
+    "updatedAt": "2026-06-30T08:56:56.222Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
-    "memoHist": [],
-    "memoDate": null,
-    "memoResult": null,
-    "memoDue": "2026-06-30"
+    "memoHist": [
+      [
+        "2026-06-30",
+        "p"
+      ]
+    ],
+    "memoDate": "2026-06-30",
+    "memoResult": "pass",
+    "memoDue": null
   },
   {
     "id": "1782650756762354",
