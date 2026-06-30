@@ -86,6 +86,13 @@
   .pe-row label{flex:0 0 76px;font-size:12.5px;font-weight:700;color:#374151;}
   .pe-row input{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:9px;padding:9px 11px;font-size:15px;font-family:inherit;color:var(--ink);outline:none;background:#fff;}
   .pe-row input:focus{border-color:var(--indigo);}
+  .pe-row select{flex:1;min-width:0;border:1.5px solid var(--line);border-radius:9px;padding:9px 11px;font-size:15px;font-family:inherit;color:var(--ink);background:#fff;cursor:pointer;}
+  .rest-btns{display:flex;gap:8px;margin:0 0 8px 84px;}
+  .rest-btns button{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:8px 4px;font-size:13px;font-weight:700;color:#374151;cursor:pointer;font-family:inherit;}
+  .rest-btns button:active{background:#F3F4F6;}
+  .rest-ov-list{margin:0 0 6px 84px;display:flex;flex-direction:column;gap:5px;}
+  .rest-ov{display:flex;align-items:center;justify-content:space-between;background:#F9FAFB;border-radius:8px;padding:5px 6px 5px 11px;font-size:12.5px;font-weight:600;color:#374151;}
+  .rest-x{border:none;background:none;color:#9CA3AF;font-size:17px;line-height:1;cursor:pointer;padding:0 6px;font-family:inherit;}
   #metaSave{width:100%;border:none;background:var(--indigo);color:#fff;font-weight:800;font-size:15px;padding:11px;border-radius:10px;cursor:pointer;margin-top:2px;}
 
   /* ---- chips ---- */
@@ -303,6 +310,16 @@
           <div class="pace-edit" id="paceEdit" onclick="event.stopPropagation()">
             <div class="pe-row"><label>총 강의량</label><input id="metaTotal" type="number" inputmode="numeric" placeholder="예: 180 (유동 수정 가능)"></div>
             <div class="pe-row"><label>목표일</label><input id="metaDeadline" type="date"></div>
+            <div class="pe-row"><label>휴식 요일</label>
+              <select id="restDow" onchange="setRestDow(this.value)">
+                <option value="">없음</option><option value="0">일</option><option value="1">월</option><option value="2">화</option><option value="3">수</option><option value="4">목</option><option value="5">금</option><option value="6">토</option>
+              </select></div>
+            <div class="pe-row"><label>이번만 예외</label><input id="restOvDate" type="date"></div>
+            <div class="rest-btns">
+              <button type="button" onclick="addRestOvInput('rest')">이날 쉼</button>
+              <button type="button" onclick="addRestOvInput('work')">이날 공부</button></div>
+            <div id="restOvList" class="rest-ov-list"></div>
+            <div class="date-hint">휴식일엔 복습이 안 잡히고, 그날 잡혀 있던 건 다음 공부일로 밀려요.</div>
             <div class="date-hint" id="catHint"></div>
             <button id="metaSave">저장</button>
           </div>
@@ -389,7 +406,8 @@ const DIRTY_KEY='review_dirty_v1'; // 미동기화 로컬 편집 표시 (앱 재
    레포가 private이면 그냥 채워둬도 됩니다(공개 노출 없음).            */
 const BUILTIN={ owner:'Somnium1357', repo:'cumulative-review', token:'' };
 let cfg=null, sha=null, metaSha=null;
-let lectures=[], meta={total:null,deadline:null}, CAT=null;
+let lectures=[], meta={total:null,deadline:null,restDow:3,restOv:{}}, CAT=null;
+function normMeta(o){return {total:(o&&o.total!=null)?o.total:null,deadline:(o&&o.deadline!=null)?o.deadline:null,restDow:(o&&o.restDow!==undefined)?o.restDow:3,restOv:(o&&o.restOv)||{}};}
 let judgingId=null, judgingMemo=null, filterSubj='전체', adjOpen=null;
 let pkCourse=null, pkOpenSubj=null, pkExp=null;
 
@@ -405,7 +423,15 @@ function md(s){const d=parseYMD(s);return `${d.getMonth()+1}/${d.getDate()}(${WD
 function weekStartMon(t){const d=parseYMD(t);const wd=(d.getDay()+6)%7;d.setDate(d.getDate()-wd);return ymd(d);}
 
 // ---------- model ----------
-function schedule(fromYmd,gap){let d=addDays(fromYmd,gap);if(parseYMD(d).getDay()===3)d=addDays(d,1);return d;} // 수요일이면 목요일로
+// 휴식일: meta.restDow(주간 기본 휴식요일, 기본 3=수요일, null=없음) + meta.restOv(날짜별 'rest'/'work' 예외)
+function isRest(ds){
+  const ov=(meta&&meta.restOv)||{}, o=ov[ds];
+  if(o==='work')return false; if(o==='rest')return true;
+  const rd=(meta&&meta.restDow!==undefined)?meta.restDow:3;
+  return rd!=null&&parseYMD(ds).getDay()===rd;
+}
+function nextWork(ds){let d=ds,i=0;while(isRest(d)&&i<14){d=addDays(d,1);i++;}return d;} // ds 포함 다음 공부일
+function schedule(fromYmd,gap){return nextWork(addDays(fromYmd,gap));} // 휴식일이면 다음 공부일로 밀기
 function stageName(done){return done<5?`${done+1}차`:'유지';}
 function subjectOf(name){return (String(name).trim().split(/\s+/)[0]||'기타');}
 function isPending(l){const t=today();return !l.excl&&l.due<=t&&l.lastDone!==t;}
@@ -433,7 +459,7 @@ function migrate(){ // 구버전 항목에 due/weak/hist/lastResult/topic 부여
     if(l.topic===undefined){l.topic='';changed=true;}
     if(l.due===undefined){
       if(l.done>=5){l.due=schedule(l.lastDone||l.studied,35);} // 완료분 → 유지 로테이션 편입
-      else{let d=addDays(l.studied,OLD_INTERVALS[l.done]);if(parseYMD(d).getDay()===3)d=addDays(d,1);l.due=d;}
+      else{l.due=nextWork(addDays(l.studied,OLD_INTERVALS[l.done]));}
       changed=true;
     }
     if(l.excl===undefined){l.excl=false;changed=true;}                 // 누적복습 제외 플래그
@@ -519,12 +545,12 @@ async function ghPut(){
 }
 async function ghGetMeta(){
   const r=await fetch(ghUrl(META_PATH),{headers:ghHeaders(),cache:'no-store'});
-  if(r.status===404){metaSha=null;return {total:null,deadline:null};}
+  if(r.status===404){metaSha=null;return normMeta(null);}
   if(r.status===401||r.status===403)throw{code:'auth'};
   if(!r.ok)throw{code:'http',status:r.status};
   const j=await r.json(); metaSha=j.sha;
-  try{const o=JSON.parse(b64ToUtf8((j.content||'').replace(/\s/g,'')));return {total:o.total??null,deadline:o.deadline??null};}
-  catch(e){return {total:null,deadline:null};}
+  try{return normMeta(JSON.parse(b64ToUtf8((j.content||'').replace(/\s/g,''))));}
+  catch(e){return normMeta(null);}
 }
 async function ghPutMeta(){
   const mk=()=>({message:'목표 업데이트 '+new Date().toISOString(),content:utf8ToB64(JSON.stringify(meta,null,2)),...(metaSha?{sha:metaSha}:{})});
@@ -747,6 +773,7 @@ function togglePaceEdit(){
   if(!e.classList.contains('open')){
     document.getElementById('metaTotal').value=meta.total??'';
     document.getElementById('metaDeadline').value=meta.deadline??'';
+    renderRest();
   }
   e.classList.toggle('open');
 }
@@ -754,10 +781,33 @@ async function metaSaveAct(){
   const t=document.getElementById('metaTotal').value.trim();
   const d=document.getElementById('metaDeadline').value;
   const total=t===''?null:Math.max(0,parseInt(t,10)||0);
-  meta={total,deadline:d||null};
+  meta={...meta,total,deadline:d||null}; // restDow/restOv 보존
   document.getElementById('paceEdit').classList.remove('open');
   document.getElementById('secPace').classList.remove('show');
   render(); toast('목표 저장됨'); await saveMeta();
+}
+// ── 휴식일 설정 ──
+function pruneRestOv(){ const t=today(); for(const k of Object.keys(meta.restOv||{})) if(k<t) delete meta.restOv[k]; } // 지난 예외 정리
+function applyRestShift(){ // 휴식일에 걸린 due/memoDue를 다음 공부일로 이동
+  for(const l of lectures){ if(l.excl)continue;
+    if(l.due&&isRest(l.due)){l.due=nextWork(l.due);touch(l);}
+    if(l.memoDue&&isRest(l.memoDue)){l.memoDue=nextWork(l.memoDue);touch(l);}
+  }
+}
+async function commitRest(){ applyRestShift(); pruneRestOv(); renderRest(); render(); scheduleSave(); await saveMeta(); }
+async function setRestDow(v){ meta.restDow=(v===''?null:parseInt(v,10)); toast(v===''?'휴식 요일 없음':`${WD[parseInt(v,10)]}요일 휴식`); await commitRest(); }
+async function addRestOvInput(kind){
+  const el=document.getElementById('restOvDate'), date=el.value; if(!date){el.focus();return;}
+  meta.restOv=meta.restOv||{}; meta.restOv[date]=kind; el.value='';
+  toast(`${md(date)} ${kind==='rest'?'휴식':'공부'}일로 지정`); await commitRest();
+}
+async function removeRestOv(date){ if(meta.restOv)delete meta.restOv[date]; await commitRest(); }
+function renderRest(){
+  const sel=document.getElementById('restDow'); if(!sel)return;
+  sel.value=(meta.restDow==null?'':String(meta.restDow));
+  const ov=meta.restOv||{}, keys=Object.keys(ov).filter(k=>k>=today()).sort();
+  document.getElementById('restOvList').innerHTML=keys.map(k=>
+    `<div class="rest-ov"><span>${md(k)} · <b>${ov[k]==='rest'?'쉼':'공부'}</b></span><button type="button" class="rest-x" onclick="removeRestOv('${k}')">×</button></div>`).join('');
 }
 
 // ---------- catalog picker ----------
@@ -882,14 +932,15 @@ function dayInfo(ds){
 }
 function barDetailText(ds){
   const t=today(), info=dayInfo(ds);
+  const rest=isRest(ds)?'🛌 휴식 · ':'';
   if(ds>t){
     const by={}; lectures.filter(l=>!l.excl&&l.due===ds).forEach(l=>{const k=stageName(Math.min(l.done,5));by[k]=(by[k]||0)+1;});
     const memoN=lectures.filter(l=>!l.excl&&l.memoDue===ds).length; if(memoN)by['정리본']=memoN;
     const parts=Object.entries(by).map(([k,v])=>`${k} ${v}`).join(' · ');
-    return `${md(ds)} — 예정 ${info.due}개${parts?` (${parts})`:''}`;
+    return `${md(ds)} — ${rest}예정 ${info.due}개${parts?` (${parts})`:''}`;
   }
-  if(ds===t)return `오늘 — 남은 ${info.due} · 완료 ${info.p+info.w}${info.nw?` · 신규 ${info.nw}`:''}`;
-  return `${md(ds)} — 통과 ${info.p} · 약함 ${info.w}${info.nw?` · 신규 ${info.nw}`:''}`;
+  if(ds===t)return `오늘 — ${rest}남은 ${info.due} · 완료 ${info.p+info.w}${info.nw?` · 신규 ${info.nw}`:''}`;
+  return `${md(ds)} — ${rest}통과 ${info.p} · 약함 ${info.w}${info.nw?` · 신규 ${info.nw}`:''}`;
 }
 let selDs=null; // 보기 날짜 (null=오늘)
 function barPick(ds){ selDs=(selDs===ds||ds===today())?null:ds; render(); }
@@ -945,7 +996,7 @@ function renderMini(){
 function progressDays(from,to){ // 수요일 제외, 양끝 포함
   if(!to||to<from)return 0;
   let c=0,d=from,i=0;
-  while(d<=to&&i<500){ if(parseYMD(d).getDay()!==3)c++; d=addDays(d,1); i++; }
+  while(d<=to&&i<500){ if(!isRest(d))c++; d=addDays(d,1); i++; }
   return c;
 }
 function renderPace(){
