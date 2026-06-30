@@ -1361,12 +1361,18 @@
     "name": "수학 8-1",
     "topic": "입체도형(1~2)",
     "studied": "2026-06-29",
-    "done": 0,
-    "due": "2026-06-30",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-02",
+    "lastDone": "2026-06-30",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-06-30",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-02",
@@ -1374,6 +1380,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-06-29T13:12:59.683Z"
+    "updatedAt": "2026-06-30T08:32:54.815Z"
   }
 ]
