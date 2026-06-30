@@ -392,6 +392,7 @@
 const GAP=[1,2,4,7,14,35];
 const METHOD=['백지인출','가지 인출','문항 풀이','키워드 스냅','최종 인출','제목 스냅']; // 차수별 복습 방법 (운영 카드 v3)
 const OLD_INTERVALS=[1,3,7,14,28]; // 구버전 마이그레이션용
+const HIDDEN_COURSES=['sci']; // UI(강의 추가 picker·자동완성)에서 숨길 카탈로그 코스 — 과학 개념 보충(안 들음)
 const PATH='data.json', META_PATH='meta.json', CAT_PATH='catalog.json';
 const CFG_KEY='review_cfg_v1';
 const CACHE_KEY='review_cache_v1';
@@ -841,8 +842,8 @@ function renderPicker(){
     p.innerHTML='<div class="m-empty">catalog.json이 레포에 없어요. 추가하면 목록에서 탭 한 번으로 등록할 수 있어요.</div>';
     if(dl)dl.innerHTML=''; return;
   }
-  if(dl)dl.innerHTML=CAT.chunks.map(c=>`<option value="${esc(c.n)}">`).join('');
-  const cids=Object.keys(CAT.courses||{});
+  if(dl)dl.innerHTML=CAT.chunks.filter(c=>!HIDDEN_COURSES.includes(c.c)).map(c=>`<option value="${esc(c.n)}">`).join('');
+  const cids=Object.keys(CAT.courses||{}).filter(c=>!HIDDEN_COURSES.includes(c));
   if(!pkCourse||!cids.includes(pkCourse))pkCourse=cids[0];
   let h='<div class="chips pk-courses">';
   for(const cid of cids){
@@ -1002,7 +1003,7 @@ function progressDays(from,to){ // 수요일 제외, 양끝 포함
 function renderPace(){
   const b=document.getElementById('paceBody');
   const hint=document.getElementById('catHint');
-  if(hint)hint.textContent=CAT?`카탈로그 기준 현재 ${CAT.chunks.length}청크 업로드됨 (본강의 ${CAT.chunks.filter(c=>c.c!=='sci').length} · 보충 ${CAT.chunks.filter(c=>c.c==='sci').length})`:'';
+  if(hint)hint.textContent=CAT?`카탈로그 ${CAT.chunks.filter(c=>!HIDDEN_COURSES.includes(c.c)).length}청크 등록 가능`:'';
   if(meta.total==null||!meta.deadline){
     b.innerHTML=`<div class="pace-empty">목표 미설정 — 탭해서 총 강의량·목표일 입력<span class="edit-mark">✎</span></div>`;
     return;
@@ -1021,10 +1022,23 @@ function renderPace(){
     return;
   }
   const need=remain/days, ok=rRate>=need;
+  const dday=dayDiff(meta.deadline,t);
+  const todayLoad=lectures.filter(isPending).length+lectures.filter(memoPending).length;
+  let projLine;
+  if(rRate>0){
+    const sd=Math.ceil(remain/rRate); let d=t,c=0,i=0;
+    while(c<sd&&i<3000){d=addDays(d,1);if(!isRest(d))c++;i++;}
+    const onTime=d<=meta.deadline;
+    projLine=`<div class="pace-sub">현재 페이스 예상 완료 ~${md(d)} <b style="color:${onTime?'var(--green)':'var(--red)'}">${onTime?'기한 내 ✓':'기한 초과 ⚠'}</b></div>`;
+  }else{
+    projLine=`<div class="pace-sub">최근 7일 신규 0강 — 예상 완료일 측정 불가</div>`;
+  }
   b.innerHTML=
     `<div class="pace-big ${ok?'ok':'bad'}"><span>필요 ${need.toFixed(1)}강/일 ${ok?'✓':'⚠'}</span><span class="edit-mark">✎</span></div>`+
-    `<div class="pace-sub">잔여 ${remain} / ${meta.total}강 · 진도일 ${days}일 (~${md(meta.deadline)})</div>`+
-    `<div class="pace-sub">최근 7일 신규 ${recent}강 → ${rRate.toFixed(1)}강/일 (${ok?'페이스 유지 중':'페이스 미달'})</div>`;
+    `<div class="pace-sub">잔여 ${remain} / ${meta.total}강 · 진도일 ${days}일 · ~${md(meta.deadline)} (D-${dday})</div>`+
+    `<div class="pace-sub">최근 7일 신규 ${recent}강 → ${rRate.toFixed(1)}강/일 (${ok?'페이스 유지 중':'페이스 미달'})</div>`+
+    `<div class="pace-sub">오늘 복습 부하 ${todayLoad}개</div>`+
+    projLine;
 }
 
 /* ---- 과목 칩 ---- */
