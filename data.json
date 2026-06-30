@@ -1421,5 +1421,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-06-30T11:58:10.031Z"
+  },
+  {
+    "id": "1782820696725437",
+    "name": "체육 8-2",
+    "topic": "수업 모형(스포츠~TGfU)",
+    "studied": "2026-06-30",
+    "done": 0,
+    "due": "2026-07-02",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-02",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-06-30T11:58:16.725Z"
   }
 ]
