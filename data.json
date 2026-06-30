@@ -1257,14 +1257,19 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-29T08:05:25.952Z",
+    "updatedAt": "2026-06-30T07:26:27.418Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
-    "memoHist": [],
-    "memoDate": null,
-    "memoResult": null,
-    "memoDue": "2026-06-30"
+    "memoHist": [
+      [
+        "2026-06-30",
+        "p"
+      ]
+    ],
+    "memoDate": "2026-06-30",
+    "memoResult": "pass",
+    "memoDue": null
   },
   {
     "id": "1782719314218607",
