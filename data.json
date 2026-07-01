@@ -1407,12 +1407,18 @@
     "name": "과학 8-2",
     "topic": "물질(4~5)",
     "studied": "2026-06-30",
-    "done": 0,
-    "due": "2026-07-01",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-03",
+    "lastDone": "2026-07-01",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-01",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-02",
@@ -1420,7 +1426,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-01T04:36:20.134Z"
+    "updatedAt": "2026-07-01T07:39:02.767Z"
   },
   {
     "id": "1782820696725437",
