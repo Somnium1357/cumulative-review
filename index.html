@@ -637,8 +637,8 @@ async function refresh(){
     lectures = hadLocal ? mergeById(remote,lectures) : remote;
     meta=await ghGetMeta();
     const c=await ghGetCatalog(); if(c)CAT=c;
-    const ch=migrate(); cacheLocal(); render();
-    if(ch||hadLocal){ setDirty(false); await save(); } // 병합/마이그레이션 결과 영속화
+    const ch=migrate(); const rs=applyRestShift(); cacheLocal(); render(); // 휴식 설정 기준 due 재보정 포함
+    if(ch||rs||hadLocal){ setDirty(false); await save(); } // 병합/마이그레이션/보정 결과 영속화
     else setSync('saved');
   }
   catch(e){ setSync(e&&e.code==='auth'?'auth':'error'); }
@@ -789,11 +789,25 @@ async function metaSaveAct(){
 }
 // ── 휴식일 설정 ──
 function pruneRestOv(){ const t=today(); for(const k of Object.keys(meta.restOv||{})) if(k<t) delete meta.restOv[k]; } // 지난 예외 정리
-function applyRestShift(){ // 휴식일에 걸린 due/memoDue를 다음 공부일로 이동
+// 자연 예정일(휴식 보정 전) = 마지막 인출일/들은날 + 간격. 저장된 스케줄 계산과 동일한 규칙.
+function naturalDue(l){
+  if(l.lastResult==='weak'&&l.lastDone) return addDays(l.lastDone,1);        // 약함 → 다음날 재시도
+  if(l.lastDone) return addDays(l.lastDone,GAP[Math.min(l.done,5)]);
+  return addDays(l.studied,GAP[Math.min(l.done,5)]);
+}
+function naturalMemoDue(l){
+  if(l.excl||l.memoResult==='pass'||l.memoResult==='skip') return null;      // 완료/제외 → 정리본 없음
+  if(l.memoResult==='weak'&&l.memoDate) return addDays(l.memoDate,1);
+  return addDays(l.studied,MEMO_GAP);
+}
+function applyRestShift(){ // 휴식 설정 기준으로 due/memoDue 재보정 (밀기+당기기 모두)
+  let ch=false;
   for(const l of lectures){ if(l.excl)continue;
-    if(l.due&&isRest(l.due)){l.due=nextWork(l.due);touch(l);}
-    if(l.memoDue&&isRest(l.memoDue)){l.memoDue=nextWork(l.memoDue);touch(l);}
+    const nd=nextWork(naturalDue(l)); if(nd!==l.due){l.due=nd;touch(l);ch=true;}
+    const nm=naturalMemoDue(l);
+    if(nm){const nmd=nextWork(nm); if(nmd!==l.memoDue){l.memoDue=nmd;touch(l);ch=true;}}
   }
+  return ch;
 }
 async function commitRest(){ applyRestShift(); pruneRestOv(); renderRest(); render(); scheduleSave(); await saveMeta(); }
 async function setRestDow(v){ meta.restDow=(v===''?null:parseInt(v,10)); toast(v===''?'휴식 요일 없음':`${WD[parseInt(v,10)]}요일 휴식`); await commitRest(); }
@@ -1309,9 +1323,9 @@ function importData(file){
       const obj=JSON.parse(fr.result);
       let gotMeta=false;
       if(Array.isArray(obj)){lectures=obj;}
-      else if(obj&&Array.isArray(obj.items)){lectures=obj.items;if(obj.meta){meta={total:obj.meta.total??null,deadline:obj.meta.deadline??null};gotMeta=true;}}
+      else if(obj&&Array.isArray(obj.items)){lectures=obj.items;if(obj.meta){meta=normMeta(obj.meta);gotMeta=true;}}
       else{toast('형식 오류');return;}
-      migrate(); render(); toast('불러왔어요');
+      migrate(); applyRestShift(); render(); toast('불러왔어요');
       await save(); if(gotMeta)await saveMeta();
     }catch(e){toast('불러오기 실패');}
   };
@@ -1346,9 +1360,9 @@ async function connect(){
     await ghRepoCheck();
     lectures=await ghGet(); meta=await ghGetMeta();
     const c=await ghGetCatalog(); if(c)CAT=c;
-    const ch=migrate(); cacheLocal(); saveCfg();
+    const ch=migrate(); const rs=applyRestShift(); cacheLocal(); saveCfg();
     hideSetup(); setSync('saved'); render(); toast('연결됐어요');
-    if(ch) await save();
+    if(ch||rs) await save();
   }catch(e){
     cfg=prev;
     setupErr(e&&e.code==='auth'?'토큰이 거부됐어요. 권한(Contents: Read and write)과 레포 선택을 확인하세요.'
@@ -1394,10 +1408,10 @@ window.addEventListener('pagehide',()=>{ flushSave(); });      // 종료/새로�
   document.getElementById('studied').value=today();
   loadCfg();
   try{const v=localStorage.getItem(CACHE_KEY);if(v)lectures=JSON.parse(v)||[];}catch(e){}
-  try{const m=localStorage.getItem(META_CACHE);if(m)meta=JSON.parse(m)||meta;}catch(e){}
+  try{const m=localStorage.getItem(META_CACHE);const mm=m&&JSON.parse(m);if(mm)meta=normMeta(mm);}catch(e){}
   try{const c=localStorage.getItem(CAT_CACHE);if(c)CAT=JSON.parse(c);}catch(e){}
   try{if(localStorage.getItem(DIRTY_KEY))dirty=true;}catch(e){} // 지난 세션 미동기화분 → refresh가 병합
-  migrate(); render();
+  migrate(); applyRestShift(); render();
   if(!cfg||!cfg.token){ setSync('auth'); showSetup(); return; }
   saveCfg(); // 빌트인으로 채워진 cfg를 이 기기에 저장 → 이후 BUILTIN 비어도 자동 연결
   await refresh();
