@@ -1572,5 +1572,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-02T09:49:49.178Z"
+  },
+  {
+    "id": "1782991888140731",
+    "name": "사회 9",
+    "topic": "역사·지리 영역 지도",
+    "studied": "2026-07-02",
+    "done": 0,
+    "due": "2026-07-03",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-04",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-02T11:31:28.140Z"
   }
 ]
