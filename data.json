@@ -748,7 +748,7 @@
     "topic": "연주법②·감상곡(대취타~평시조)",
     "studied": "2026-06-19",
     "done": 3,
-    "due": "2026-07-04",
+    "due": "2026-07-05",
     "lastDone": "2026-06-27",
     "lastResult": "pass",
     "weak": 1,
@@ -774,7 +774,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-27T08:25:18.278Z",
+    "updatedAt": "2026-07-02T13:05:32.457Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
@@ -1113,7 +1113,7 @@
     "topic": "평면도형(9~10)",
     "studied": "2026-06-27",
     "done": 2,
-    "due": "2026-07-04",
+    "due": "2026-07-05",
     "lastDone": "2026-06-30",
     "lastResult": "pass",
     "weak": 0,
@@ -1129,7 +1129,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-30T08:35:04.989Z",
+    "updatedAt": "2026-07-02T13:05:32.457Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
@@ -1149,7 +1149,7 @@
     "topic": "물질(3) 기체",
     "studied": "2026-06-27",
     "done": 2,
-    "due": "2026-07-04",
+    "due": "2026-07-05",
     "lastDone": "2026-06-30",
     "lastResult": "pass",
     "weak": 0,
@@ -1165,7 +1165,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-30T07:23:31.507Z",
+    "updatedAt": "2026-07-02T13:05:32.457Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
@@ -1185,7 +1185,7 @@
     "topic": "교육의 본질 유형",
     "studied": "2026-06-27",
     "done": 2,
-    "due": "2026-07-04",
+    "due": "2026-07-05",
     "lastDone": "2026-06-30",
     "lastResult": "pass",
     "weak": 0,
@@ -1201,7 +1201,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-06-30T07:31:08.923Z",
+    "updatedAt": "2026-07-02T13:05:32.457Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
@@ -1527,7 +1527,7 @@
     "topic": "내용구성원리 + TPSR·교육과정 모형",
     "studied": "2026-07-01",
     "done": 1,
-    "due": "2026-07-04",
+    "due": "2026-07-05",
     "lastDone": "2026-07-02",
     "lastResult": "pass",
     "weak": 0,
@@ -1545,7 +1545,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-02T08:24:12.665Z"
+    "updatedAt": "2026-07-02T13:05:32.457Z"
   },
   {
     "id": "178291150660095",
@@ -1553,7 +1553,7 @@
     "topic": "평가·영어 교육과정",
     "studied": "2026-07-01",
     "done": 1,
-    "due": "2026-07-04",
+    "due": "2026-07-05",
     "lastDone": "2026-07-02",
     "lastResult": "pass",
     "weak": 0,
@@ -1571,7 +1571,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-02T09:49:49.178Z"
+    "updatedAt": "2026-07-02T13:05:32.457Z"
   },
   {
     "id": "1782991888140731",
@@ -1586,12 +1586,12 @@
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-04",
+    "memoDue": "2026-07-05",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-02T11:31:28.140Z"
+    "updatedAt": "2026-07-02T13:05:32.457Z"
   },
   {
     "id": "1782997507498972",
@@ -1606,11 +1606,11 @@
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-04",
+    "memoDue": "2026-07-05",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-02T13:05:07.498Z"
+    "updatedAt": "2026-07-02T13:05:32.457Z"
   }
 ]
