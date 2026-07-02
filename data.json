@@ -34,18 +34,23 @@
     "id": "1780647022097198",
     "name": "영어 1-2",
     "studied": "2026-06-04",
-    "done": 4,
-    "lastDone": "2026-06-18",
+    "done": 5,
+    "lastDone": "2026-07-02",
     "weak": 0,
     "hist": [
       [
         "2026-06-18",
         3,
         "p"
+      ],
+      [
+        "2026-07-02",
+        4,
+        "p"
       ]
     ],
     "lastResult": "pass",
-    "due": "2026-07-02",
+    "due": "2026-08-06",
     "topic": "",
     "excl": false,
     "exclHist": [],
@@ -53,7 +58,8 @@
     "memoHist": [],
     "memoDate": null,
     "memoResult": "skip",
-    "memoDue": null
+    "memoDue": null,
+    "updatedAt": "2026-07-02T09:19:04.733Z"
   },
   {
     "id": "1780664407750147",
