@@ -1592,5 +1592,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-02T11:31:28.140Z"
+  },
+  {
+    "id": "1782997507498972",
+    "name": "국어 9",
+    "topic": "OT·기초 문식성(1~2)",
+    "studied": "2026-07-02",
+    "done": 0,
+    "due": "2026-07-03",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-04",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-02T13:05:07.498Z"
   }
 ]
