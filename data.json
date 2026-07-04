@@ -1750,5 +1750,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-04T11:30:46.165Z"
+  },
+  {
+    "id": "1783170327568879",
+    "name": "수학 10-1",
+    "topic": "입체도형(3~4)·디에네스",
+    "studied": "2026-07-04",
+    "done": 0,
+    "due": "2026-07-05",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-06",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-04T13:05:27.568Z"
   }
 ]
