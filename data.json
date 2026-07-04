@@ -1594,15 +1594,20 @@
     "topic": "평가·영어 교육과정",
     "studied": "2026-07-01",
     "done": 1,
-    "due": "2026-07-04",
-    "lastDone": "2026-07-02",
-    "lastResult": "pass",
-    "weak": 0,
+    "due": "2026-07-05",
+    "lastDone": "2026-07-04",
+    "lastResult": "weak",
+    "weak": 1,
     "hist": [
       [
         "2026-07-02",
         0,
         "p"
+      ],
+      [
+        "2026-07-04",
+        1,
+        "w"
       ]
     ],
     "excl": false,
@@ -1612,7 +1617,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-04T05:47:00.371Z"
+    "updatedAt": "2026-07-04T08:12:10.048Z"
   },
   {
     "id": "1782991888140731",
