@@ -1710,5 +1710,25 @@
       ]
     ],
     "updatedAt": "2026-07-04T07:11:40.320Z"
+  },
+  {
+    "id": "1783163003884116",
+    "name": "미술 10-1",
+    "topic": "조형요소와 원리",
+    "studied": "2026-07-04",
+    "done": 0,
+    "due": "2026-07-05",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-06",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-04T11:03:23.884Z"
   }
 ]
