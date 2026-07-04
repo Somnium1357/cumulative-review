@@ -1614,12 +1614,18 @@
     "name": "국어 9",
     "topic": "OT·기초 문식성(1~2)",
     "studied": "2026-07-02",
-    "done": 0,
-    "due": "2026-07-03",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-06",
+    "lastDone": "2026-07-04",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-04",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-05",
@@ -1632,6 +1638,6 @@
         "w"
       ]
     ],
-    "updatedAt": "2026-07-04T05:47:11.769Z"
+    "updatedAt": "2026-07-04T07:11:40.320Z"
   }
 ]
