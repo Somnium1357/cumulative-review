@@ -1430,26 +1430,6 @@
     "updatedAt": "2026-06-29T07:48:41.519Z"
   },
   {
-    "id": "1782738683646201",
-    "name": "수학 3-1",
-    "topic": "수업 모형(3)·수학 교육과정",
-    "studied": "2026-06-29",
-    "done": 0,
-    "due": "2026-06-30",
-    "lastDone": null,
-    "lastResult": null,
-    "weak": 0,
-    "hist": [],
-    "excl": true,
-    "exclHist": [],
-    "memoDue": "2026-07-02",
-    "memoDate": null,
-    "memoResult": null,
-    "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-06-29T13:11:34.611Z"
-  },
-  {
     "id": "178273877968392",
     "name": "수학 8-1",
     "topic": "입체도형(1~2)",
