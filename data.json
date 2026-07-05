@@ -1766,5 +1766,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-05T07:43:06.788Z"
+  },
+  {
+    "id": "1783242249598430",
+    "name": "수학 1-1",
+    "topic": "OT·수학의 가치·지식의 형태",
+    "studied": "2026-07-05",
+    "done": 0,
+    "due": "2026-07-06",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-07",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-05T09:04:09.598Z"
   }
 ]
