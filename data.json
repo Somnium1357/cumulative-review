@@ -1826,5 +1826,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-05T12:25:29.538Z"
+  },
+  {
+    "id": "1783256061113931",
+    "name": "사회 10-3",
+    "topic": "사회과 교육과정 전반부",
+    "studied": "2026-07-05",
+    "done": 0,
+    "due": "2026-07-06",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-07",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-05T12:54:21.113Z"
   }
 ]
