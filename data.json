@@ -1791,12 +1791,18 @@
     "name": "수학 10-1",
     "topic": "입체도형(3~4)·디에네스",
     "studied": "2026-07-04",
-    "done": 0,
-    "due": "2026-07-05",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-07",
+    "lastDone": "2026-07-05",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-05",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-06",
@@ -1804,6 +1810,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-04T13:05:27.568Z"
+    "updatedAt": "2026-07-05T07:43:06.788Z"
   }
 ]
