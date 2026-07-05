@@ -1751,12 +1751,18 @@
     "name": "미술 10-2",
     "topic": "사진·애니메이션",
     "studied": "2026-07-04",
-    "done": 0,
-    "due": "2026-07-05",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-07",
+    "lastDone": "2026-07-05",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-05",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-06",
@@ -1764,7 +1770,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-04T11:30:46.165Z"
+    "updatedAt": "2026-07-05T06:09:59.221Z"
   },
   {
     "id": "1783170327568879",
