@@ -1792,12 +1792,18 @@
     "name": "과학 10-2",
     "topic": "물질(6) 산과 염기",
     "studied": "2026-07-05",
-    "done": 0,
-    "due": "2026-07-06",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-09",
+    "lastDone": "2026-07-06",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-06",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-07",
@@ -1805,7 +1811,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-05T10:28:54.122Z"
+    "updatedAt": "2026-07-06T06:50:34.046Z"
   },
   {
     "id": "1783254329538350",
