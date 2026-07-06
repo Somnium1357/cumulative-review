@@ -1920,5 +1920,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-06T08:02:54.243Z"
+  },
+  {
+    "id": "1783341159390166",
+    "name": "국어 11-1",
+    "topic": "기초 문식성(3~5)",
+    "studied": "2026-07-06",
+    "done": 0,
+    "due": "2026-07-07",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-09",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-06T12:32:39.390Z"
   }
 ]
