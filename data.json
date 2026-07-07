@@ -1960,5 +1960,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-06T12:38:54.145Z"
+  },
+  {
+    "id": "1783408903964652",
+    "name": "과학 11-2",
+    "topic": "물질(7)·생명(1)",
+    "studied": "2026-07-07",
+    "done": 0,
+    "due": "2026-07-09",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-09",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-07T07:21:43.964Z"
   }
 ]
