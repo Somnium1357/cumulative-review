@@ -2,5 +2,7 @@
   "total": 180,
   "deadline": "2026-08-31",
   "restDow": 3,
-  "restOv": {}
+  "restOv": {
+    "2026-07-08": "work"
+  }
 }
