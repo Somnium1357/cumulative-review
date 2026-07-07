@@ -2000,5 +2000,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-07T08:42:48.381Z"
+  },
+  {
+    "id": "1783417218521208",
+    "name": "미술 11-2",
+    "topic": "조소·전통 공예",
+    "studied": "2026-07-07",
+    "done": 0,
+    "due": "2026-07-09",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-09",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-07T09:40:18.522Z"
   }
 ]
