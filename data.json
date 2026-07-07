@@ -1980,5 +1980,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-07T07:21:43.964Z"
+  },
+  {
+    "id": "1783413768381644",
+    "name": "도덕 11-1",
+    "topic": "OT·편찬 방향·수업모형①",
+    "studied": "2026-07-07",
+    "done": 0,
+    "due": "2026-07-09",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-09",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-07T08:42:48.381Z"
   }
 ]
