@@ -1972,12 +1972,18 @@
     "name": "수학 2-1",
     "topic": "수업 모형(1~2)",
     "studied": "2026-07-06",
-    "done": 0,
-    "due": "2026-07-07",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-09",
+    "lastDone": "2026-07-07",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-07",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-09",
@@ -1985,7 +1991,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-07T12:06:35.520Z"
+    "updatedAt": "2026-07-07T12:24:41.216Z"
   },
   {
     "id": "1783408903964652",
