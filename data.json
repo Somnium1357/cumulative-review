@@ -1982,15 +1982,20 @@
     "topic": "기초 문식성(3~5)",
     "studied": "2026-07-06",
     "done": 1,
-    "due": "2026-07-10",
-    "lastDone": "2026-07-07",
-    "lastResult": "pass",
-    "weak": 0,
+    "due": "2026-07-11",
+    "lastDone": "2026-07-10",
+    "lastResult": "weak",
+    "weak": 1,
     "hist": [
       [
         "2026-07-07",
         0,
         "p"
+      ],
+      [
+        "2026-07-10",
+        1,
+        "w"
       ]
     ],
     "excl": false,
@@ -2000,7 +2005,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-09T08:28:55.054Z"
+    "updatedAt": "2026-07-10T09:22:31.121Z"
   },
   {
     "id": "1783341534145315",
