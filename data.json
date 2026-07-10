@@ -2110,12 +2110,18 @@
     "name": "미술 11-2",
     "topic": "조소·전통 공예",
     "studied": "2026-07-07",
-    "done": 0,
-    "due": "2026-07-10",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-12",
+    "lastDone": "2026-07-10",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-10",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-11",
@@ -2128,7 +2134,7 @@
         "w"
       ]
     ],
-    "updatedAt": "2026-07-10T10:17:14.739Z"
+    "updatedAt": "2026-07-10T10:51:24.608Z"
   },
   {
     "id": "1783425949490858",
