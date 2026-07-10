@@ -2118,12 +2118,17 @@
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-10",
-    "memoDate": null,
-    "memoResult": null,
-    "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-07-09T08:28:55.054Z"
+    "memoDue": "2026-07-11",
+    "memoDate": "2026-07-10",
+    "memoResult": "weak",
+    "memoWeak": 1,
+    "memoHist": [
+      [
+        "2026-07-10",
+        "w"
+      ]
+    ],
+    "updatedAt": "2026-07-10T10:17:14.739Z"
   },
   {
     "id": "1783425949490858",
