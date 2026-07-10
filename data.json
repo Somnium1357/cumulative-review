@@ -2079,12 +2079,18 @@
     "name": "도덕 11-1",
     "topic": "OT·편찬 방향·수업모형①",
     "studied": "2026-07-07",
-    "done": 0,
-    "due": "2026-07-10",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-12",
+    "lastDone": "2026-07-10",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-10",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-11",
@@ -2097,7 +2103,7 @@
         "w"
       ]
     ],
-    "updatedAt": "2026-07-10T09:44:11.735Z"
+    "updatedAt": "2026-07-10T10:17:06.419Z"
   },
   {
     "id": "1783417218521208",
