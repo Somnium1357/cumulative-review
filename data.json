@@ -2155,25 +2155,5 @@
       ]
     ],
     "updatedAt": "2026-07-10T10:51:24.608Z"
-  },
-  {
-    "id": "1783425949490858",
-    "name": "수학 3-1",
-    "topic": "수업 모형(3)·수학 교육과정",
-    "studied": "2026-07-07",
-    "done": 0,
-    "due": "2026-07-10",
-    "lastDone": null,
-    "lastResult": null,
-    "weak": 0,
-    "hist": [],
-    "excl": false,
-    "exclHist": [],
-    "memoDue": "2026-07-10",
-    "memoDate": null,
-    "memoResult": null,
-    "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-07-09T08:28:55.054Z"
   }
 ]
