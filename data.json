@@ -2347,5 +2347,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-11T11:04:17.901Z"
+  },
+  {
+    "id": "1783774482765712",
+    "name": "미술 12-1",
+    "topic": "정물화·수채화·디자인",
+    "studied": "2026-07-11",
+    "done": 0,
+    "due": "2026-07-12",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-13",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-11T12:54:42.765Z"
   }
 ]
