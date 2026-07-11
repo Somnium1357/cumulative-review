@@ -2327,5 +2327,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-11T09:48:18.162Z"
+  },
+  {
+    "id": "1783767857901397",
+    "name": "미술 11-3",
+    "topic": "색·풍경화·인물화",
+    "studied": "2026-07-11",
+    "done": 0,
+    "due": "2026-07-12",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-13",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-11T11:04:17.901Z"
   }
 ]
