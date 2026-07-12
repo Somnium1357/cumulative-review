@@ -2344,12 +2344,18 @@
     "name": "미술 11-3",
     "topic": "색·풍경화·인물화",
     "studied": "2026-07-11",
-    "done": 0,
-    "due": "2026-07-12",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-14",
+    "lastDone": "2026-07-12",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-12",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-13",
@@ -2357,7 +2363,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-11T11:04:17.901Z"
+    "updatedAt": "2026-07-12T07:10:24.957Z"
   },
   {
     "id": "1783774482765712",
