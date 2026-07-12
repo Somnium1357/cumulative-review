@@ -2328,12 +2328,18 @@
     "name": "수학 3-1",
     "topic": "수업 모형(3)·수학 교육과정",
     "studied": "2026-07-11",
-    "done": 0,
-    "due": "2026-07-12",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-14",
+    "lastDone": "2026-07-12",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-12",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-13",
@@ -2341,7 +2347,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-11T08:08:01.336Z"
+    "updatedAt": "2026-07-12T08:13:16.482Z"
   },
   {
     "id": "1783763298162789",
