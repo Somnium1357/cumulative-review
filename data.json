@@ -2497,12 +2497,18 @@
     "name": "미술 12-2",
     "topic": "디지털 드로잉·서예",
     "studied": "2026-07-12",
-    "done": 0,
-    "due": "2026-07-13",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-16",
+    "lastDone": "2026-07-13",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-13",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-14",
@@ -2510,6 +2516,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-12T12:10:37.719Z"
+    "updatedAt": "2026-07-13T12:48:42.339Z"
   }
 ]
