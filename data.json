@@ -2613,5 +2613,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-14T12:27:47.334Z"
+  },
+  {
+    "id": "1784035910807679",
+    "name": "수학 12-3",
+    "topic": "측정(4~5)",
+    "studied": "2026-07-14",
+    "done": 0,
+    "due": "2026-07-16",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-16",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-14T13:31:50.807Z"
   }
 ]
