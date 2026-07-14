@@ -2573,5 +2573,25 @@
       ]
     ],
     "updatedAt": "2026-07-14T07:49:31.044Z"
+  },
+  {
+    "id": "1784028783178380",
+    "name": "도덕 12-3",
+    "topic": "수업모형②~④",
+    "studied": "2026-07-14",
+    "done": 0,
+    "due": "2026-07-16",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-16",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-14T11:33:03.178Z"
   }
 ]
