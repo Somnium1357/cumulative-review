@@ -2593,5 +2593,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-14T11:33:03.178Z"
+  },
+  {
+    "id": "1784032067334350",
+    "name": "과학 12-2",
+    "topic": "생명(2~3)",
+    "studied": "2026-07-14",
+    "done": 0,
+    "due": "2026-07-16",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-16",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-14T12:27:47.334Z"
   }
 ]
