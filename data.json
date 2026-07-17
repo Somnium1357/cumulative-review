@@ -706,7 +706,7 @@
     "topic": "서양음악(3화음)·연주법①",
     "studied": "2026-06-16",
     "done": 4,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": "2026-07-02",
     "lastResult": "pass",
     "weak": 0,
@@ -732,7 +732,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-16T18:46:32.416Z",
+    "updatedAt": "2026-07-17T05:19:04.418Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
@@ -2172,7 +2172,7 @@
     "topic": "기초 문식성(3~5)",
     "studied": "2026-07-06",
     "done": 2,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": "2026-07-11",
     "lastResult": "pass",
     "weak": 1,
@@ -2205,7 +2205,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-16T18:46:32.416Z"
+    "updatedAt": "2026-07-17T05:19:04.418Z"
   },
   {
     "id": "1783341534145315",
@@ -2213,7 +2213,7 @@
     "topic": "수업 모형(1~2)",
     "studied": "2026-07-06",
     "done": 2,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": "2026-07-11",
     "lastResult": "pass",
     "weak": 1,
@@ -2246,7 +2246,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-16T18:46:32.416Z"
+    "updatedAt": "2026-07-17T05:19:04.418Z"
   },
   {
     "id": "1783408903964652",
@@ -2254,7 +2254,7 @@
     "topic": "물질(7)·생명(1)",
     "studied": "2026-07-07",
     "done": 2,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": "2026-07-12",
     "lastResult": "pass",
     "weak": 0,
@@ -2286,7 +2286,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-16T18:46:32.416Z"
+    "updatedAt": "2026-07-17T05:19:04.418Z"
   },
   {
     "id": "1783413768381644",
@@ -2294,7 +2294,7 @@
     "topic": "OT·편찬 방향·수업모형①",
     "studied": "2026-07-07",
     "done": 2,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": "2026-07-12",
     "lastResult": "pass",
     "weak": 0,
@@ -2326,7 +2326,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-16T18:46:32.416Z"
+    "updatedAt": "2026-07-17T05:19:04.418Z"
   },
   {
     "id": "1783417218521208",
@@ -2334,7 +2334,7 @@
     "topic": "조소·전통 공예",
     "studied": "2026-07-07",
     "done": 2,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": "2026-07-12",
     "lastResult": "pass",
     "weak": 0,
@@ -2366,7 +2366,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-16T18:46:32.416Z"
+    "updatedAt": "2026-07-17T05:19:04.418Z"
   },
   {
     "id": "1783757281336819",
@@ -2518,7 +2518,7 @@
     "topic": "측정(1~3)",
     "studied": "2026-07-12",
     "done": 1,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": "2026-07-13",
     "lastResult": "pass",
     "weak": 0,
@@ -2541,7 +2541,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-16T18:46:32.416Z"
+    "updatedAt": "2026-07-17T05:19:04.418Z"
   },
   {
     "id": "1783858237719904",
@@ -2549,7 +2549,7 @@
     "topic": "디지털 드로잉·서예",
     "studied": "2026-07-12",
     "done": 1,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": "2026-07-13",
     "lastResult": "pass",
     "weak": 0,
@@ -2572,7 +2572,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-16T18:46:32.417Z"
+    "updatedAt": "2026-07-17T05:19:04.418Z"
   },
   {
     "id": "1784028783178380",
@@ -2580,19 +2580,19 @@
     "topic": "수업모형②~④",
     "studied": "2026-07-14",
     "done": 0,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": null,
     "lastResult": null,
     "weak": 0,
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-17",
+    "memoDue": "2026-07-16",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-16T18:46:32.417Z"
+    "updatedAt": "2026-07-17T05:19:04.418Z"
   },
   {
     "id": "1784032067334350",
@@ -2600,19 +2600,19 @@
     "topic": "생명(2~3)",
     "studied": "2026-07-14",
     "done": 0,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": null,
     "lastResult": null,
     "weak": 0,
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-17",
+    "memoDue": "2026-07-16",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-16T18:46:32.417Z"
+    "updatedAt": "2026-07-17T05:19:04.418Z"
   },
   {
     "id": "1784035910807679",
@@ -2620,18 +2620,18 @@
     "topic": "측정(4~5)",
     "studied": "2026-07-14",
     "done": 0,
-    "due": "2026-07-17",
+    "due": "2026-07-16",
     "lastDone": null,
     "lastResult": null,
     "weak": 0,
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-17",
+    "memoDue": "2026-07-16",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-16T18:46:32.417Z"
+    "updatedAt": "2026-07-17T05:19:04.418Z"
   }
 ]
