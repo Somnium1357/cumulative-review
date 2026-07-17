@@ -2604,12 +2604,18 @@
     "name": "도덕 12-3",
     "topic": "수업모형②~④",
     "studied": "2026-07-14",
-    "done": 0,
-    "due": "2026-07-16",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-19",
+    "lastDone": "2026-07-17",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-17",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-18",
@@ -2622,7 +2628,7 @@
         "w"
       ]
     ],
-    "updatedAt": "2026-07-17T06:48:13.979Z"
+    "updatedAt": "2026-07-17T09:37:38.658Z"
   },
   {
     "id": "1784032067334350",
