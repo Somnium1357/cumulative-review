@@ -2686,12 +2686,18 @@
     "name": "수학 12-3",
     "topic": "측정(4~5)",
     "studied": "2026-07-14",
-    "done": 0,
-    "due": "2026-07-16",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-19",
+    "lastDone": "2026-07-17",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-17",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-16",
@@ -2699,6 +2705,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-17T05:19:04.418Z"
+    "updatedAt": "2026-07-17T10:07:59.363Z"
   }
 ]
