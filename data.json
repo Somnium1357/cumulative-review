@@ -2911,5 +2911,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-18T11:30:30.938Z"
+  },
+  {
+    "id": "178437886206167",
+    "name": "미술 14-1",
+    "topic": "전통회화",
+    "studied": "2026-07-18",
+    "done": 0,
+    "due": "2026-07-19",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-20",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-18T12:47:42.061Z"
   }
 ]
