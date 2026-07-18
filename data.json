@@ -2689,17 +2689,21 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-18",
-    "memoDate": "2026-07-17",
-    "memoResult": "weak",
+    "memoDue": null,
+    "memoDate": "2026-07-18",
+    "memoResult": "pass",
     "memoWeak": 1,
     "memoHist": [
       [
         "2026-07-17",
         "w"
+      ],
+      [
+        "2026-07-18",
+        "p"
       ]
     ],
-    "updatedAt": "2026-07-17T06:48:15.105Z"
+    "updatedAt": "2026-07-18T06:01:49.686Z"
   },
   {
     "id": "1784035910807679",
