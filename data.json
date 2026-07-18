@@ -2871,5 +2871,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-18T08:51:30.358Z"
+  },
+  {
+    "id": "1784367149566601",
+    "name": "체육 13-2",
+    "topic": "체육 교육과정 1~2",
+    "studied": "2026-07-18",
+    "done": 0,
+    "due": "2026-07-19",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-20",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-18T09:32:29.566Z"
   }
 ]
