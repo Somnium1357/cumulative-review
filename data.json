@@ -2752,12 +2752,18 @@
     "name": "과학 13-2",
     "topic": "생명(4~5)",
     "studied": "2026-07-17",
-    "done": 0,
-    "due": "2026-07-18",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-20",
+    "lastDone": "2026-07-18",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-18",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-19",
@@ -2765,6 +2771,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-17T12:24:56.479Z"
+    "updatedAt": "2026-07-18T05:59:11.641Z"
   }
 ]
