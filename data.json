@@ -2891,5 +2891,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-18T09:32:39.650Z"
+  },
+  {
+    "id": "1784374230937641",
+    "name": "도덕 13-3",
+    "topic": "수업모형⑤⑥·지도서 과정안",
+    "studied": "2026-07-18",
+    "done": 0,
+    "due": "2026-07-19",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-20",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-18T11:30:30.938Z"
   }
 ]
