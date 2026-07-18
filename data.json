@@ -2863,13 +2863,13 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "excl": false,
+    "excl": true,
     "exclHist": [],
     "memoDue": "2026-07-19",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-18T08:51:16.207Z"
+    "updatedAt": "2026-07-18T08:51:30.358Z"
   }
 ]
