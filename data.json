@@ -2845,12 +2845,17 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-19",
-    "memoDate": null,
-    "memoResult": null,
-    "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-07-18T05:59:11.641Z"
+    "memoDue": "2026-07-20",
+    "memoDate": "2026-07-19",
+    "memoResult": "weak",
+    "memoWeak": 1,
+    "memoHist": [
+      [
+        "2026-07-19",
+        "w"
+      ]
+    ],
+    "updatedAt": "2026-07-19T11:39:16.603Z"
   },
   {
     "id": "1784364676207205",
