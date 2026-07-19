@@ -2951,5 +2951,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-19T08:59:26.128Z"
+  },
+  {
+    "id": "178445649015960",
+    "name": "수학 14-1",
+    "topic": "측정(6~7)",
+    "studied": "2026-07-19",
+    "done": 0,
+    "due": "2026-07-20",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-21",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-19T10:21:30.160Z"
   }
 ]
