@@ -2964,15 +2964,15 @@
     "topic": "전통회화",
     "studied": "2026-07-18",
     "done": 1,
-    "due": "2026-07-20",
+    "due": "2026-07-21",
     "lastDone": "2026-07-19",
-    "lastResult": "weak",
+    "lastResult": "pass",
     "weak": 0,
     "hist": [
       [
         "2026-07-19",
         0,
-        "w"
+        "p"
       ]
     ],
     "excl": false,
@@ -2982,7 +2982,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-19T17:09:51.826Z"
+    "updatedAt": "2026-07-19T17:10:00.861Z"
   },
   {
     "id": "1784451566128124",
