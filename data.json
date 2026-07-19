@@ -2922,12 +2922,18 @@
     "name": "도덕 13-3",
     "topic": "수업모형⑤⑥·지도서 과정안",
     "studied": "2026-07-18",
-    "done": 0,
-    "due": "2026-07-19",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-21",
+    "lastDone": "2026-07-19",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-19",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-20",
@@ -2935,7 +2941,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-18T11:30:30.938Z"
+    "updatedAt": "2026-07-19T12:53:35.413Z"
   },
   {
     "id": "178437886206167",
