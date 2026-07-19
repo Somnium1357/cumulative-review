@@ -2963,11 +2963,11 @@
     "name": "미술 14-1",
     "topic": "전통회화",
     "studied": "2026-07-18",
-    "done": 0,
-    "due": "2026-07-20",
+    "done": 1,
+    "due": "2026-07-21",
     "lastDone": "2026-07-19",
     "lastResult": "weak",
-    "weak": 1,
+    "weak": 0,
     "hist": [
       [
         "2026-07-19",
@@ -2982,7 +2982,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-19T13:01:58.247Z"
+    "updatedAt": "2026-07-19T13:25:32.270Z"
   },
   {
     "id": "1784451566128124",
