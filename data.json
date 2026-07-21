@@ -3130,5 +3130,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-21T10:15:05.279Z"
+  },
+  {
+    "id": "1784637140843775",
+    "name": "과학 14-2",
+    "topic": "생명(6) 몸의 구조",
+    "studied": "2026-07-21",
+    "done": 0,
+    "due": "2026-07-23",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-23",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-21T12:32:20.843Z"
   }
 ]
