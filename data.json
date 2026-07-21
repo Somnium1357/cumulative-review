@@ -3090,12 +3090,18 @@
     "name": "수학 14-3",
     "topic": "측정(8~9)",
     "studied": "2026-07-19",
-    "done": 0,
-    "due": "2026-07-21",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-23",
+    "lastDone": "2026-07-21",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-21",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-21",
@@ -3103,6 +3109,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-20T13:01:26.912Z"
+    "updatedAt": "2026-07-21T10:15:05.279Z"
   }
 ]
