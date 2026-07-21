@@ -3162,13 +3162,13 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "excl": false,
+    "excl": true,
     "exclHist": [],
     "memoDue": "2026-07-23",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-21T12:48:01.641Z"
+    "updatedAt": "2026-07-21T12:48:15.974Z"
   }
 ]
