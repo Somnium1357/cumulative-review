@@ -3226,5 +3226,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-22T11:39:46.949Z"
+  },
+  {
+    "id": "1784725867400650",
+    "name": "국어 15-1",
+    "topic": "문법(4~5)",
+    "studied": "2026-07-22",
+    "done": 0,
+    "due": "2026-07-23",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-24",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-22T13:11:07.400Z"
   }
 ]
