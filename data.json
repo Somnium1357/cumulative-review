@@ -3118,12 +3118,17 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-21",
-    "memoDate": null,
-    "memoResult": null,
+    "memoDue": null,
+    "memoDate": "2026-07-22",
+    "memoResult": "pass",
     "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-07-21T10:15:03.921Z"
+    "memoHist": [
+      [
+        "2026-07-22",
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-07-22T08:27:10.981Z"
   },
   {
     "id": "1784461044069387",
