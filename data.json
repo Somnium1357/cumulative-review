@@ -3286,5 +3286,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-23T08:14:07.642Z"
+  },
+  {
+    "id": "1784800634823920",
+    "name": "미술 15-1",
+    "topic": "소묘·미술양식(근대~옵아트)",
+    "studied": "2026-07-23",
+    "done": 0,
+    "due": "2026-07-24",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-25",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-23T09:57:14.823Z"
   }
 ]
