@@ -3376,12 +3376,18 @@
     "name": "미술 15-1",
     "topic": "소묘·미술양식(근대~옵아트)",
     "studied": "2026-07-23",
-    "done": 0,
-    "due": "2026-07-24",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-26",
+    "lastDone": "2026-07-24",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-24",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-25",
@@ -3389,6 +3395,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-23T09:57:14.823Z"
+    "updatedAt": "2026-07-24T11:21:33.400Z"
   }
 ]
