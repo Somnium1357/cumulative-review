@@ -3401,5 +3401,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-24T11:21:33.400Z"
+  },
+  {
+    "id": "1784892454496568",
+    "name": "체육 15-2",
+    "topic": "체육 교육과정 5",
+    "studied": "2026-07-24",
+    "done": 0,
+    "due": "2026-07-25",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-26",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-24T11:27:34.496Z"
   }
 ]
