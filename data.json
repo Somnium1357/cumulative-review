@@ -3421,5 +3421,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-24T11:27:46.121Z"
+  },
+  {
+    "id": "1784897291382645",
+    "name": "도덕 15-3",
+    "topic": "이론적 기초③④",
+    "studied": "2026-07-24",
+    "done": 0,
+    "due": "2026-07-25",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-26",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-24T12:48:11.382Z"
   }
 ]
