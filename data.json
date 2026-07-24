@@ -3247,12 +3247,18 @@
     "name": "도덕 14-3",
     "topic": "교육의 관점·이론적 기초①②",
     "studied": "2026-07-22",
-    "done": 0,
-    "due": "2026-07-23",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-26",
+    "lastDone": "2026-07-24",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-24",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-24",
@@ -3260,7 +3266,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-22T11:39:46.949Z"
+    "updatedAt": "2026-07-24T09:25:02.118Z"
   },
   {
     "id": "1784725867400650",
