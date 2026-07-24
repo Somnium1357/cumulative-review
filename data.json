@@ -3350,12 +3350,18 @@
     "name": "과학 15-2",
     "topic": "생명(7) 식물 구조",
     "studied": "2026-07-23",
-    "done": 0,
-    "due": "2026-07-24",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-26",
+    "lastDone": "2026-07-24",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-24",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-25",
@@ -3363,7 +3369,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-23T08:14:07.642Z"
+    "updatedAt": "2026-07-24T09:57:21.408Z"
   },
   {
     "id": "1784800634823920",
