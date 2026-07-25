@@ -3348,12 +3348,17 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-25",
-    "memoDate": null,
-    "memoResult": null,
+    "memoDue": null,
+    "memoDate": "2026-07-25",
+    "memoResult": "pass",
     "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-07-24T06:27:28.360Z"
+    "memoHist": [
+      [
+        "2026-07-25",
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-07-25T05:52:51.713Z"
   },
   {
     "id": "1784794447642884",
