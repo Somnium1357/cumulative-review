@@ -3468,12 +3468,18 @@
     "name": "수학 16-1",
     "topic": "측정(10~11)",
     "studied": "2026-07-24",
-    "done": 0,
-    "due": "2026-07-25",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-27",
+    "lastDone": "2026-07-25",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-25",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-26",
@@ -3481,6 +3487,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-24T13:21:21.046Z"
+    "updatedAt": "2026-07-25T09:24:24.646Z"
   }
 ]
