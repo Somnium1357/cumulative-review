@@ -3553,5 +3553,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-25T09:24:24.646Z"
+  },
+  {
+    "id": "1784981799940477",
+    "name": "과학 16-2",
+    "topic": "운동·에너지(1) 힘",
+    "studied": "2026-07-25",
+    "done": 0,
+    "due": "2026-07-26",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-27",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-25T12:16:39.940Z"
   }
 ]
