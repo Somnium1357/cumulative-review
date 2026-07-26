@@ -1175,10 +1175,10 @@
     "name": "체육 6-2",
     "topic": "평가·수업 관리 전략",
     "studied": "2026-06-22",
-    "done": 4,
-    "due": "2026-07-26",
-    "lastDone": "2026-07-25",
-    "lastResult": "weak",
+    "done": 5,
+    "due": "2026-08-30",
+    "lastDone": "2026-07-26",
+    "lastResult": "pass",
     "weak": 1,
     "hist": [
       [
@@ -1205,9 +1205,14 @@
         "2026-07-25",
         4,
         "w"
+      ],
+      [
+        "2026-07-26",
+        4,
+        "p"
       ]
     ],
-    "updatedAt": "2026-07-25T10:53:41.461Z",
+    "updatedAt": "2026-07-26T12:23:44.893Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
