@@ -3559,12 +3559,18 @@
     "name": "과학 16-2",
     "topic": "운동·에너지(1) 힘",
     "studied": "2026-07-25",
-    "done": 0,
-    "due": "2026-07-26",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-28",
+    "lastDone": "2026-07-26",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-26",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-27",
@@ -3572,7 +3578,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-25T12:16:39.940Z"
+    "updatedAt": "2026-07-26T11:10:56.238Z"
   },
   {
     "id": "1784985055453712",
