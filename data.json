@@ -3613,5 +3613,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-26T09:16:04.746Z"
+  },
+  {
+    "id": "1785058695000673",
+    "name": "수학 16-3",
+    "topic": "수와 연산(1~2)",
+    "studied": "2026-07-26",
+    "done": 0,
+    "due": "2026-07-27",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-28",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-26T09:38:15.000Z"
   }
 ]
