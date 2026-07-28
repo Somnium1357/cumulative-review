@@ -3737,14 +3737,14 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "excl": false,
+    "excl": true,
     "exclHist": [],
     "memoDue": "2026-07-28",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-27T04:44:34.756Z"
+    "updatedAt": "2026-07-28T11:08:03.336Z"
   },
   {
     "id": "1785058695000673",
