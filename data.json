@@ -3759,11 +3759,16 @@
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-28",
-    "memoDate": null,
-    "memoResult": null,
-    "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-07-27T04:44:34.756Z"
+    "memoDue": "2026-07-29",
+    "memoDate": "2026-07-28",
+    "memoResult": "weak",
+    "memoWeak": 1,
+    "memoHist": [
+      [
+        "2026-07-28",
+        "w"
+      ]
+    ],
+    "updatedAt": "2026-07-28T11:07:55.320Z"
   }
 ]
