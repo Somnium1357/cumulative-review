@@ -3653,12 +3653,17 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-07-28",
-    "memoDate": null,
-    "memoResult": null,
+    "memoDue": null,
+    "memoDate": "2026-07-28",
+    "memoResult": "pass",
     "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-07-28T08:16:48.114Z"
+    "memoHist": [
+      [
+        "2026-07-28",
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-07-28T08:16:50.087Z"
   },
   {
     "id": "1784985055453712",
