@@ -3751,12 +3751,18 @@
     "name": "수학 16-3",
     "topic": "수와 연산(1~2)",
     "studied": "2026-07-26",
-    "done": 0,
-    "due": "2026-07-28",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-07-30",
+    "lastDone": "2026-07-28",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-28",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-29",
@@ -3769,6 +3775,6 @@
         "w"
       ]
     ],
-    "updatedAt": "2026-07-28T11:07:55.320Z"
+    "updatedAt": "2026-07-28T11:14:11.228Z"
   }
 ]
