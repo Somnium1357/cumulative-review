@@ -3805,5 +3805,25 @@
       ]
     ],
     "updatedAt": "2026-07-29T07:16:55.008Z"
+  },
+  {
+    "id": "1785317495677145",
+    "name": "도덕 16-3",
+    "topic": "기타 이론·도덕과 교육과정①②",
+    "studied": "2026-07-29",
+    "done": 0,
+    "due": "2026-07-30",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-07-31",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-29T09:31:35.677Z"
   }
 ]
