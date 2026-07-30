@@ -3841,12 +3841,18 @@
     "name": "국어 17-1",
     "topic": "읽기(2~4)",
     "studied": "2026-07-29",
-    "done": 0,
-    "due": "2026-07-30",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-01",
+    "lastDone": "2026-07-30",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-30",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-31",
@@ -3854,7 +3860,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-29T09:31:48.367Z"
+    "updatedAt": "2026-07-30T07:17:27.561Z"
   },
   {
     "id": "1785326029209967",
