@@ -3831,12 +3831,18 @@
     "name": "도덕 16-3",
     "topic": "기타 이론·도덕과 교육과정①②",
     "studied": "2026-07-29",
-    "done": 0,
-    "due": "2026-07-30",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-01",
+    "lastDone": "2026-07-30",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-30",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-31",
@@ -3844,7 +3850,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-29T09:31:35.677Z"
+    "updatedAt": "2026-07-30T07:56:09.918Z"
   },
   {
     "id": "1785317508367671",
