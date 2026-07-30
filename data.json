@@ -3974,5 +3974,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-07-30T09:40:11.342Z"
+  },
+  {
+    "id": "1785407717037798",
+    "name": "국어 17-3",
+    "topic": "읽기(5)",
+    "studied": "2026-07-30",
+    "done": 0,
+    "due": "2026-07-31",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-01",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-07-30T10:35:17.037Z"
   }
 ]
