@@ -3914,12 +3914,18 @@
     "name": "미술 17-1",
     "topic": "교과교육론·미술과 수업모형",
     "studied": "2026-07-29",
-    "done": 0,
-    "due": "2026-07-30",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-01",
+    "lastDone": "2026-07-30",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-30",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-07-31",
@@ -3927,6 +3933,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-29T12:53:57.003Z"
+    "updatedAt": "2026-07-30T09:18:10.516Z"
   }
 ]
