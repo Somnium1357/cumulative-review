@@ -3966,13 +3966,13 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "excl": false,
+    "excl": true,
     "exclHist": [],
     "memoDue": "2026-08-01",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-30T09:40:02.526Z"
+    "updatedAt": "2026-07-30T09:40:11.342Z"
   }
 ]
