@@ -308,7 +308,6 @@
         <div class="pace-card" id="paceCard">
           <div id="paceBody"></div>
           <div class="pace-edit" id="paceEdit" onclick="event.stopPropagation()">
-            <div class="pe-row"><label>총 강의량</label><input id="metaTotal" type="number" inputmode="numeric" placeholder="예: 180 (유동 수정 가능)"></div>
             <div class="pe-row"><label>목표일</label><input id="metaDeadline" type="date"></div>
             <div class="pe-row"><label>휴식 요일</label>
               <select id="restDow" onchange="setRestDow(this.value)">
@@ -773,17 +772,14 @@ function openPaceEdit(){
 function togglePaceEdit(){
   const e=document.getElementById('paceEdit');
   if(!e.classList.contains('open')){
-    document.getElementById('metaTotal').value=meta.total??'';
     document.getElementById('metaDeadline').value=meta.deadline??'';
     renderRest();
   }
   e.classList.toggle('open');
 }
 async function metaSaveAct(){
-  const t=document.getElementById('metaTotal').value.trim();
   const d=document.getElementById('metaDeadline').value;
-  const total=t===''?null:Math.max(0,parseInt(t,10)||0);
-  meta={...meta,total,deadline:d||null}; // restDow/restOv 보존
+  meta={...meta,deadline:d||null}; // total은 카탈로그 기반 자동, restDow/restOv 보존
   document.getElementById('paceEdit').classList.remove('open');
   document.getElementById('secPace').classList.remove('show');
   render(); toast('목표 저장됨'); await saveMeta();
