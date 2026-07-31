@@ -4041,12 +4041,18 @@
     "name": "사회 17-3",
     "topic": "3학년 각론",
     "studied": "2026-07-30",
-    "done": 0,
-    "due": "2026-07-31",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-02",
+    "lastDone": "2026-07-31",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-07-31",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-01",
@@ -4054,6 +4060,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-30T13:20:10.641Z"
+    "updatedAt": "2026-07-31T08:33:17.341Z"
   }
 ]
