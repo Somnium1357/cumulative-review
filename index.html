@@ -988,13 +988,14 @@ function renderHeatmap(){ renderLoadBars('hmBars','hmDetail',false); }
 function renderMini(){
   renderLoadBars('hdBars','hdBarDetail',true);
   const p=document.getElementById('hdmPace'); if(!p)return;
-  if(meta.total==null||!meta.deadline){
+  const total=paceTotal();
+  if(total==null||!meta.deadline){
     p.innerHTML=`<div class="hdm-empty" onclick="openPaceEdit()">🎯 페이스 목표 설정하기</div>`;
     return;
   }
-  const t=today(), remain=Math.max(0,meta.total-lectures.filter(l=>!l.excl).length);
+  const t=today(), remain=Math.max(0,total-lectures.length); // 별도 사이클도 진도로 포함
   const days=progressDays(t,meta.deadline);
-  const recent=lectures.filter(l=>{if(l.excl)return false;const dd=dayDiff(t,l.studied);return dd>=1&&dd<=7;}).length;
+  const recent=lectures.filter(l=>{const dd=dayDiff(t,l.studied);return dd>=1&&dd<=7;}).length;
   const rRate=recent/Math.max(1,progressDays(addDays(t,-7),addDays(t,-1)));
   const need=days>0?remain/days:0, ok=rRate>=need;
   const st=remain===0||days<=0?'':(ok?'ok':'bad');
@@ -1008,6 +1009,11 @@ function renderMini(){
 }
 
 /* ---- 페이스 ---- */
+function paceTotal(){ // 총 강의량 = 백승기+구자경 청크 − 음악심화(심화 5 + 음악심화·실과 1). 카탈로그 없으면 meta.total 폴백
+  if(CAT&&Array.isArray(CAT.chunks))
+    return CAT.chunks.filter(c=>(c.c==='baek'||c.c==='gu')&&!String(c.s||'').includes('음악심화')).length;
+  return meta.total;
+}
 function progressDays(from,to){ // 수요일 제외, 양끝 포함
   if(!to||to<from)return 0;
   let c=0,d=from,i=0;
@@ -1018,17 +1024,18 @@ function renderPace(){
   const b=document.getElementById('paceBody');
   const hint=document.getElementById('catHint');
   if(hint)hint.textContent=CAT?`카탈로그 ${CAT.chunks.filter(c=>!HIDDEN_COURSES.includes(c.c)).length}청크 등록 가능`:'';
-  if(meta.total==null||!meta.deadline){
-    b.innerHTML=`<div class="pace-empty">목표 미설정 — 탭해서 총 강의량·목표일 입력<span class="edit-mark">✎</span></div>`;
+  const total=paceTotal();
+  if(total==null||!meta.deadline){
+    b.innerHTML=`<div class="pace-empty">목표일 미설정 — 탭해서 목표일 입력<span class="edit-mark">✎</span></div>`;
     return;
   }
-  const t=today(), n=lectures.filter(l=>!l.excl).length, remain=Math.max(0,meta.total-n);
+  const t=today(), n=lectures.length, remain=Math.max(0,total-n); // 별도 사이클 포함(학습분 진도 인정)
   const days=progressDays(t,meta.deadline);
-  const recent=lectures.filter(l=>{if(l.excl)return false;const dd=dayDiff(t,l.studied);return dd>=1&&dd<=7;}).length;
+  const recent=lectures.filter(l=>{const dd=dayDiff(t,l.studied);return dd>=1&&dd<=7;}).length;
   const rDays=progressDays(addDays(t,-7),addDays(t,-1));
   const rRate=recent/Math.max(1,rDays);
   if(remain===0){
-    b.innerHTML=`<div class="pace-big ok">완주 🎉<span class="edit-mark">✎</span></div><div class="pace-sub">${n} / ${meta.total}강 등록 완료</div>`;
+    b.innerHTML=`<div class="pace-big ok">완주 🎉<span class="edit-mark">✎</span></div><div class="pace-sub">${n} / ${total}강 등록 완료</div>`;
     return;
   }
   if(days<=0){
@@ -1049,7 +1056,7 @@ function renderPace(){
   }
   b.innerHTML=
     `<div class="pace-big ${ok?'ok':'bad'}"><span>필요 ${need.toFixed(1)}강/일 ${ok?'✓':'⚠'}</span><span class="edit-mark">✎</span></div>`+
-    `<div class="pace-sub">잔여 ${remain} / ${meta.total}강 · 진도일 ${days}일 · ~${md(meta.deadline)} (D-${dday})</div>`+
+    `<div class="pace-sub">잔여 ${remain} / ${total}강 · 진도일 ${days}일 · ~${md(meta.deadline)} (D-${dday})</div>`+
     `<div class="pace-sub">최근 7일 신규 ${recent}강 → ${rRate.toFixed(1)}강/일 (${ok?'페이스 유지 중':'페이스 미달'})</div>`+
     `<div class="pace-sub">오늘 복습 부하 ${todayLoad}개</div>`+
     projLine;
