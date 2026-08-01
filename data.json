@@ -4122,12 +4122,18 @@
     "name": "과학 18-2",
     "topic": "운동·에너지(4) 빛",
     "studied": "2026-07-31",
-    "done": 0,
-    "due": "2026-08-01",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-03",
+    "lastDone": "2026-08-01",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-01",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-02",
@@ -4135,6 +4141,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-07-31T12:30:04.482Z"
+    "updatedAt": "2026-08-01T05:41:34.447Z"
   }
 ]
