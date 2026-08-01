@@ -4125,12 +4125,17 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-08-01",
-    "memoDate": null,
-    "memoResult": null,
+    "memoDue": null,
+    "memoDate": "2026-08-01",
+    "memoResult": "pass",
     "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-07-31T08:33:17.341Z"
+    "memoHist": [
+      [
+        "2026-08-01",
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-08-01T07:29:50.169Z"
   },
   {
     "id": "1785492732897612",
