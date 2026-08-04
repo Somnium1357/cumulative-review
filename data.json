@@ -4309,12 +4309,18 @@
     "name": "사회 18-3",
     "topic": "4-1 각론①~③",
     "studied": "2026-08-01",
-    "done": 0,
-    "due": "2026-08-02",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-06",
+    "lastDone": "2026-08-04",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-04",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-04",
@@ -4322,6 +4328,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-04T05:15:15.171Z"
+    "updatedAt": "2026-08-04T14:30:34.991Z"
   }
 ]
