@@ -122,9 +122,9 @@
       ]
     ],
     "lastResult": "pass",
-    "due": "2026-08-10",
+    "due": "2026-08-11",
     "topic": "",
-    "updatedAt": "2026-07-06T09:40:21.235Z",
+    "updatedAt": "2026-08-04T05:15:15.171Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
@@ -476,7 +476,7 @@
     "topic": "전통음악(토리)·서양음악 기초",
     "studied": "2026-06-14",
     "done": 5,
-    "due": "2026-08-17",
+    "due": "2026-08-18",
     "lastDone": "2026-07-13",
     "lastResult": "pass",
     "weak": 0,
@@ -507,7 +507,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-13T09:37:22.782Z",
+    "updatedAt": "2026-08-04T05:15:15.171Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
@@ -522,7 +522,7 @@
     "topic": "교수학습모형④⑤",
     "studied": "2026-06-14",
     "done": 5,
-    "due": "2026-08-17",
+    "due": "2026-08-18",
     "lastDone": "2026-07-13",
     "lastResult": "pass",
     "weak": 0,
@@ -553,7 +553,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-13T09:47:35.667Z",
+    "updatedAt": "2026-08-04T05:15:15.171Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
@@ -568,7 +568,7 @@
     "topic": "서양음악(형식·박자·화음)",
     "studied": "2026-06-15",
     "done": 5,
-    "due": "2026-08-17",
+    "due": "2026-08-18",
     "lastDone": "2026-07-13",
     "lastResult": "pass",
     "weak": 0,
@@ -599,7 +599,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-13T09:37:24.148Z",
+    "updatedAt": "2026-08-04T05:15:15.171Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
@@ -614,7 +614,7 @@
     "topic": "OT·과제 단계화·학습단서",
     "studied": "2026-06-15",
     "done": 5,
-    "due": "2026-08-17",
+    "due": "2026-08-18",
     "lastDone": "2026-07-13",
     "lastResult": "pass",
     "weak": 0,
@@ -645,7 +645,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-07-13T09:41:26.682Z",
+    "updatedAt": "2026-08-04T05:15:15.171Z",
     "excl": false,
     "exclHist": [],
     "memoWeak": 0,
@@ -3892,7 +3892,7 @@
     "topic": "수와 연산(1~2)",
     "studied": "2026-07-26",
     "done": 2,
-    "due": "2026-08-03",
+    "due": "2026-08-04",
     "lastDone": "2026-07-30",
     "lastResult": "pass",
     "weak": 0,
@@ -3924,7 +3924,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-08-04T05:15:05.693Z"
+    "updatedAt": "2026-08-04T05:15:15.171Z"
   },
   {
     "id": "1785317495677145",
@@ -4178,7 +4178,7 @@
     "topic": "수와 연산(3)",
     "studied": "2026-07-31",
     "done": 1,
-    "due": "2026-08-03",
+    "due": "2026-08-04",
     "lastDone": "2026-08-01",
     "lastResult": "pass",
     "weak": 0,
@@ -4201,7 +4201,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-08-04T05:15:05.693Z"
+    "updatedAt": "2026-08-04T05:15:15.171Z"
   },
   {
     "id": "1785501004482136",
@@ -4209,7 +4209,7 @@
     "topic": "운동·에너지(4) 빛",
     "studied": "2026-07-31",
     "done": 1,
-    "due": "2026-08-03",
+    "due": "2026-08-04",
     "lastDone": "2026-08-01",
     "lastResult": "pass",
     "weak": 0,
@@ -4232,7 +4232,7 @@
         "p"
       ]
     ],
-    "updatedAt": "2026-08-04T05:15:05.693Z"
+    "updatedAt": "2026-08-04T05:15:15.171Z"
   },
   {
     "id": "178559037575185",
@@ -4247,11 +4247,11 @@
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-08-03",
+    "memoDue": "2026-08-04",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-04T05:15:05.693Z"
+    "updatedAt": "2026-08-04T05:15:15.171Z"
   }
 ]
