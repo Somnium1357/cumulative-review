@@ -4374,5 +4374,25 @@
       ]
     ],
     "updatedAt": "2026-08-05T04:09:49.178Z"
+  },
+  {
+    "id": "1785932073935794",
+    "name": "체육 18-2",
+    "topic": "운동 3~4(체력-기본 움직임)",
+    "studied": "2026-08-05",
+    "done": 0,
+    "due": "2026-08-06",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-07",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-05T12:14:33.935Z"
   }
 ]
