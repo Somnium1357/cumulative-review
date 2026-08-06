@@ -4466,5 +4466,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-06T06:55:09.857Z"
+  },
+  {
+    "id": "1786024178314874",
+    "name": "국어 19-1",
+    "topic": "읽기(6~8)",
+    "studied": "2026-08-06",
+    "done": 0,
+    "due": "2026-08-07",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-08",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-06T13:49:38.314Z"
   }
 ]
