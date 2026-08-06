@@ -4430,12 +4430,18 @@
     "name": "수학 18-3",
     "topic": "수와 연산(4~6)",
     "studied": "2026-08-05",
-    "done": 0,
-    "due": "2026-08-06",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-08",
+    "lastDone": "2026-08-06",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-06",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-07",
@@ -4443,6 +4449,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-05T13:21:52.260Z"
+    "updatedAt": "2026-08-06T06:55:09.857Z"
   }
 ]
