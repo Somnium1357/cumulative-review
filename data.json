@@ -4486,5 +4486,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-06T13:49:38.314Z"
+  },
+  {
+    "id": "1786024185286485",
+    "name": "과학 19-2",
+    "topic": "운동·에너지(5) 열",
+    "studied": "2026-08-06",
+    "done": 0,
+    "due": "2026-08-07",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-08",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-06T13:49:45.286Z"
   }
 ]
