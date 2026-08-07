@@ -4553,5 +4553,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-07T03:43:14.505Z"
+  },
+  {
+    "id": "1786092835632614",
+    "name": "통합교과 19-1",
+    "topic": "OT·바른 생활①②",
+    "studied": "2026-08-07",
+    "done": 0,
+    "due": "2026-08-08",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-09",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-07T08:53:55.632Z"
   }
 ]
