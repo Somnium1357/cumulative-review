@@ -4565,13 +4565,13 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "excl": false,
+    "excl": true,
     "exclHist": [],
     "memoDue": "2026-08-09",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-07T08:53:55.632Z"
+    "updatedAt": "2026-08-07T08:54:00.290Z"
   }
 ]
