@@ -4679,12 +4679,18 @@
     "name": "체육 19-2",
     "topic": "운동 3~4(체력운동 기능)",
     "studied": "2026-08-08",
-    "done": 0,
-    "due": "2026-08-09",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-13",
+    "lastDone": "2026-08-10",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-10",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-11",
@@ -4697,6 +4703,6 @@
         "w"
       ]
     ],
-    "updatedAt": "2026-08-10T06:33:45.337Z"
+    "updatedAt": "2026-08-10T09:44:36.831Z"
   }
 ]
