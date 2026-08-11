@@ -4799,5 +4799,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-11T08:47:30.504Z"
+  },
+  {
+    "id": "1786447585598813",
+    "name": "통합교과 20-1",
+    "topic": "교육과정 ③ (바른 생활 ~ 슬기로운 생활)·교육과정 ④ (즐거운 생활 ~ 지도서 부록)·교육과정 ⑤ (지도서 총론)",
+    "studied": "2026-08-11",
+    "done": 0,
+    "due": "2026-08-13",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-13",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-11T11:26:25.599Z"
   }
 ]
