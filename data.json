@@ -4759,5 +4759,25 @@
       ]
     ],
     "updatedAt": "2026-08-11T04:21:44.973Z"
+  },
+  {
+    "id": "178643804477123",
+    "name": "수학 20-1",
+    "topic": "수와 연산 (7)·수와 연산 (8)",
+    "studied": "2026-08-11",
+    "done": 0,
+    "due": "2026-08-13",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-13",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-11T08:47:24.771Z"
   }
 ]
