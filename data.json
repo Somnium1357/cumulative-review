@@ -4811,14 +4811,14 @@
     "lastResult": null,
     "weak": 0,
     "hist": [],
-    "excl": false,
+    "excl": true,
     "exclHist": [],
     "memoDue": "2026-08-13",
     "memoDate": null,
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-11T11:26:25.599Z"
+    "updatedAt": "2026-08-11T11:59:50.995Z"
   },
   {
     "id": "1786449439602515",
