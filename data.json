@@ -4819,5 +4819,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-11T11:26:25.599Z"
+  },
+  {
+    "id": "1786449439602515",
+    "name": "과학 20-2",
+    "topic": "운동과 에너지(6) 6학년 1학기 물체의 운동",
+    "studied": "2026-08-11",
+    "done": 0,
+    "due": "2026-08-13",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-13",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-11T11:57:19.602Z"
   }
 ]
