@@ -4927,5 +4927,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-13T10:57:19.437Z"
+  },
+  {
+    "id": "178662533942499",
+    "name": "사회 20-3",
+    "topic": "5학년 1학기 각론①·5학년 1학기 각론②·5학년 1학기 각론③",
+    "studied": "2026-08-13",
+    "done": 0,
+    "due": "2026-08-14",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-15",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-13T12:48:59.424Z"
   }
 ]
