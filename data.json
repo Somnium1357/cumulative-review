@@ -4907,5 +4907,25 @@
     "memoWeak": 1,
     "memoHist": [],
     "updatedAt": "2026-08-13T03:26:33.218Z"
+  },
+  {
+    "id": "1786618639437273",
+    "name": "체육 20-2",
+    "topic": "운동 3~4학년 (건강 운동 및 생활 습관)",
+    "studied": "2026-08-13",
+    "done": 0,
+    "due": "2026-08-14",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-15",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-13T10:57:19.437Z"
   }
 ]
