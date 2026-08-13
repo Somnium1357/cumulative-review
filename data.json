@@ -4773,17 +4773,12 @@
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-08-14",
-    "memoDate": "2026-08-13",
-    "memoResult": "weak",
+    "memoDue": "2026-08-13",
+    "memoDate": null,
+    "memoResult": null,
     "memoWeak": 1,
-    "memoHist": [
-      [
-        "2026-08-13",
-        "w"
-      ]
-    ],
-    "updatedAt": "2026-08-13T03:21:09.938Z"
+    "memoHist": [],
+    "updatedAt": "2026-08-13T03:21:13.405Z"
   },
   {
     "id": "1786438050504337",
@@ -4798,17 +4793,12 @@
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-08-14",
-    "memoDate": "2026-08-13",
-    "memoResult": "weak",
+    "memoDue": "2026-08-13",
+    "memoDate": null,
+    "memoResult": null,
     "memoWeak": 1,
-    "memoHist": [
-      [
-        "2026-08-13",
-        "w"
-      ]
-    ],
-    "updatedAt": "2026-08-13T03:21:06.129Z"
+    "memoHist": [],
+    "updatedAt": "2026-08-13T03:21:12.803Z"
   },
   {
     "id": "1786447585598813",
@@ -4843,16 +4833,11 @@
     "hist": [],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-08-14",
-    "memoDate": "2026-08-13",
-    "memoResult": "weak",
+    "memoDue": "2026-08-13",
+    "memoDate": null,
+    "memoResult": null,
     "memoWeak": 1,
-    "memoHist": [
-      [
-        "2026-08-13",
-        "w"
-      ]
-    ],
-    "updatedAt": "2026-08-13T03:21:04.022Z"
+    "memoHist": [],
+    "updatedAt": "2026-08-13T03:21:12.171Z"
   }
 ]
