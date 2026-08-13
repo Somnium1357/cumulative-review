@@ -4795,12 +4795,18 @@
     "name": "국어 19-3",
     "topic": "읽기(9)·수업모형·쓰기(1)",
     "studied": "2026-08-11",
-    "done": 0,
-    "due": "2026-08-13",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-15",
+    "lastDone": "2026-08-13",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-13",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-13",
@@ -4808,7 +4814,7 @@
     "memoResult": null,
     "memoWeak": 1,
     "memoHist": [],
-    "updatedAt": "2026-08-13T03:21:12.803Z"
+    "updatedAt": "2026-08-13T08:33:20.888Z"
   },
   {
     "id": "1786447585598813",
