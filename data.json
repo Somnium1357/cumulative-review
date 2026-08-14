@@ -4999,5 +4999,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-14T05:47:39.225Z"
+  },
+  {
+    "id": "1786694603706330",
+    "name": "수학 20-3",
+    "topic": "수와 연산 (9)·수와 연산 (10)",
+    "studied": "2026-08-14",
+    "done": 0,
+    "due": "2026-08-15",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-16",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-14T08:03:23.706Z"
   }
 ]
