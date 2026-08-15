@@ -5045,12 +5045,18 @@
     "name": "과학 21-2",
     "topic": "운동과 에너지(7) 6학년 2학기 전기의 이용",
     "studied": "2026-08-14",
-    "done": 0,
-    "due": "2026-08-15",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-17",
+    "lastDone": "2026-08-15",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-15",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-16",
@@ -5058,7 +5064,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-14T12:30:24.690Z"
+    "updatedAt": "2026-08-15T02:58:41.838Z"
   },
   {
     "id": "1786713635343229",
