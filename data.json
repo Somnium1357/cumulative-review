@@ -5208,5 +5208,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-15T12:00:55.825Z"
+  },
+  {
+    "id": "1786798937878939",
+    "name": "과학 22-1",
+    "topic": "지구와 우주(1) 3학년 2학기 지구와 바다·지구와 우주(2) 4학년 1학기 땅의 변화",
+    "studied": "2026-08-15",
+    "done": 0,
+    "due": "2026-08-16",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-17",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-15T13:02:17.878Z"
   }
 ]
