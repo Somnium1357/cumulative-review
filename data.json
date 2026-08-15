@@ -5087,12 +5087,18 @@
     "name": "국어 21-3",
     "topic": "쓰기 영역(5)·쓰기 영역(6)",
     "studied": "2026-08-14",
-    "done": 0,
-    "due": "2026-08-15",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-17",
+    "lastDone": "2026-08-15",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-15",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-16",
@@ -5100,6 +5106,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-14T13:20:35.343Z"
+    "updatedAt": "2026-08-15T05:18:13.072Z"
   }
 ]
