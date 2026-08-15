@@ -5040,12 +5040,18 @@
     "name": "수학 20-3",
     "topic": "수와 연산 (9)·수와 연산 (10)",
     "studied": "2026-08-14",
-    "done": 0,
-    "due": "2026-08-15",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-17",
+    "lastDone": "2026-08-15",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-15",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-16",
@@ -5053,7 +5059,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-14T08:03:23.706Z"
+    "updatedAt": "2026-08-15T06:53:43.370Z"
   },
   {
     "id": "1786701021213777",
