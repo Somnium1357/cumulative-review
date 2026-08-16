@@ -5321,5 +5321,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-16T11:32:12.224Z"
+  },
+  {
+    "id": "1786885902499770",
+    "name": "사회 22-3",
+    "topic": "6학년 2학기 각론②·6학년 2학기 각론③·6학년 2학기 각론④",
+    "studied": "2026-08-16",
+    "done": 0,
+    "due": "2026-08-17",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-18",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-16T13:11:42.499Z"
   }
 ]
