@@ -392,6 +392,7 @@ const GAP=[1,2,4,7,14,35];
 const METHOD=['백지인출','가지 인출','문항 풀이','키워드 스냅','최종 인출','제목 스냅']; // 차수별 복습 방법 (운영 카드 v3)
 const OLD_INTERVALS=[1,3,7,14,28]; // 구버전 마이그레이션용
 const HIDDEN_COURSES=['sci']; // UI(강의 추가 picker·자동완성)에서 숨길 카탈로그 코스 — 과학 개념 보충(안 들음)
+function hiddenChunk(c){return HIDDEN_COURSES.includes(c.c)||String(c.s||'').includes('음악심화');} // paceTotal 제외 기준과 동일
 const TOTAL_FALLBACK=160; // 총 강의량 스냅샷(백승기83+구자경83−음악심화6, 2026 종강 기준). 카탈로그 미로딩 시만 사용
 const PATH='data.json', META_PATH='meta.json', CAT_PATH='catalog.json';
 const CFG_KEY='review_cfg_v1';
@@ -853,18 +854,18 @@ function renderPicker(){
     p.innerHTML='<div class="m-empty">catalog.json이 레포에 없어요. 추가하면 목록에서 탭 한 번으로 등록할 수 있어요.</div>';
     if(dl)dl.innerHTML=''; return;
   }
-  if(dl)dl.innerHTML=CAT.chunks.filter(c=>!HIDDEN_COURSES.includes(c.c)).map(c=>`<option value="${esc(c.n)}">`).join('');
+  if(dl)dl.innerHTML=CAT.chunks.filter(c=>!hiddenChunk(c)).map(c=>`<option value="${esc(c.n)}">`).join('');
   const cids=Object.keys(CAT.courses||{}).filter(c=>!HIDDEN_COURSES.includes(c));
   if(!pkCourse||!cids.includes(pkCourse))pkCourse=cids[0];
   let h='<div class="chips pk-courses">';
   for(const cid of cids){
-    const cs=CAT.chunks.filter(c=>c.c===cid);
+    const cs=CAT.chunks.filter(c=>c.c===cid&&!hiddenChunk(c));
     const done=cs.filter(c=>catState(c)==='full').length;
     const label=String(CAT.courses[cid]).split(' ')[0];
     h+=`<div class="chip ${pkCourse===cid?'on':''}" onclick="pkSetCourse('${cid}')">${esc(label)} ${done}/${cs.length}</div>`;
   }
   h+='</div>';
-  const cs=CAT.chunks.map((c,i)=>({...c,i})).filter(c=>c.c===pkCourse);
+  const cs=CAT.chunks.map((c,i)=>({...c,i})).filter(c=>c.c===pkCourse&&!hiddenChunk(c));
   const subs=[...new Set(cs.map(c=>c.s))];
   const names=new Set(lectures.map(x=>x.name));
   const row=c=>{ // 청크 1행 (+분할 펼침)
@@ -1020,7 +1021,7 @@ function progressDays(from,to){ // 수요일 제외, 양끝 포함
 function renderPace(){
   const b=document.getElementById('paceBody');
   const hint=document.getElementById('catHint');
-  if(hint)hint.textContent=CAT?`카탈로그 ${CAT.chunks.filter(c=>!HIDDEN_COURSES.includes(c.c)).length}청크 등록 가능`:'';
+  if(hint)hint.textContent=CAT?`카탈로그 ${CAT.chunks.filter(c=>!hiddenChunk(c)).length}청크 등록 가능`:'';
   const total=paceTotal();
   if(total==null||!meta.deadline){
     b.innerHTML=`<div class="pace-empty">목표일 미설정 — 탭해서 목표일 입력<span class="edit-mark">✎</span></div>`;
