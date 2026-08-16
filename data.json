@@ -5214,12 +5214,18 @@
     "name": "과학 22-1",
     "topic": "지구와 우주(1) 3학년 2학기 지구와 바다·지구와 우주(2) 4학년 1학기 땅의 변화",
     "studied": "2026-08-15",
-    "done": 0,
-    "due": "2026-08-16",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-18",
+    "lastDone": "2026-08-16",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-16",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-17",
@@ -5227,6 +5233,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-15T13:02:17.878Z"
+    "updatedAt": "2026-08-16T03:01:25.251Z"
   }
 ]
