@@ -5220,12 +5220,18 @@
     "name": "사회 21-3",
     "topic": "5학년 1학기 각론⑥~6학년 1학기 각론①·6학년 1학기 각론②·6학년 1학기 각론③",
     "studied": "2026-08-15",
-    "done": 0,
-    "due": "2026-08-16",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-18",
+    "lastDone": "2026-08-16",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-16",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-17",
@@ -5233,7 +5239,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-15T12:00:55.825Z"
+    "updatedAt": "2026-08-16T07:15:39.813Z"
   },
   {
     "id": "1786798937878939",
