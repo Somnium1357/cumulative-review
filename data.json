@@ -5194,12 +5194,18 @@
     "name": "사회 21-2",
     "topic": "5학년 1학기 각론④·5학년 1학기 각론⑤",
     "studied": "2026-08-15",
-    "done": 0,
-    "due": "2026-08-16",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-18",
+    "lastDone": "2026-08-16",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-16",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-17",
@@ -5207,7 +5213,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-15T08:52:22.778Z"
+    "updatedAt": "2026-08-16T05:10:02.605Z"
   },
   {
     "id": "1786795255825601",
