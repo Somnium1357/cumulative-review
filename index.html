@@ -445,11 +445,11 @@ const MEMO_GAP=2; // D+2 정리본 암기
 function memoPending(l){const t=today();return !l.excl&&!!l.memoDue&&l.memoDue<=t&&l.memoDate!==t;}
 function memoDoneToday(l){return !l.excl&&l.memoDate===today();}
 function stripLec(t){return String(t).replace(/^\[[^\]]+\]\s*/,'').replace(/^\S*강\s*/,'');}
-function catLecsOf(name){ // 카탈로그에서 강의 소제목 찾기 (정확명 → 전체, 분할명 → 해당 강의)
+function catLecsOf(name){ // 복습 목록 소제목 = picker와 같은 내용(청크 키워드 t). t가 비면 강의 제목으로 폴백
   if(!CAT||!Array.isArray(CAT.chunks))return '';
   const ch=CAT.chunks.find(c=>c.n===name);
-  if(ch)return ch.l.map(x=>x[0]).join(' · ');
-  const m=String(name).match(/^(.+)-(\d+)$/);
+  if(ch)return (ch.t&&ch.t.trim())?ch.t:ch.l.map(x=>x[0]).join(' · ');
+  const m=String(name).match(/^(.+)-(\d+)$/); // 분할 등록: 해당 강의 하나만
   if(m){const b=CAT.chunks.find(c=>c.n===m[1]); if(b&&b.l[m[2]-1])return b.l[m[2]-1][0];}
   return '';
 }
