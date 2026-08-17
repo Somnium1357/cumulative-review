@@ -5439,5 +5439,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-17T05:19:36.849Z"
+  },
+  {
+    "id": "178695969446294",
+    "name": "사회 23-2-1",
+    "topic": "6학년 2학기 각론⑤",
+    "studied": "2026-08-17",
+    "done": 0,
+    "due": "2026-08-18",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-20",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-17T09:41:34.462Z"
   }
 ]
