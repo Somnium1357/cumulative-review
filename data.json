@@ -5479,5 +5479,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-17T10:07:37.527Z"
+  },
+  {
+    "id": "1786962069472300",
+    "name": "국어 23-1",
+    "topic": "쓰기 영역(7)·쓰기 영역(8)",
+    "studied": "2026-08-17",
+    "done": 0,
+    "due": "2026-08-18",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-20",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-17T10:21:09.472Z"
   }
 ]
