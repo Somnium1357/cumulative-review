@@ -118,8 +118,10 @@
   .it-body{flex:1;min-width:0;}
   .it-name{font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .it-topic{color:var(--mute);font-weight:500;font-size:14px;}
-  .it-lecs{font-size:12px;color:#9CA3AF;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .item.judging .it-lecs{white-space:normal;}
+  /* 소제목은 기본 2줄까지 표시(모바일에서 pill이 폭을 먹어 한 줄이면 대부분 잘림), 판정 중엔 전체 */
+  .it-lecs{font-size:12px;color:#9CA3AF;margin-top:2px;white-space:normal;overflow:hidden;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.35;}
+  .item.judging .it-lecs{-webkit-line-clamp:unset;display:block;}
   .item.done .it-name{color:#9CA3AF;text-decoration:line-through;}
   .it-meta{display:flex;gap:6px;align-items:center;margin-top:3px;flex-wrap:wrap;}
   .it-right{display:flex;gap:5px;align-items:center;flex:0 0 auto;}
