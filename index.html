@@ -936,8 +936,8 @@ function dayInfo(ds){
   const t=today();
   let nw=0,p=0,w=0,due=0;
   for(const l of lectures){
-    if(l.excl)continue; // 별도 사이클은 부하에서 제외
-    if(l.studied===ds)nw++;
+    if(l.studied===ds)nw++;              // 신규(들은 강의)는 별도 사이클도 포함
+    if(l.excl)continue;                  // 판정·부하는 누적복습 대상만
     for(const h of (l.hist||[])) if(h[0]===ds){h[2]==='p'?p++:w++;}
     for(const h of (l.memoHist||[])) if(h[0]===ds){h[2]==='p'?p++:w++;}
   }
@@ -1099,7 +1099,9 @@ function renderDayList(ds){
     const rows=[];
     lectures.filter(fil).forEach(l=>{(l.hist||[]).forEach((e,i)=>{if(e[0]===ds)rows.push({l,e,i});});});
     rows.sort((a,b)=>a.l.name.localeCompare(b.l.name,'ko'));
-    const news=lectures.filter(fil).filter(l=>l.studied===ds).sort((a,b)=>a.name.localeCompare(b.name,'ko'));
+    // 신규 등록은 별도 사이클도 포함(과목 필터만 적용)
+    const subjFil=l=>filterSubj==='전체'||subjectOf(l.name)===filterSubj;
+    const news=lectures.filter(subjFil).filter(l=>l.studied===ds).sort((a,b)=>a.name.localeCompare(b.name,'ko'));
     if(!rows.length&&!news.length){
       h+=`<div class="empty"><div class="t">이날 기록이 없어요</div></div>`;
     }else{
@@ -1223,7 +1225,7 @@ function renderStats(){
     for(const h of (l.memoHist||[]))ev.push({d:h[0],st:-1,r:h[2],s,memo:true});
   }
   const ws=weekStartMon(today());
-  const newWeek=act.filter(l=>l.studied>=ws).length;
+  const newWeek=lectures.filter(l=>l.studied>=ws).length; // 신규는 별도 사이클도 포함
   const evW=ev.filter(e=>e.d>=ws), pW=evW.filter(e=>e.r==='p').length, wW=evW.length-pW;
   const maint=act.filter(l=>l.done>=5).length;
   const totWeak=act.reduce((a,l)=>a+(l.weak||0)+(l.memoWeak||0),0);
