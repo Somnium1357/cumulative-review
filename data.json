@@ -5401,12 +5401,17 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-08-18",
-    "memoDate": null,
-    "memoResult": null,
+    "memoDue": null,
+    "memoDate": "2026-08-18",
+    "memoResult": "pass",
     "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-08-18T06:06:51.797Z"
+    "memoHist": [
+      [
+        "2026-08-18",
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-08-18T06:06:55.261Z"
   },
   {
     "id": "1786879932224203",
