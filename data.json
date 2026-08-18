@@ -5601,5 +5601,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-18T03:16:23.056Z"
+  },
+  {
+    "id": "1787053563893283",
+    "name": "국어 23-3",
+    "topic": "듣기·말하기 영역(1)·듣기·말하기 영역(2)",
+    "studied": "2026-08-18",
+    "done": 0,
+    "due": "2026-08-20",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-20",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-18T11:46:03.893Z"
   }
 ]
