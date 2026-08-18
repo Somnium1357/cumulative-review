@@ -5621,5 +5621,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-18T11:46:03.893Z"
+  },
+  {
+    "id": "178705758532477",
+    "name": "수학 24-1",
+    "topic": "수와 연산 (14)·수와 연산 (15)",
+    "studied": "2026-08-18",
+    "done": 0,
+    "due": "2026-08-20",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-20",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-18T12:53:05.324Z"
   }
 ]
