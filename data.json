@@ -5595,12 +5595,17 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-08-20",
-    "memoDate": null,
-    "memoResult": null,
+    "memoDue": null,
+    "memoDate": "2026-08-20",
+    "memoResult": "pass",
     "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-08-18T03:16:23.056Z"
+    "memoHist": [
+      [
+        "2026-08-20",
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-08-20T04:11:17.585Z"
   },
   {
     "id": "1787053563893283",
