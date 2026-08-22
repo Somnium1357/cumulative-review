@@ -5912,12 +5912,18 @@
     "name": "수학 24-3",
     "topic": "수와 연산 (16)·수와 연산 (17)·수와 연산 (18)",
     "studied": "2026-08-21",
-    "done": 0,
-    "due": "2026-08-22",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-24",
+    "lastDone": "2026-08-22",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-22",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-23",
@@ -5925,7 +5931,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-21T13:01:24.583Z"
+    "updatedAt": "2026-08-22T07:42:55.576Z"
   },
   {
     "id": "1787317297490817",
