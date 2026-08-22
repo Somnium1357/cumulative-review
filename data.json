@@ -6024,5 +6024,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-22T11:16:31.812Z"
+  },
+  {
+    "id": "1787400392663877",
+    "name": "국어 25-3",
+    "topic": "듣기·말하기 영역(5)·듣기·말하기 영역(6)·교수·학습 모형",
+    "studied": "2026-08-22",
+    "done": 0,
+    "due": "2026-08-23",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-24",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-22T12:06:32.663Z"
   }
 ]
