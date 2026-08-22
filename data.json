@@ -5969,12 +5969,18 @@
     "name": "체육 25-2",
     "topic": "운동 5~6학년 (성장 및 안전 활동)",
     "studied": "2026-08-21",
-    "done": 0,
-    "due": "2026-08-22",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-24",
+    "lastDone": "2026-08-22",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-22",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-23",
@@ -5982,6 +5988,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-21T13:01:44.016Z"
+    "updatedAt": "2026-08-22T07:57:32.403Z"
   }
 ]
