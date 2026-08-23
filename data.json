@@ -6010,12 +6010,18 @@
     "name": "과학 25-2",
     "topic": "지구와 우주(7) 6학년 2학기 계절의 변화·과학과 사회(1) 3학년 2학기 감염병과 건강한 생활",
     "studied": "2026-08-22",
-    "done": 0,
-    "due": "2026-08-23",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-25",
+    "lastDone": "2026-08-23",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-23",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-24",
@@ -6023,7 +6029,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-22T11:16:31.812Z"
+    "updatedAt": "2026-08-23T05:41:22.785Z"
   },
   {
     "id": "1787400392663877",
