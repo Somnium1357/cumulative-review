@@ -5956,12 +5956,17 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-08-23",
-    "memoDate": null,
-    "memoResult": null,
+    "memoDue": null,
+    "memoDate": "2026-08-23",
+    "memoResult": "pass",
     "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-08-22T07:42:55.576Z"
+    "memoHist": [
+      [
+        "2026-08-23",
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-08-23T09:10:33.766Z"
   },
   {
     "id": "1787317297490817",
