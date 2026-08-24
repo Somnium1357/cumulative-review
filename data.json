@@ -6213,5 +6213,25 @@
       ]
     ],
     "updatedAt": "2026-08-24T04:47:17.374Z"
+  },
+  {
+    "id": "1787568918680928",
+    "name": "과학 26-2",
+    "topic": "과학과 사회(2) 4학년 2학기 기후 변화와우리 생활·과학과 사회(3) 5학년 2학기 자원과 에너지·과학과 사회(4) 6학년 2학기 과학과 나의진로",
+    "studied": "2026-08-24",
+    "done": 0,
+    "due": "2026-08-25",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-27",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-24T10:55:18.680Z"
   }
 ]
