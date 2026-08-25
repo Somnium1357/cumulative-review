@@ -6346,5 +6346,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-25T12:31:54.213Z"
+  },
+  {
+    "id": "1787661751348676",
+    "name": "국어 27-1",
+    "topic": "문학(1)·문학(2)",
+    "studied": "2026-08-25",
+    "done": 0,
+    "due": "2026-08-27",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-27",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-25T12:42:31.348Z"
   }
 ]
