@@ -6473,5 +6473,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-27T07:07:00.482Z"
+  },
+  {
+    "id": "1787834784296847",
+    "name": "체육·실과 27-1",
+    "topic": "[체육]스포츠 3~4학년 (기본 움직임의 기초 기술-조작 움직임)·[실과]성취기준 ~·[실과]성취기준 ~",
+    "studied": "2026-08-27",
+    "done": 0,
+    "due": "2026-08-28",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-29",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-27T12:46:24.296Z"
   }
 ]
