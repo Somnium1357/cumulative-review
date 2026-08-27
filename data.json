@@ -6395,12 +6395,17 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-08-27",
-    "memoDate": null,
-    "memoResult": null,
+    "memoDue": null,
+    "memoDate": "2026-08-27",
+    "memoResult": "pass",
     "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-08-25T10:50:58.347Z"
+    "memoHist": [
+      [
+        "2026-08-27",
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-08-27T08:59:42.952Z"
   },
   {
     "id": "1787661114213441",
