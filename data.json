@@ -6422,12 +6422,18 @@
     "name": "미술 13-1",
     "topic": "표현기법·판화",
     "studied": "2026-08-25",
-    "done": 0,
-    "due": "2026-08-27",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-08-29",
+    "lastDone": "2026-08-27",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-27",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-27",
@@ -6435,7 +6441,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-25T12:31:54.213Z"
+    "updatedAt": "2026-08-27T11:19:43.481Z"
   },
   {
     "id": "1787661751348676",
