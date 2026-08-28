@@ -6574,5 +6574,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-28T12:20:22.551Z"
+  },
+  {
+    "id": "1787922636772573",
+    "name": "국어 27-3",
+    "topic": "문학(3)·문학(4)·문학(5)",
+    "studied": "2026-08-28",
+    "done": 0,
+    "due": "2026-08-29",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-08-30",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-28T13:10:36.772Z"
   }
 ]
