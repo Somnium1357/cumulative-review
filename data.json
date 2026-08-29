@@ -6628,17 +6628,12 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": null,
-    "memoDate": "2026-08-29",
-    "memoResult": "pass",
+    "memoDue": "2026-08-29",
+    "memoDate": null,
+    "memoResult": null,
     "memoWeak": 0,
-    "memoHist": [
-      [
-        "2026-08-29",
-        "p"
-      ]
-    ],
-    "updatedAt": "2026-08-29T09:38:23.705Z"
+    "memoHist": [],
+    "updatedAt": "2026-08-29T09:38:28.787Z"
   },
   {
     "id": "1787919622551330",
