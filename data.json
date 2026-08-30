@@ -6717,12 +6717,18 @@
     "name": "수학 28-1",
     "topic": "수와 연산 (24)·수와 연산 (25)·수와 연산 (26)",
     "studied": "2026-08-29",
-    "done": 0,
-    "due": "2026-08-30",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-09-01",
+    "lastDone": "2026-08-30",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-08-30",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-08-31",
@@ -6730,7 +6736,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-08-29T12:41:38.374Z"
+    "updatedAt": "2026-08-30T06:44:32.482Z"
   },
   {
     "id": "1788007316856215",
