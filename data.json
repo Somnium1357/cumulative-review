@@ -6879,5 +6879,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-08-31T08:10:29.007Z"
+  },
+  {
+    "id": "1788180972617698",
+    "name": "체육·실과 28-1",
+    "topic": "[체육]스포츠 3~4학년 (스포츠 유형별 움직임 기술-기술형~전략형)·[실과]성취기준 [02-08] 1·[실과]성취기준 [02-08] 2",
+    "studied": "2026-08-31",
+    "done": 0,
+    "due": "2026-09-01",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-09-03",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-08-31T12:56:12.617Z"
   }
 ]
