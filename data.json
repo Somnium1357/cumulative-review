@@ -6893,12 +6893,17 @@
     ],
     "excl": false,
     "exclHist": [],
-    "memoDue": "2026-09-01",
-    "memoDate": null,
-    "memoResult": null,
+    "memoDue": null,
+    "memoDate": "2026-09-01",
+    "memoResult": "pass",
     "memoWeak": 0,
-    "memoHist": [],
-    "updatedAt": "2026-08-31T08:10:29.007Z"
+    "memoHist": [
+      [
+        "2026-09-01",
+        "p"
+      ]
+    ],
+    "updatedAt": "2026-09-01T03:50:47.146Z"
   },
   {
     "id": "1788180972617698",
