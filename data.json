@@ -7027,5 +7027,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-09-02T13:33:04.119Z"
+  },
+  {
+    "id": "1788355991893335",
+    "name": "수학 28-3",
+    "topic": "수와 연산 (27)·스켐프 ~ 브루너·피아제",
+    "studied": "2026-09-02",
+    "done": 0,
+    "due": "2026-09-04",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-09-04",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-09-02T13:33:11.894Z"
   }
 ]
