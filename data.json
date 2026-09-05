@@ -7158,12 +7158,18 @@
     "name": "체육·실과 28-3",
     "topic": "[체육]스포츠 5~6학년 (기술형 스포츠 유형별 활동-기록형)·[실과]성취기준 [03-02]·[실과]성취기준 [03-03]",
     "studied": "2026-09-02",
-    "done": 0,
-    "due": "2026-09-04",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-09-07",
+    "lastDone": "2026-09-05",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-09-05",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-09-04",
@@ -7171,7 +7177,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-09-02T13:33:04.119Z"
+    "updatedAt": "2026-09-05T08:20:31.604Z"
   },
   {
     "id": "1788355991893335",
