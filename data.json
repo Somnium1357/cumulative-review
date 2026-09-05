@@ -7239,5 +7239,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-09-05T13:30:32.882Z"
+  },
+  {
+    "id": "1788615042896349",
+    "name": "수학 29-1",
+    "topic": "변화와 관계 (1)·변화와 관계 (2)",
+    "studied": "2026-09-05",
+    "done": 0,
+    "due": "2026-09-06",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-09-07",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-09-05T13:30:42.896Z"
   }
 ]
