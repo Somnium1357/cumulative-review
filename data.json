@@ -7332,12 +7332,18 @@
     "name": "수학 29-2",
     "topic": "변화와 관계 (3)·자료와 가능성 (1)·자료와 가능성 (2)",
     "studied": "2026-09-06",
-    "done": 0,
-    "due": "2026-09-07",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-09-09",
+    "lastDone": "2026-09-07",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-09-07",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-09-08",
@@ -7345,6 +7351,6 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-09-06T13:21:52.035Z"
+    "updatedAt": "2026-09-07T07:49:02.026Z"
   }
 ]
