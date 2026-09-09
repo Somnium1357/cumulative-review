@@ -7468,5 +7468,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-09-08T13:18:47.305Z"
+  },
+  {
+    "id": "1788961202280774",
+    "name": "국어 30-1",
+    "topic": "문학(6)·문학(7), 수업 모형, 그림책 읽기 자료·매체",
+    "studied": "2026-09-09",
+    "done": 0,
+    "due": "2026-09-11",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-09-11",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-09-09T13:40:02.280Z"
   }
 ]
