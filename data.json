@@ -7605,5 +7605,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-09-11T11:57:00.041Z"
+  },
+  {
+    "id": "178913556153490",
+    "name": "체육·실과 29-3",
+    "topic": "[체육]스포츠 5~6학년 (기술형 스포츠 유형별 활동-투기형)·[체육]스포츠 5~6학년 (전략형 스포츠 유형별 활동-영역형)·[실과]성취기준 [05-01] ~ [05-03]·[실과]성취기준 [05-04] ~ [05-05]",
+    "studied": "2026-09-11",
+    "done": 0,
+    "due": "2026-09-12",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-09-13",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-09-11T14:06:01.534Z"
   }
 ]
