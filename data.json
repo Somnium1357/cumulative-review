@@ -7559,12 +7559,18 @@
     "name": "수학 29-3",
     "topic": "자료와 가능성 (3)·자료와 가능성 (4)·프로이덴탈 ~ 베르트하이머·오슈벨, 교수학적 변환론 ~ 초등학교 수학학습에 대한 관점",
     "studied": "2026-09-08",
-    "done": 0,
-    "due": "2026-09-09",
-    "lastDone": null,
-    "lastResult": null,
+    "done": 1,
+    "due": "2026-09-13",
+    "lastDone": "2026-09-11",
+    "lastResult": "pass",
     "weak": 0,
-    "hist": [],
+    "hist": [
+      [
+        "2026-09-11",
+        0,
+        "p"
+      ]
+    ],
     "excl": false,
     "exclHist": [],
     "memoDue": "2026-09-11",
@@ -7572,7 +7578,7 @@
     "memoResult": null,
     "memoWeak": 0,
     "memoHist": [],
-    "updatedAt": "2026-09-08T13:18:47.305Z"
+    "updatedAt": "2026-09-11T12:29:02.832Z"
   },
   {
     "id": "1788961202280774",
