@@ -3,8 +3,8 @@
     "id": "178064699601726",
     "name": "수학 4-1-2",
     "studied": "2026-06-04",
-    "done": 6,
-    "lastDone": "2026-08-06",
+    "done": 7,
+    "lastDone": "2026-09-11",
     "weak": 0,
     "hist": [
       [
@@ -21,10 +21,15 @@
         "2026-08-06",
         5,
         "p"
+      ],
+      [
+        "2026-09-11",
+        6,
+        "p"
       ]
     ],
     "lastResult": "pass",
-    "due": "2026-09-11",
+    "due": "2026-10-16",
     "topic": "",
     "excl": false,
     "exclHist": [],
@@ -33,14 +38,14 @@
     "memoDate": null,
     "memoResult": "skip",
     "memoDue": null,
-    "updatedAt": "2026-09-01T12:58:34.944Z"
+    "updatedAt": "2026-09-11T03:53:14.584Z"
   },
   {
     "id": "1780647022097198",
     "name": "영어 1-2",
     "studied": "2026-06-04",
-    "done": 6,
-    "lastDone": "2026-08-06",
+    "done": 7,
+    "lastDone": "2026-09-11",
     "weak": 0,
     "hist": [
       [
@@ -57,10 +62,15 @@
         "2026-08-06",
         5,
         "p"
+      ],
+      [
+        "2026-09-11",
+        6,
+        "p"
       ]
     ],
     "lastResult": "pass",
-    "due": "2026-09-11",
+    "due": "2026-10-16",
     "topic": "",
     "excl": false,
     "exclHist": [],
@@ -69,7 +79,7 @@
     "memoDate": null,
     "memoResult": "skip",
     "memoDue": null,
-    "updatedAt": "2026-09-01T12:58:34.944Z"
+    "updatedAt": "2026-09-11T03:53:15.751Z"
   },
   {
     "id": "1780664407750147",
