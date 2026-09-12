@@ -7736,5 +7736,25 @@
     "memoWeak": 0,
     "memoHist": [],
     "updatedAt": "2026-09-12T11:34:42.048Z"
+  },
+  {
+    "id": "1789219485082400",
+    "name": "체육 30-2",
+    "topic": "스포츠 5~6학년 (생태형 스포츠 유형별 활동)·표현 3~4학년·표현 5~6학년",
+    "studied": "2026-09-12",
+    "done": 0,
+    "due": "2026-09-13",
+    "lastDone": null,
+    "lastResult": null,
+    "weak": 0,
+    "hist": [],
+    "excl": false,
+    "exclHist": [],
+    "memoDue": "2026-09-14",
+    "memoDate": null,
+    "memoResult": null,
+    "memoWeak": 0,
+    "memoHist": [],
+    "updatedAt": "2026-09-12T13:24:45.082Z"
   }
 ]
