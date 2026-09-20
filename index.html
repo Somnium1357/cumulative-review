@@ -438,7 +438,10 @@ function nextWork(ds){let d=ds,i=0;while(isRest(d)&&i<14){d=addDays(d,1);i++;}re
 function schedule(fromYmd,gap){return nextWork(addDays(fromYmd,gap));} // 휴식일이면 다음 공부일로 밀기
 function stageName(done){return done<5?`${done+1}차`:'유지';}
 function subjectOf(name){return (String(name).trim().split(/\s+/)[0]||'기타');}
-function isPending(l){const t=today();return !l.excl&&l.due<=t&&l.lastDone!==t;}
+/* 🔴 4차·5차(done 3·4)와 두 번째 이후 유지(done ≥6)는 목록에 안 띄운다 (동하 09-20 「1회 초과로 뜬 유지랑 4,5차는 안 뜨게」 —
+   유지는 카드앱이 전 범위를 덮으면서 사실상 그쪽으로 넘어갔다 · 누복은 1~3차 + 유지 첫 회까지만). 기록·due는 그대로 두고 표시만 거른다. */
+function stageShown(l){return l.done<3||l.done===5;}
+function isPending(l){const t=today();return !l.excl&&stageShown(l)&&l.due<=t&&l.lastDone!==t;}
 function isDoneToday(l){return !l.excl&&l.lastDone===today();}
 function touch(l){l.updatedAt=new Date().toISOString();return l;} // 충돌 병합 기준(최근 수정본 우선)
 const MEMO_GAP=2; // D+2 정리본 암기
@@ -941,7 +944,7 @@ function dayInfo(ds){
     for(const h of (l.hist||[])) if(h[0]===ds){h[2]==='p'?p++:w++;}
     for(const h of (l.memoHist||[])) if(h[0]===ds){h[2]==='p'?p++:w++;}
   }
-  if(ds>t){ due=lectures.filter(l=>!l.excl&&l.due===ds).length+lectures.filter(l=>!l.excl&&l.memoDue===ds).length; }
+  if(ds>t){ due=lectures.filter(l=>!l.excl&&stageShown(l)&&l.due===ds).length+lectures.filter(l=>!l.excl&&l.memoDue===ds).length; }
   else if(ds===t){ due=lectures.filter(isPending).length+lectures.filter(memoPending).length; }
   return {nw,p,w,due,total:(ds>t)?due:(nw+p+w+due)};
 }
